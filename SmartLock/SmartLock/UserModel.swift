@@ -15,25 +15,10 @@ class HomeModel {
 class UserModel {
     static let shared = UserModel()
     
-    var users: [String : User]
+    var user: User?
+    var selectedHome: Home?
     
-    private init() {
-        let user = User(login: "login", nickname: "John", password: "password")
-        let lock = Lock(id: "1")
-        let home = Home(id: "1", name: "Home", members: [user], lock: lock)
-        user.homes = [home]
-        
-        self.users = [user.login : user]
-    }
-    
-    func verify(login: String, password: String) -> User? {
-        if let user = users[login] {
-            if login == user.login && password == user.password {
-                return user
-            }
-        }
-        return nil
-    }
+    private init() {}
 }
 
 class User {
