@@ -63,7 +63,7 @@ class DoorLockCommunicator: NSObject {
     func send<T: DataConvertible>(value: T) {
         if( self.isReady ) {
             guard let characterist = self.characterist else { return }
-            self.peripheral?.writeValue(value.data, for: characterist, type: .withResponse)
+            self.peripheral?.writeValue(value.data, for: characterist, type: .withoutResponse)
         }
     }
     /// Read data from Arduino Module, if possible
@@ -98,7 +98,7 @@ extension DoorLockCommunicator: CBCentralManagerDelegate {
             print("Discovered \(self.expectedPeripheralName)")
             self.peripheral = peripheral
             
-            print("Attemping Connection...")
+            print("Attemping Connection to \(self.expectedPeripheralName)")
             // Attemp connection
             central.connect(peripheral, options: nil)
         }
@@ -110,8 +110,6 @@ extension DoorLockCommunicator: CBCentralManagerDelegate {
         
         // Once connection is stabilished, we can begin discovering services
         peripheral.delegate = self
-        
-        print("Discovering Services...")
         peripheral.discoverServices(nil)
     }
 }
@@ -123,6 +121,7 @@ extension DoorLockCommunicator: CBPeripheralDelegate {
             peripheral.discoverCharacteristics(nil, for: service)
         }
     }
+    
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         
         for characterist in service.characteristics ?? []  {
@@ -134,6 +133,7 @@ extension DoorLockCommunicator: CBPeripheralDelegate {
             }
         }
     }
+    
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         guard let characteristOfInterest = self.characterist, let data = characteristOfInterest.value  else { return }
         if( characteristic.uuid.uuidString == characteristOfInterest.uuid.uuidString ) {
@@ -142,6 +142,7 @@ extension DoorLockCommunicator: CBPeripheralDelegate {
             self.delegate?.communicator(self, didRead: data)
         }
     }
+    
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         
         guard let characteristOfInterest = self.characterist, let data = characteristOfInterest.value else { return }
