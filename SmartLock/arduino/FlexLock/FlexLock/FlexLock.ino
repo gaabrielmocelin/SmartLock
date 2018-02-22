@@ -1,19 +1,22 @@
 #include <Servo.h>
 
-#define portaTranca 6
+#define portaTranca 7
 
 Servo tranca;
 
-const int button1Pin = 5;
-const int button2Pin = 4;
-const int button3Pin = 3;
+const int button1Pin = 4;
+const int button2Pin = 5;
+const int button3Pin = 6;
+
+const int piezoPin = 3;
 
 const int redPin = 11;
 const int greenPin = 10;
 const int bluePin = 9;
-int counter = 1;
 
-int buttonState = 0;
+int button1State = 0;
+int button2State = 0;
+int button3State = 0;
 
 unsigned long int lockUpdateTimestamp;
 boolean updatingLock = false;
@@ -29,6 +32,7 @@ void setup() {
   pinMode(redPin, OUTPUT);
   pinMode(greenPin, OUTPUT);
   pinMode(bluePin, OUTPUT);
+  pinMode(piezoPin, OUTPUT);
 
   lock();
   updateLockStatusColor();
@@ -44,15 +48,17 @@ void loop() {
   if (updatingLock) {
       if (millis() - lockUpdateTimestamp >= 600) {
           updatingLock = false;
-          updateLockStatusColor();  
+          updateLockStatusColor();
       }
   } else {
-    checkButton();
+      checkLockButton();
   }
+
+  checkBuzzerButton();
   
   if (Serial.available() > 0) {
     byteRead = Serial.read();
-    Serial.println(byteRead);
+    Serial.write(byteRead);
 
     if (byteRead == 'U') {
       unlock();
@@ -62,12 +68,11 @@ void loop() {
   }
 }
 
-void checkButton() {  
-  buttonState = digitalRead(button1Pin);
-  int buttonState2 = digitalRead(button2Pin);
-  int buttonState3 = digitalRead(button3Pin);
+void checkLockButton() {  
+  button1State = digitalRead(button1Pin);
+  button2State = digitalRead(button2Pin);
   
-  if (buttonState == LOW || buttonState2 == LOW || buttonState3 == LOW ) {
+  if (button1State == LOW || button2State == LOW) {
     switch(state) {
       case LOCKED:
         unlock();
@@ -75,17 +80,29 @@ void checkButton() {
       case UNLOCKED:
         lock();
     }
-    lockUpdateTimestamp = millis();
-    updatingLock = true;
+  }
+}
+
+void checkBuzzerButton() {
+  button3State = digitalRead(button3Pin);
+  
+  if (button3State == LOW) {
+    tone(piezoPin, 2000);
+  } else {
+    noTone(piezoPin);
   }
 }
 
 void unlock() {
+    lockUpdateTimestamp = millis();
+    updatingLock = true;
     tranca.write(0);
     state = UNLOCKED;
 }
 
 void lock() {
+    lockUpdateTimestamp = millis();
+    updatingLock = true;
     tranca.write(512);
     state = LOCKED;
 }
