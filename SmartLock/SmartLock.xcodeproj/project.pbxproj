@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C28C1C18203F396B001C80D6 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C17203F396B001C80D6 /* UserModel.swift */; };
 		E12F7B58203F2FF800D39201 /* DoorLockCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F7B57203F2FF800D39201 /* DoorLockCommunicator.swift */; };
 		E1B8A643203E097B00AC1900 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8A642203E097B00AC1900 /* AppDelegate.swift */; };
 		E1B8A645203E097B00AC1900 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8A644203E097B00AC1900 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C28C1C17203F396B001C80D6 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		E12F7B57203F2FF800D39201 /* DoorLockCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoorLockCommunicator.swift; sourceTree = "<group>"; };
 		E1B8A63F203E097B00AC1900 /* SmartLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B8A642203E097B00AC1900 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				E1B8A649203E097B00AC1900 /* Assets.xcassets */,
 				E1B8A64B203E097B00AC1900 /* LaunchScreen.storyboard */,
 				E1B8A64E203E097B00AC1900 /* Info.plist */,
+				C28C1C17203F396B001C80D6 /* UserModel.swift */,
 			);
 			path = SmartLock;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C28C1C18203F396B001C80D6 /* UserModel.swift in Sources */,
 				E1B8A645203E097B00AC1900 /* ViewController.swift in Sources */,
 				E1B8A643203E097B00AC1900 /* AppDelegate.swift in Sources */,
 				E12F7B58203F2FF800D39201 /* DoorLockCommunicator.swift in Sources */,
