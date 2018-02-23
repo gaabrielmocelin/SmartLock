@@ -13,8 +13,9 @@
 		C28C1C1E203F5205001C80D6 /* HomesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C1D203F5205001C80D6 /* HomesViewController.swift */; };
 		C28C1C20203F56B9001C80D6 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C1F203F56B9001C80D6 /* HomeTableViewCell.swift */; };
 		E12F7B58203F2FF800D39201 /* DoorLockCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F7B57203F2FF800D39201 /* DoorLockCommunicator.swift */; };
+		E1AB627D20408D2500122CC7 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB627C20408D2500122CC7 /* NotificationManager.swift */; };
 		E1B8A643203E097B00AC1900 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8A642203E097B00AC1900 /* AppDelegate.swift */; };
-		E1B8A645203E097B00AC1900 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8A644203E097B00AC1900 /* ViewController.swift */; };
+		E1B8A645203E097B00AC1900 /* RemoteLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8A644203E097B00AC1900 /* RemoteLockViewController.swift */; };
 		E1B8A648203E097B00AC1900 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1B8A646203E097B00AC1900 /* Main.storyboard */; };
 		E1B8A64A203E097B00AC1900 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1B8A649203E097B00AC1900 /* Assets.xcassets */; };
 		E1B8A64D203E097B00AC1900 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1B8A64B203E097B00AC1900 /* LaunchScreen.storyboard */; };
@@ -27,9 +28,10 @@
 		C28C1C1D203F5205001C80D6 /* HomesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomesViewController.swift; sourceTree = "<group>"; };
 		C28C1C1F203F56B9001C80D6 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		E12F7B57203F2FF800D39201 /* DoorLockCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoorLockCommunicator.swift; sourceTree = "<group>"; };
+		E1AB627C20408D2500122CC7 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		E1B8A63F203E097B00AC1900 /* SmartLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B8A642203E097B00AC1900 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E1B8A644203E097B00AC1900 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E1B8A644203E097B00AC1900 /* RemoteLockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLockViewController.swift; sourceTree = "<group>"; };
 		E1B8A647203E097B00AC1900 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1B8A649203E097B00AC1900 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1B8A64C203E097B00AC1900 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -67,8 +69,9 @@
 			isa = PBXGroup;
 			children = (
 				E12F7B57203F2FF800D39201 /* DoorLockCommunicator.swift */,
+				E1AB627C20408D2500122CC7 /* NotificationManager.swift */,
 				E1B8A642203E097B00AC1900 /* AppDelegate.swift */,
-				E1B8A644203E097B00AC1900 /* ViewController.swift */,
+				E1B8A644203E097B00AC1900 /* RemoteLockViewController.swift */,
 				E1B8A646203E097B00AC1900 /* Main.storyboard */,
 				E1B8A649203E097B00AC1900 /* Assets.xcassets */,
 				E1B8A64B203E097B00AC1900 /* LaunchScreen.storyboard */,
@@ -115,6 +118,11 @@
 					E1B8A63E203E097B00AC1900 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -155,10 +163,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C28C1C18203F396B001C80D6 /* UserModel.swift in Sources */,
-				E1B8A645203E097B00AC1900 /* ViewController.swift in Sources */,
+				E1B8A645203E097B00AC1900 /* RemoteLockViewController.swift in Sources */,
 				C28C1C1E203F5205001C80D6 /* HomesViewController.swift in Sources */,
 				E1B8A643203E097B00AC1900 /* AppDelegate.swift in Sources */,
 				C28C1C1C203F4F3B001C80D6 /* FakeDatabase.swift in Sources */,
+				E1AB627D20408D2500122CC7 /* NotificationManager.swift in Sources */,
 				C28C1C1A203F48EA001C80D6 /* LoginViewController.swift in Sources */,
 				C28C1C20203F56B9001C80D6 /* HomeTableViewCell.swift in Sources */,
 				E12F7B58203F2FF800D39201 /* DoorLockCommunicator.swift in Sources */,
@@ -299,7 +308,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4F4P935HBL;
+				DEVELOPMENT_TEAM = REMZMNQ72C;
 				INFOPLIST_FILE = SmartLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gabrielmocelin.SmartLock;
@@ -314,7 +323,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4F4P935HBL;
+				DEVELOPMENT_TEAM = REMZMNQ72C;
 				INFOPLIST_FILE = SmartLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gabrielmocelin.SmartLock;
