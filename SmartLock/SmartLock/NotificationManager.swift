@@ -1,5 +1,5 @@
 //
-//  NotificationUtil.swift
+//  NotificationManager.swift
 //  Notification Challenge
 //
 //  Created by Gabriel Mocelin on 17/10/17.
@@ -15,7 +15,8 @@ enum NotificationType {
     case action
 }
 
-class NotificationUtil: NSObject {
+//DO  NOT FORGET THE APP DELEGATE AUTHORIZATION
+class NotificationManager: NSObject {
     
     let requestIdentifier:String
     let center: UNUserNotificationCenter
@@ -94,7 +95,7 @@ class NotificationUtil: NSObject {
 
 }
 
-extension NotificationUtil: UNUserNotificationCenterDelegate{
+extension NotificationManager: UNUserNotificationCenterDelegate{
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
