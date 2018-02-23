@@ -46,6 +46,11 @@ class DoorLockCommunicator: NSObject {
     private let expectedCharacteristicUUIDString = "DFB1"
     private(set) var isReady: Bool = false
     
+    private let notificationManager = NotificationManager()
+    
+    //FIX IT: THIS FLAG SHOULD BE ANOTHER THING ******************
+    private var flag = true
+    
     // MARK: - Private Methods
     init(delegate: DoorLockCommunicatorDelegate? = nil) {
         super.init()
@@ -115,6 +120,7 @@ extension DoorLockCommunicator: CBCentralManagerDelegate {
 }
 
 extension DoorLockCommunicator: CBPeripheralDelegate {
+    
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         
         for service in peripheral.services ?? [] {
@@ -137,9 +143,19 @@ extension DoorLockCommunicator: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         guard let characteristOfInterest = self.characterist, let data = characteristOfInterest.value  else { return }
         if( characteristic.uuid.uuidString == characteristOfInterest.uuid.uuidString ) {
+            let message = String(data: data, encoding: .utf8)
             
-            // Allows the delegate to handle data exchange (read)
-            self.delegate?.communicator(self, didRead: data)
+            if let message = message, message == "B", flag{
+                //its a buzzing, create a local push to alert the device
+                notificationManager.sendNotification(title: "Buzzing", subtitle: "There is someone at your door", body: "take a look on the camera or send a message", type: .action, timeInterval: 1)
+                flag = false
+                Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { (timer) in
+                    self.flag = true
+                })
+            }else {
+                // Allows the delegate to handle data exchange (read)
+                self.delegate?.communicator(self, didRead: data)
+            }
         }
     }
     
