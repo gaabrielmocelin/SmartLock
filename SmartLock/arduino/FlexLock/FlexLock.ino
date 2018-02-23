@@ -18,15 +18,20 @@ int button1State = 0;
 int button2State = 0;
 int button3State = 0;
 
+enum LockState { LOCKED, UNLOCKED };
+const unsigned long int LOCK_DELAY = 600;
+LockState state;
 unsigned long int lockUpdateTimestamp;
 boolean isUpdatingLock = false;
 
-enum LockState { LOCKED, UNLOCKED };
-LockState state;
+enum LockCommand {  LOCK_COMMAND = 'L',
+                    UNLOCK_COMMAND = 'U',
+                    PROXIMITY_UNLOCK_COMMAND = 'P' };
 
-const char LOCK_COMMAND = 'L';
-const char UNLOCK_COMMAND = 'U';
-const char BUZZER_SEND_COMMAND = 'B';
+enum LockMessage {  BUZZER_SENDCOMMAND = 'B',
+                    LOCKED_SENDCOMMAND = 'L',
+                    UNLOCKED_SENDCOMMAND = 'U',
+                    PROXIMITY_UNLOCKED_COMMAND = 'P' };
 
 void setup() {
   tranca.attach(portaTranca);
@@ -50,7 +55,7 @@ int once = 0;
 
 void loop() {
   if (isUpdatingLock) {
-    if (millis() - lockUpdateTimestamp >= 600) {
+    if (millis() - lockUpdateTimestamp >= LOCK_DELAY) {
       isUpdatingLock = false;
       updateLockStatusColor();
     }
@@ -68,6 +73,8 @@ void loop() {
       unlock();
     } else if (byteRead == LOCK_COMMAND) {
       lock();
+    } else if (byteRead == PROXIMITY_UNLOCK_COMMAND) {
+      unlock();
     }
   }
 }
@@ -100,8 +107,8 @@ void checkBuzzerButton() {
 }
 
 void sendBuzzNotification() {
-    Serial.write(BUZZER_SEND_COMMAND);
-    delay(50);
+    Serial.write(BUZZER_SENDCOMMAND);
+    delay(75);
 }
 
 void unlock() {
