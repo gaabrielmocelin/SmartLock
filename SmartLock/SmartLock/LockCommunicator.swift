@@ -9,10 +9,11 @@
 import Foundation
 import CoreBluetooth
 
-protocol DoorLockCommunicatorDelegate {
-    func communicatorDidConnect(_ communicator: DoorLockCommunicator)
-    func communicator(_ communicator: DoorLockCommunicator, didRead data: Data)
-    func communicator(_ communicator: DoorLockCommunicator, didWrite data: Data)
+protocol LockCommunicatorDelegate {
+    func communicatorDidConnect(_ communicator: LockCommunicator)
+    func communicator(_ communicator: LockCommunicator, didRead data: Data)
+    func communicator(_ communicator: LockCommunicator, didWrite data: Data)
+    func communicator(_ communicator: LockCommunicator, didReadRSSI RSSI: NSNumber)
 }
 
 protocol DataConvertible {
@@ -32,15 +33,27 @@ extension UInt8: DataConvertible {
 
 /// This class abstracts communication with the Arduino Bluetooth Module.
 /// It has methods for reading and writing data to Arduino.
-class DoorLockCommunicator: NSObject {
+class LockCommunicator: NSObject {
     
     /// Set this to handle callbacks
-    var delegate: DoorLockCommunicatorDelegate?
+    var delegate: LockCommunicatorDelegate?
     
     // MARK: - Private Properties
     private var centralManager: CBCentralManager?
-    private var peripheral: CBPeripheral?
+    private var peripheral: CBPeripheral? {
+        didSet {
+            if let peripheral = peripheral {
+                rssiTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+                    peripheral.readRSSI()
+                }
+            } else {
+                rssiTimer?.invalidate()
+            }
+        }
+    }
     private var characterist: CBCharacteristic?
+    
+    private var rssiTimer: Timer?
     
     private let expectedPeripheralName = "FLEXLOCK"
     private let expectedCharacteristicUUIDString = "DFB1"
@@ -52,7 +65,7 @@ class DoorLockCommunicator: NSObject {
     private var flag = true
     
     // MARK: - Private Methods
-    init(delegate: DoorLockCommunicatorDelegate? = nil) {
+    init(delegate: LockCommunicatorDelegate? = nil) {
         super.init()
         
         // Set delegate
@@ -62,17 +75,21 @@ class DoorLockCommunicator: NSObject {
         self.centralManager = CBCentralManager(delegate: self, queue: .main)
     }
     
-    // MARK: - Public
+    public func send(command: LockCommand) {
+        send(value: command)
+    }
+    
+    // MARK: - Private
     
     /// Sends the bytes provided to Arduino using Bluetooth
-    func send<T: DataConvertible>(value: T) {
+    private func send<T: DataConvertible>(value: T) {
         if( self.isReady ) {
             guard let characterist = self.characterist else { return }
             self.peripheral?.writeValue(value.data, for: characterist, type: .withoutResponse)
         }
     }
     /// Read data from Arduino Module, if possible
-    func read() {
+    private func read() {
         if( self.isReady ) {
             guard let characterist = self.characterist else { return }
             self.peripheral?.readValue(for: characterist)
@@ -80,7 +97,7 @@ class DoorLockCommunicator: NSObject {
     }
 }
 
-extension DoorLockCommunicator: CBCentralManagerDelegate {
+extension LockCommunicator: CBCentralManagerDelegate {
     
     // Called once the manager has beed updated
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
@@ -119,8 +136,7 @@ extension DoorLockCommunicator: CBCentralManagerDelegate {
     }
 }
 
-extension DoorLockCommunicator: CBPeripheralDelegate {
-    
+extension LockCommunicator: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         
         for service in peripheral.services ?? [] {
@@ -145,7 +161,7 @@ extension DoorLockCommunicator: CBPeripheralDelegate {
         if( characteristic.uuid.uuidString == characteristOfInterest.uuid.uuidString ) {
             let message = String(data: data, encoding: .utf8)
             
-            if let message = message, message == "B", flag{
+            if let message = message, message == LockMessage.didBuzz.rawValue, flag{
                 //its a buzzing, create a local push to alert the device
                 notificationManager.sendNotification(title: "Buzzing", subtitle: "There is someone at your door", body: "take a look on the camera or send a message", type: .action, timeInterval: 1)
                 flag = false
@@ -167,6 +183,29 @@ extension DoorLockCommunicator: CBPeripheralDelegate {
             // Allows the delegate to handle data exchange (write)
             self.delegate?.communicator(self, didWrite: data)
         }
-        
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
+        delegate?.communicator(self, didReadRSSI: RSSI)
+        print("RSSI: \(RSSI.doubleValue)")
     }
 }
+enum LockMessage: String, DataConvertible {
+    var data: Data { return self.rawValue.data }
+    
+    case didUnlock = "U"
+    case didLock = "L"
+    case didProximityUnlock = "P"
+    case didAutoLock = "A"
+    case didBuzz = "B"
+}
+
+enum LockCommand: String, DataConvertible {
+    var data: Data { return self.rawValue.data }
+    
+    case unlock = "U"
+    case lock = "L"
+    case proximityUnlock = "P"
+    case receivedBuzzerAlert = "B"
+}
+

@@ -10,38 +10,44 @@ import UIKit
 
 class RemoteLockViewController: UIViewController {
     
-    private var doorLockCommunicator: DoorLockCommunicator!
+    private var lockCommunicator: LockCommunicator!
 
     @IBAction func lockAction(_ sender: Any) {
-        doorLockCommunicator.send(value: "L")
+        lockCommunicator.send(command: .lock)
     }
     
     @IBAction func unlockAction(_ sender: Any) {
-        doorLockCommunicator.send(value: "U")
+        lockCommunicator.send(command: .unlock)
     }
    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.doorLockCommunicator = DoorLockCommunicator(delegate: self)
+        self.lockCommunicator = LockCommunicator(delegate: self)
     }
 
 
 }
 
-extension RemoteLockViewController: DoorLockCommunicatorDelegate {
-    func communicatorDidConnect(_ communicator: DoorLockCommunicator) {
+extension RemoteLockViewController: LockCommunicatorDelegate {
+    func communicatorDidConnect(_ communicator: LockCommunicator) {
 //        self.loadingComponent.removeLoadingIndicators(from: self.view)
     }
     
-    func communicator(_ communicator: DoorLockCommunicator, didRead data: Data) {
+    func communicator(_ communicator: LockCommunicator, didRead data: Data) {
         print(#function)
         print(String(data: data, encoding: .utf8)!)
     }
     
-    func communicator(_ communicator: DoorLockCommunicator, didWrite data: Data) {
+    func communicator(_ communicator: LockCommunicator, didWrite data: Data) {
         print(#function)
         print(String(data: data, encoding: .utf8)!)
+    }
+    
+    func communicator(_ communicator: LockCommunicator, didReadRSSI RSSI: NSNumber) {
+        if RSSI.floatValue > -59 {
+            lockCommunicator.send(command: .proximityUnlock)
+        }
     }
 }
 
