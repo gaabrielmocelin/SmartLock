@@ -57,5 +57,11 @@ extension ViewController: DoorLockCommunicatorDelegate {
         print(#function)
         print(String(data: data, encoding: .utf8)!)
     }
+    
+    func communicator(_ communicator: DoorLockCommunicator, didReadRSSI RSSI: NSNumber) {
+        if RSSI.floatValue > -59 {
+            doorLockCommunicator.send(value: "U")
+        }
+    }
 }
 
