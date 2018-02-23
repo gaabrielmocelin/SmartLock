@@ -17,6 +17,8 @@
 		C28C1C2820409AAC001C80D6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C2720409AAC001C80D6 /* User.swift */; };
 		C28C1C2A20409AB2001C80D6 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C2920409AB2001C80D6 /* Home.swift */; };
 		C28C1C2C20409AC3001C80D6 /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C2B20409AC3001C80D6 /* Lock.swift */; };
+		C28C1C2E20409C3E001C80D6 /* EntranceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C2D20409C3E001C80D6 /* EntranceItem.swift */; };
+		C28C1C3020409E37001C80D6 /* LockStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C2F20409E37001C80D6 /* LockStatus.swift */; };
 		E12F7B58203F2FF800D39201 /* LockCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F7B57203F2FF800D39201 /* LockCommunicator.swift */; };
 		E1AB627D20408D2500122CC7 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB627C20408D2500122CC7 /* NotificationManager.swift */; };
 		E1B8A643203E097B00AC1900 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8A642203E097B00AC1900 /* AppDelegate.swift */; };
@@ -37,6 +39,8 @@
 		C28C1C2720409AAC001C80D6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C28C1C2920409AB2001C80D6 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		C28C1C2B20409AC3001C80D6 /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
+		C28C1C2D20409C3E001C80D6 /* EntranceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceItem.swift; sourceTree = "<group>"; };
+		C28C1C2F20409E37001C80D6 /* LockStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockStatus.swift; sourceTree = "<group>"; };
 		E12F7B57203F2FF800D39201 /* LockCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockCommunicator.swift; sourceTree = "<group>"; };
 		E1AB627C20408D2500122CC7 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		E1B8A63F203E097B00AC1900 /* SmartLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +70,8 @@
 				C28C1C2720409AAC001C80D6 /* User.swift */,
 				C28C1C2920409AB2001C80D6 /* Home.swift */,
 				C28C1C2B20409AC3001C80D6 /* Lock.swift */,
+				C28C1C2D20409C3E001C80D6 /* EntranceItem.swift */,
+				C28C1C2F20409E37001C80D6 /* LockStatus.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,10 +202,12 @@
 			files = (
 				C28C1C18203F396B001C80D6 /* UserModel.swift in Sources */,
 				C28C1C2220408B9F001C80D6 /* EntranceHistoryViewController.swift in Sources */,
+				C28C1C2E20409C3E001C80D6 /* EntranceItem.swift in Sources */,
 				C28C1C2420408EA9001C80D6 /* EntranceHistoryTableViewCell.swift in Sources */,
 				E1B8A645203E097B00AC1900 /* RemoteLockViewController.swift in Sources */,
 				C28C1C1E203F5205001C80D6 /* HomesViewController.swift in Sources */,
 				E1B8A643203E097B00AC1900 /* AppDelegate.swift in Sources */,
+				C28C1C3020409E37001C80D6 /* LockStatus.swift in Sources */,
 				C28C1C1C203F4F3B001C80D6 /* FakeDatabase.swift in Sources */,
 				E1AB627D20408D2500122CC7 /* NotificationManager.swift in Sources */,
 				C28C1C2C20409AC3001C80D6 /* Lock.swift in Sources */,

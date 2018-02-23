@@ -25,5 +25,9 @@ class EntranceHistoryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-//    func configureWith(name: String, lockAction:)
+    func configureWith(entranceItem: EntranceItem) {
+        self.nameLabel.text = entranceItem.name
+        self.lockActionLabel.text = entranceItem.lockStatus.formattedOutput
+        self.timestampLabel.text = entranceItem.timeStamp.description
+    }
 }

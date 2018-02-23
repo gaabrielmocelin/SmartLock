@@ -12,14 +12,14 @@ class Home {
     let id: String
     var name: String
     var members: [User]
-    var entranceHistory: [String]
+    var entranceHistory: [EntranceItem]
     let lock: Lock
     
-    init(id: String, name: String, members: [User], lock: Lock) {
+    init(id: String, name: String, members: [User], lock: Lock, entranceHistory: [EntranceItem] = []) {
         self.id = id
         self.name = name
         self.lock = lock
         self.members = members
-        self.entranceHistory = [String]()
+        self.entranceHistory = entranceHistory
     }
 }
