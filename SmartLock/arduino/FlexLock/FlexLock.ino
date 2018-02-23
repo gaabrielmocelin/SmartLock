@@ -26,12 +26,14 @@ boolean isUpdatingLock = false;
 
 enum LockCommand {  LOCK_COMMAND = 'L',
                     UNLOCK_COMMAND = 'U',
-                    PROXIMITY_UNLOCK_COMMAND = 'P' };
+                    PROXIMITY_UNLOCK_COMMAND = 'P'
+                 };
 
 enum LockMessage {  BUZZER_SENDCOMMAND = 'B',
                     LOCKED_SENDCOMMAND = 'L',
                     UNLOCKED_SENDCOMMAND = 'U',
-                    PROXIMITY_UNLOCKED_COMMAND = 'P' };
+                    PROXIMITY_UNLOCKED_COMMAND = 'P'
+                 };
 
 void setup() {
   tranca.attach(portaTranca);
@@ -54,32 +56,49 @@ uint8_t byteRead = 0;
 int once = 0;
 
 void loop() {
+  checkLock();
+
+  checkButtons();
+
+  checkBluetoothMessages();
+}
+
+void checkLock() {
   if (isUpdatingLock) {
     if (millis() - lockUpdateTimestamp >= LOCK_DELAY) {
       isUpdatingLock = false;
       updateLockStatusColor();
     }
-  } else {
-    checkLockButton();
   }
-  
-  checkBuzzerButton();
+}
 
+void checkButtons() {
+  checkLockButton();
+  checkBuzzerButton();
+}
+
+void checkBluetoothMessages() {
   if (Serial.available() > 0) {
     byteRead = Serial.read();
     Serial.write(byteRead);
 
-    if (byteRead == UNLOCK_COMMAND) {
-      unlock();
-    } else if (byteRead == LOCK_COMMAND) {
-      lock();
-    } else if (byteRead == PROXIMITY_UNLOCK_COMMAND) {
-      unlock();
+    switch (byteRead) {
+      case UNLOCK_COMMAND:
+        unlock();
+        break;
+      case PROXIMITY_UNLOCK_COMMAND:
+        unlock();
+        //do more stuff
+        break;
+      case LOCK_COMMAND:
+        lock();
     }
   }
 }
 
 void checkLockButton() {
+  if (isUpdatingLock) return;
+
   button1State = digitalRead(button1Pin);
   button2State = digitalRead(button2Pin);
 
@@ -91,7 +110,7 @@ void checkLockButton() {
       case UNLOCKED:
         lock();
     }
-  } 
+  }
 
 }
 
@@ -107,8 +126,8 @@ void checkBuzzerButton() {
 }
 
 void sendBuzzNotification() {
-    Serial.write(BUZZER_SENDCOMMAND);
-    delay(75);
+  Serial.write(BUZZER_SENDCOMMAND);
+  delay(75);
 }
 
 void unlock() {
