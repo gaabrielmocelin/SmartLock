@@ -13,6 +13,7 @@ protocol DoorLockCommunicatorDelegate {
     func communicatorDidConnect(_ communicator: DoorLockCommunicator)
     func communicator(_ communicator: DoorLockCommunicator, didRead data: Data)
     func communicator(_ communicator: DoorLockCommunicator, didWrite data: Data)
+    func communicator(_ communicator: DoorLockCommunicator, didReadRSSI RSSI: NSNumber)
 }
 
 protocol DataConvertible {
@@ -39,8 +40,20 @@ class DoorLockCommunicator: NSObject {
     
     // MARK: - Private Properties
     private var centralManager: CBCentralManager?
-    private var peripheral: CBPeripheral?
+    private var peripheral: CBPeripheral? {
+        didSet {
+            if let peripheral = peripheral {
+                rssiTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+                    peripheral.readRSSI()
+                }
+            } else {
+                rssiTimer?.invalidate()
+            }
+        }
+    }
     private var characterist: CBCharacteristic?
+    
+    private var rssiTimer: Timer?
     
     private let expectedPeripheralName = "FLEXLOCK"
     private let expectedCharacteristicUUIDString = "DFB1"
@@ -151,6 +164,10 @@ extension DoorLockCommunicator: CBPeripheralDelegate {
             // Allows the delegate to handle data exchange (write)
             self.delegate?.communicator(self, didWrite: data)
         }
-        
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
+        delegate?.communicator(self, didReadRSSI: RSSI)
+        print("RSSI: \(RSSI.doubleValue)")
     }
 }
