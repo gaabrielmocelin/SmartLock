@@ -205,7 +205,7 @@
         <!--1-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SmartLock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RemoteLockViewController" customModule="SmartLock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -215,7 +215,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Lock"/>
                                 <connections>
-                                    <action selector="lockAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OH3-nr-WIm"/>
+                                    <action selector="lockAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Drx-Ph-8U9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zY9-av-CIC">
@@ -223,7 +223,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Unlock"/>
                                 <connections>
-                                    <action selector="unlockAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CjJ-71-LTk"/>
+                                    <action selector="unlockAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jg9-sS-pOU"/>
                                 </connections>
                             </button>
                         </subviews>
