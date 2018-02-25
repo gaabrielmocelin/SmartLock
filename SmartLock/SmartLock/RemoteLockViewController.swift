@@ -23,10 +23,14 @@ class RemoteLockViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.lockCommunicator = LockCommunicator(delegate: self)
+//        self.lockCommunicator = LockCommunicator(delegate: self)
     }
 
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.lockCommunicator = LockCommunicator(delegate: self)
+    }
+    
 }
 
 extension RemoteLockViewController: LockCommunicatorDelegate {
