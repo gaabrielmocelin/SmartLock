@@ -28,6 +28,10 @@ class EntranceHistoryTableViewCell: UITableViewCell {
     func configureWith(entranceItem: EntranceItem) {
         self.nameLabel.text = entranceItem.name
         self.lockActionLabel.text = entranceItem.lockStatus.formattedOutput
-        self.timestampLabel.text = entranceItem.timeStamp.description
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        self.timestampLabel.text = dateFormatter.string(from: entranceItem.timeStamp)
     }
 }
