@@ -22,4 +22,9 @@ class Home {
         self.members = members
         self.entranceHistory = entranceHistory
     }
+    
+    func updateEntranceHistoryWith(user: User, andLockStatus lockStatus: LockStatus) {
+        let entranceItem = EntranceItem(name: user.nickname, lockStatus: lockStatus, timeStamp: Date())
+        self.entranceHistory.append(entranceItem)
+    }
 }
