@@ -12,6 +12,7 @@ class Home {
     let id: String
     var name: String
     var members: [User]
+    var guests: [User]
     var entranceHistory: [EntranceItem]
     let lock: Lock
     
@@ -20,6 +21,7 @@ class Home {
         self.name = name
         self.lock = lock
         self.members = members
+        self.guests = []
         self.entranceHistory = entranceHistory
     }
     
