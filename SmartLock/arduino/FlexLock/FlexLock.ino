@@ -44,7 +44,7 @@ enum LockCommand {  LOCK_COMMAND = 'L',
 enum LockMessage {  BUZZER_SENDCOMMAND = 'B',
                     LOCKED_SENDCOMMAND = 'L',
                     UNLOCKED_SENDCOMMAND = 'U',
-                    PROXIMITY_UNLOCKED_COMMAND = 'P'
+                    PROXIMITY_UNLOCKED_SENDCOMMAND = 'P'
                  };
 
 void setup() {
@@ -111,15 +111,22 @@ void checkBluetoothMessages() {
     switch (byteRead) {
       case UNLOCK_COMMAND:
         unlock();
+        sendResponse(UNLOCKED_SENDCOMMAND);
         break;
       case PROXIMITY_UNLOCK_COMMAND:
         unlock();
+        sendResponse(PROXIMITY_UNLOCKED_SENDCOMMAND);
         //do more stuff
         break;
       case LOCK_COMMAND:
         lock();
+        sendResponse(LOCKED_SENDCOMMAND);
     }
   }
+}
+
+void sendResponse(LockMessage message) {
+  Serial.println(message);
 }
 
 void checkDoor() {
