@@ -11,7 +11,6 @@ import CoreBluetooth
 
 protocol LockCommunicatorDelegate {
     func communicatorDidConnect(_ communicator: LockCommunicator)
-    func communicator(_ communicator: LockCommunicator, didRead data: Data)
     func communicator(_ communicator: LockCommunicator, didReceive lockMessage: LockMessage)
     func communicator(_ communicator: LockCommunicator, didWrite data: Data)
     func communicator(_ communicator: LockCommunicator, didReadRSSI RSSI: NSNumber)
