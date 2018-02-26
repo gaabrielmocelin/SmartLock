@@ -12,15 +12,27 @@ class Lock: Observable {
     typealias T = LockStatus
     
     let id: String
-    private(set) var lockStatus: LockStatus {
+    let lockCommunicator: LockCommunicator
+    private(set) var status: LockStatus {
         didSet {
-            update(observers: observers, oldValue: oldValue, newValue: lockStatus)
+            update(observers: observers, oldValue: oldValue, newValue: status)
         }
     }
     
     init(id: String) {
         self.id = id
-        self.lockStatus = .locked
+        self.status = .locked
+        self.lockCommunicator = LockCommunicator()
+        
+        self.lockCommunicator.delegate = self
+    }
+    
+    func unlock() {
+        lockCommunicator.send(command: .unlock)
+    }
+    
+    func lock() {
+        lockCommunicator.send(command: .lock)
     }
     
     // MARK: Observable protocol
@@ -48,10 +60,10 @@ extension Lock: LockCommunicatorDelegate {
         switch lockMessage {
         case .didAutoLock: fallthrough
         case .didLock:
-            lockStatus = .locked
+            status = .locked
         case .didUnlock: fallthrough
         case .didProximityUnlock:
-            lockStatus = .unlocked
+            status = .unlocked
         case .didBuzz:
             NotificationManager.shared.sendBuzzNotification(from: self)
         }
