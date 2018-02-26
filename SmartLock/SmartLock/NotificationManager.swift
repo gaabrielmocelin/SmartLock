@@ -18,6 +18,8 @@ enum NotificationType: String {
 //DO  NOT FORGET THE APP DELEGATE AUTHORIZATION
 class NotificationManager: NSObject {
     
+    static let shared: NotificationManager = NotificationManager()
+    
     let requestIdentifier:String
     let center: UNUserNotificationCenter
     
@@ -54,6 +56,10 @@ class NotificationManager: NSObject {
                 print(error?.localizedDescription ?? "error sending notification")
             }
         }
+    }
+    
+    func sendBuzzNotification(from lock: Lock) {
+        sendNotification(title: "Lock \(lock.id) is buzzing!", subtitle: "There is someone at your door", body: "take a look on the camera or send a message", type: .action, timeInterval: 1)
     }
     
     func removeAllNotifications() {

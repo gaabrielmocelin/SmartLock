@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		293979A7204492B80076CFCA /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293979A6204492B80076CFCA /* Observable.swift */; };
 		C28C1C18203F396B001C80D6 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C17203F396B001C80D6 /* UserModel.swift */; };
 		C28C1C1A203F48EA001C80D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C19203F48EA001C80D6 /* LoginViewController.swift */; };
 		C28C1C1C203F4F3B001C80D6 /* FakeDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C1B203F4F3B001C80D6 /* FakeDatabase.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		293979A6204492B80076CFCA /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		C28C1C17203F396B001C80D6 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		C28C1C19203F48EA001C80D6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C28C1C1B203F4F3B001C80D6 /* FakeDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDatabase.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				E1AB627C20408D2500122CC7 /* NotificationManager.swift */,
 				E1B8A642203E097B00AC1900 /* AppDelegate.swift */,
 				E1B8A646203E097B00AC1900 /* Main.storyboard */,
+				293979A6204492B80076CFCA /* Observable.swift */,
 				E1B8A649203E097B00AC1900 /* Assets.xcassets */,
 				E1B8A64B203E097B00AC1900 /* LaunchScreen.storyboard */,
 				E1B8A64E203E097B00AC1900 /* Info.plist */,
@@ -210,6 +213,7 @@
 				C28C1C2E20409C3E001C80D6 /* EntranceItem.swift in Sources */,
 				E176937A2044514E0070B68D /* CameraViewController.swift in Sources */,
 				C28C1C2420408EA9001C80D6 /* EntranceHistoryTableViewCell.swift in Sources */,
+				293979A7204492B80076CFCA /* Observable.swift in Sources */,
 				E1B8A645203E097B00AC1900 /* RemoteLockViewController.swift in Sources */,
 				C28C1C1E203F5205001C80D6 /* HomesViewController.swift in Sources */,
 				E176937C204484E70070B68D /* TabBarController.swift in Sources */,
