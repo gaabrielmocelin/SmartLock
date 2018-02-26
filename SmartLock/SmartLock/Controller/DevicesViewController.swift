@@ -47,7 +47,11 @@ extension DevicesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return members.count
+        if section == 0 {
+            return members.count
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -73,7 +77,7 @@ extension DevicesViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "guestDeviceTableViewCell", for: indexPath) as! GuestDeviceTableViewCell
-            cell.configureWith(title: "Xisquedele", startingTime: Date(), endingTime: Date())
+            cell.configureWith(title: "Marco", startingTime: Date(), endingTime: Date().addingTimeInterval(7200))
             return cell
         }
     }
