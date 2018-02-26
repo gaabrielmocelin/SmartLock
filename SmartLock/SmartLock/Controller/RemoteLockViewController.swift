@@ -12,6 +12,7 @@ class RemoteLockViewController: UIViewController {
     
     private var lockCommunicator: LockCommunicator!
     private var user: User!
+    @IBOutlet weak var lockStatusImageView: UIImageView!
     
     @IBAction func lockAction(_ sender: Any) {
         lockCommunicator.send(command: .lock)
@@ -35,6 +36,16 @@ class RemoteLockViewController: UIViewController {
         self.user = UserModel.shared.user
     }
     
+    private enum LockStatus { case locked, unlocked }
+    private func changeLockImageView(to status: LockStatus) {
+        print(#function)
+        switch status {
+        case .locked:
+            lockStatusImageView.image = #imageLiteral(resourceName: "locked_icon")
+        case .unlocked:
+            lockStatusImageView.image = #imageLiteral(resourceName: "unlocked_icon")
+        }
+    }
 }
 
 extension RemoteLockViewController: LockCommunicatorDelegate {
@@ -42,9 +53,17 @@ extension RemoteLockViewController: LockCommunicatorDelegate {
 //        self.loadingComponent.removeLoadingIndicators(from: self.view)
     }
     
-    func communicator(_ communicator: LockCommunicator, didRead data: Data) {
-        print(#function)
-        print(String(data: data, encoding: .utf8)!)
+    func communicator(_ communicator: LockCommunicator, didReceive lockMessage: LockMessage) {
+        switch lockMessage {
+        case .didLock:
+            changeLockImageView(to: .locked)
+        case .didUnlock:
+            changeLockImageView(to: .unlocked)
+        case .didProximityUnlock:
+            changeLockImageView(to: .unlocked)
+        default:
+            break
+        }
     }
     
     func communicator(_ communicator: LockCommunicator, didWrite data: Data) {
