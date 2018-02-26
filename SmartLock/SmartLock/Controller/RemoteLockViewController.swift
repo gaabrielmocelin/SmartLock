@@ -10,70 +10,48 @@ import UIKit
 
 class RemoteLockViewController: UIViewController {
     
-    var lockCommunicator: LockCommunicator!
     private var user: User!
+    private var lock: Lock! // GET REAL LOCK
     @IBOutlet weak var lockStatusImageView: UIImageView!
     
     @IBAction func lockAction(_ sender: Any) {
-        lockCommunicator.send(command: .lock)
+        lock.lock()
         UserModel.shared.selectedHome!.updateEntranceHistoryWith(user: user, andLockStatus: .locked)
     }
     
     @IBAction func unlockAction(_ sender: Any) {
-        lockCommunicator.send(command: .unlock)
+        lock.unlock()
         UserModel.shared.selectedHome!.updateEntranceHistoryWith(user: user, andLockStatus: .unlocked)
     }
    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        self.lockCommunicator = LockCommunicator(delegate: self)
+        lock.subscribe(observer: self) { [weak self] oldValue, newValue in
+            self?.changeLockImageView(to: newValue)
+        }
+        changeLockImageView(to: lock.status)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.lockCommunicator = LockCommunicator(delegate: self)
+        
+        self.lock = Lock(id: "Dandy") // GET REAL LOCK
         self.user = UserModel.shared.user
     }
     
-    private enum LockStatus { case locked, unlocked }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        lock.unsubscribe(observer: self)
+    }
+    
     private func changeLockImageView(to status: LockStatus) {
-        print(#function)
         switch status {
         case .locked:
             lockStatusImageView.image = #imageLiteral(resourceName: "locked_icon")
         case .unlocked:
             lockStatusImageView.image = #imageLiteral(resourceName: "unlocked_icon")
-        }
-    }
-}
-
-extension RemoteLockViewController: LockCommunicatorDelegate {
-    func communicatorDidConnect(_ communicator: LockCommunicator) {
-//        self.loadingComponent.removeLoadingIndicators(from: self.view)
-    }
-    
-    func communicator(_ communicator: LockCommunicator, didReceive lockMessage: LockMessage) {
-        switch lockMessage {
-        case .didLock:
-            changeLockImageView(to: .locked)
-        case .didUnlock:
-            changeLockImageView(to: .unlocked)
-        case .didProximityUnlock:
-            changeLockImageView(to: .unlocked)
-        default:
-            break
-        }
-    }
-    
-    func communicator(_ communicator: LockCommunicator, didWrite data: Data) {
-        print(#function)
-        print(String(data: data, encoding: .utf8)!)
-    }
-    
-    func communicator(_ communicator: LockCommunicator, didReadRSSI RSSI: NSNumber) {
-        if RSSI.floatValue > -59 {
-            lockCommunicator.send(command: .proximityUnlock)
         }
     }
 }
