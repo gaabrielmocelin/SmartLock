@@ -173,6 +173,7 @@ extension LockCommunicator: CBPeripheralDelegate {
                 }
                 fallthrough
             default:
+                print("MESSAGE: \(message)")
                 if let lockMessage = LockMessage(rawValue: message) {
                     delegate?.communicator(self, didReceive: lockMessage)
                 }
@@ -192,7 +193,6 @@ extension LockCommunicator: CBPeripheralDelegate {
     
     func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
         delegate?.communicator(self, didReadRSSI: RSSI)
-        print("RSSI: \(RSSI.doubleValue)")
     }
 }
 enum LockMessage: String, DataConvertible {
