@@ -126,7 +126,7 @@ void checkBluetoothMessages() {
 }
 
 void sendResponse(LockMessage message) {
-  Serial.println(message);
+  Serial.write(message);
 }
 
 void checkDoor() {
