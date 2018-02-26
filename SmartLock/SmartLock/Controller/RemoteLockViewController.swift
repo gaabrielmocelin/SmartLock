@@ -24,7 +24,14 @@ class RemoteLockViewController: UIViewController {
         lock.unlock()
         UserModel.shared.selectedHome!.updateEntranceHistoryWith(user: user, andLockStatus: .unlocked)
     }
-   
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.lock = UserModel.shared.selectedHome!.lock
+        self.user = UserModel.shared.user
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -32,13 +39,6 @@ class RemoteLockViewController: UIViewController {
             self?.changeLockImageView(to: newValue)
         }
         changeLockImageView(to: lock.status)
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.lock = UserModel.shared.selectedHome!.lock
-        self.user = UserModel.shared.user
     }
     
     override func viewDidDisappear(_ animated: Bool) {
