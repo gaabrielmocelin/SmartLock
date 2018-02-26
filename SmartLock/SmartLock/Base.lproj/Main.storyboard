@@ -128,7 +128,7 @@
             </objects>
             <point key="canvasLocation" x="396" y="-388.15592203898052"/>
         </scene>
-        <!--2-->
+        <!--Title-->
         <scene sceneID="jUQ-KM-FDM">
             <objects>
                 <viewController id="m74-m3-pFB" customClass="EntranceHistoryViewController" customModule="SmartLock" customModuleProvider="target" sceneMemberID="viewController">
@@ -198,6 +198,7 @@
                         <viewLayoutGuide key="safeArea" id="ipG-mX-PCu"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="2" id="m4u-Fa-ARC"/>
+                    <navigationItem key="navigationItem" title="Title" id="wZm-Ap-HSp"/>
                     <connections>
                         <outlet property="tableView" destination="vDQ-va-qhy" id="S7I-RQ-TOy"/>
                     </connections>
