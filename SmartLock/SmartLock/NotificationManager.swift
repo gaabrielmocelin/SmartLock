@@ -82,20 +82,17 @@ class NotificationManager: NSObject {
    private func openCameraViewController() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
-        if let vc = storyboard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController{
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if let cameraViewController = storyboard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController{
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let window = appDelegate.window
+            var topViewController = window?.rootViewController
+            
+            while topViewController?.presentedViewController != nil{
+                topViewController = topViewController?.presentedViewController
+            }
+            
+            topViewController?.present(cameraViewController, animated: true, completion: nil)
         }
-    
-    
-//        if let tabBar = storyboard.instantiateInitialViewController() as? UITabBarController{
-//            if let navBar = tabBar.viewControllers?[0] as? UINavigationController, let viewController = storyboard.instantiateViewController(withIdentifier: "taskList") as? TasksExecutionViewController {
-//                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//                appDelegate.window?.rootViewController = tabBar
-//
-//                navBar.pushViewController(viewController, animated: false)
-//                appDelegate.window?.makeKeyAndVisible()
-//            }
-//        }
     }
 
 }
@@ -106,7 +103,7 @@ extension NotificationManager: UNUserNotificationCenterDelegate{
         
         if response.notification.request.identifier == requestIdentifier{
             print("clicked on")
-//            openCameraViewController()
+            openCameraViewController()
         }
         completionHandler()
     }
