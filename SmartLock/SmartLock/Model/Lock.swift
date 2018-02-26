@@ -12,7 +12,7 @@ class Lock: Observable {
     typealias T = LockStatus
     
     let id: String
-    let lockCommunicator: LockCommunicator
+    var lockCommunicator: LockCommunicator!
     private(set) var status: LockStatus {
         didSet {
             update(observers: observers, oldValue: oldValue, newValue: status)
@@ -22,9 +22,9 @@ class Lock: Observable {
     init(id: String) {
         self.id = id
         self.status = .locked
-        self.lockCommunicator = LockCommunicator()
         
-        self.lockCommunicator.delegate = self
+        self.lockCommunicator = LockCommunicator(delegate: self)
+        
     }
     
     func unlock() {

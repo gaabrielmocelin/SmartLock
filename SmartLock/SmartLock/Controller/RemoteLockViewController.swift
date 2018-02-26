@@ -11,7 +11,8 @@ import UIKit
 class RemoteLockViewController: UIViewController {
     
     private var user: User!
-    private var lock: Lock! // GET REAL LOCK
+    private var lock: Lock!
+    
     @IBOutlet weak var lockStatusImageView: UIImageView!
     
     @IBAction func lockAction(_ sender: Any) {
@@ -36,7 +37,7 @@ class RemoteLockViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.lock = Lock(id: "Dandy") // GET REAL LOCK
+        self.lock = UserModel.shared.selectedHome!.lock
         self.user = UserModel.shared.user
     }
     

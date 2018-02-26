@@ -16,6 +16,10 @@ protocol Observable {
 }
 extension Observable {
     func update(observers: [(AnyObject, UpdateBlock)], oldValue: T, newValue: T) {
-        observers.forEach { $0.1(oldValue, newValue) }
+        observers.forEach {
+            $0.1(oldValue, newValue)
+            print(#function)
+            print($0.0)
+        }
     }
 }
