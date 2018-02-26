@@ -10,7 +10,7 @@ import UIKit
 import UserNotifications
 import UserNotificationsUI
 
-enum NotificationType {
+enum NotificationType: String {
     case text
     case action
 }
@@ -44,7 +44,7 @@ class NotificationManager: NSObject {
         content.subtitle = subtitle
         content.body = body
         content.sound = UNNotificationSound.default()
-        content.categoryIdentifier = String(type.hashValue)
+        content.categoryIdentifier = type.rawValue
         
         let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: timeInterval, repeats: false)
         
@@ -68,20 +68,25 @@ class NotificationManager: NSObject {
     }
     
     private func getActionCategory() -> UNNotificationCategory {
-        let openAction = UNNotificationAction(identifier: "open", title: "Open", options: .foreground)
+        let openAction = UNNotificationAction(identifier: "open", title: "Open Camera", options: .foreground)
         let type: NotificationType = .action
-        return UNNotificationCategory(identifier: String(type.hashValue), actions: [openAction], intentIdentifiers: [], options: .customDismissAction)
+        return UNNotificationCategory(identifier: type.rawValue, actions: [openAction], intentIdentifiers: [], options: .customDismissAction)
     }
     
     private func getTextCategory() -> UNNotificationCategory {
         let textaction = UNTextInputNotificationAction(identifier: "keyboard", title: "keyboard", options: .destructive)
         let type: NotificationType = .text
-        return UNNotificationCategory(identifier: String(type.hashValue), actions: [textaction], intentIdentifiers: [], options: .customDismissAction)
+        return UNNotificationCategory(identifier: type.rawValue, actions: [textaction], intentIdentifiers: [], options: .customDismissAction)
     }
     
-//   private func openExecutionTaskViewController() {
-//        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//
+   private func openCameraViewController() {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    
+        if let vc = storyboard.instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController{
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        }
+    
+    
 //        if let tabBar = storyboard.instantiateInitialViewController() as? UITabBarController{
 //            if let navBar = tabBar.viewControllers?[0] as? UINavigationController, let viewController = storyboard.instantiateViewController(withIdentifier: "taskList") as? TasksExecutionViewController {
 //                let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -91,7 +96,7 @@ class NotificationManager: NSObject {
 //                appDelegate.window?.makeKeyAndVisible()
 //            }
 //        }
-//    }
+    }
 
 }
 
@@ -101,7 +106,7 @@ extension NotificationManager: UNUserNotificationCenterDelegate{
         
         if response.notification.request.identifier == requestIdentifier{
             print("clicked on")
-//            openExecutionTaskViewController()
+//            openCameraViewController()
         }
         completionHandler()
     }
