@@ -20,6 +20,8 @@
 		C28C1C2C20409AC3001C80D6 /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C2B20409AC3001C80D6 /* Lock.swift */; };
 		C28C1C2E20409C3E001C80D6 /* EntranceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C2D20409C3E001C80D6 /* EntranceItem.swift */; };
 		C28C1C3020409E37001C80D6 /* LockStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C2F20409E37001C80D6 /* LockStatus.swift */; };
+		C28C1C34204437FB001C80D6 /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C33204437FB001C80D6 /* DevicesViewController.swift */; };
+		C28C1C3620443815001C80D6 /* GuestDeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C3520443815001C80D6 /* GuestDeviceTableViewCell.swift */; };
 		E12F7B58203F2FF800D39201 /* LockCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F7B57203F2FF800D39201 /* LockCommunicator.swift */; };
 		E176937A2044514E0070B68D /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17693792044514E0070B68D /* CameraViewController.swift */; };
 		E176937C204484E70070B68D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E176937B204484E70070B68D /* TabBarController.swift */; };
@@ -45,6 +47,8 @@
 		C28C1C2B20409AC3001C80D6 /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
 		C28C1C2D20409C3E001C80D6 /* EntranceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceItem.swift; sourceTree = "<group>"; };
 		C28C1C2F20409E37001C80D6 /* LockStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockStatus.swift; sourceTree = "<group>"; };
+		C28C1C33204437FB001C80D6 /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
+		C28C1C3520443815001C80D6 /* GuestDeviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestDeviceTableViewCell.swift; sourceTree = "<group>"; };
 		E12F7B57203F2FF800D39201 /* LockCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockCommunicator.swift; sourceTree = "<group>"; };
 		E17693792044514E0070B68D /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		E176937B204484E70070B68D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 				C28C1C2120408B9F001C80D6 /* EntranceHistoryViewController.swift */,
 				C28C1C2320408EA9001C80D6 /* EntranceHistoryTableViewCell.swift */,
 				E17693792044514E0070B68D /* CameraViewController.swift */,
+				C28C1C33204437FB001C80D6 /* DevicesViewController.swift */,
+				C28C1C3520443815001C80D6 /* GuestDeviceTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -224,8 +230,10 @@
 				C28C1C2C20409AC3001C80D6 /* Lock.swift in Sources */,
 				C28C1C1A203F48EA001C80D6 /* LoginViewController.swift in Sources */,
 				C28C1C20203F56B9001C80D6 /* HomeTableViewCell.swift in Sources */,
+				C28C1C3620443815001C80D6 /* GuestDeviceTableViewCell.swift in Sources */,
 				E12F7B58203F2FF800D39201 /* LockCommunicator.swift in Sources */,
 				C28C1C2A20409AB2001C80D6 /* Home.swift in Sources */,
+				C28C1C34204437FB001C80D6 /* DevicesViewController.swift in Sources */,
 				C28C1C2820409AAC001C80D6 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
