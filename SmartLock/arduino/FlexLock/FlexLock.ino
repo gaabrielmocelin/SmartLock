@@ -106,7 +106,7 @@ void checkButtons() {
 void checkBluetoothMessages() {
   if (Serial.available() > 0) {
     byteRead = Serial.read();
-    Serial.write(byteRead);
+    //Serial.write(byteRead);
 
     switch (byteRead) {
       case UNLOCK_COMMAND:
@@ -127,6 +127,7 @@ void checkBluetoothMessages() {
 
 void sendResponse(LockMessage message) {
   Serial.write(message);
+  delay(75);
 }
 
 void checkDoor() {

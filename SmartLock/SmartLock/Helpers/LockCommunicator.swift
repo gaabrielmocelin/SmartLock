@@ -86,6 +86,7 @@ class LockCommunicator: NSObject {
         if( self.isReady ) {
             guard let characterist = self.characterist else { return }
             self.peripheral?.writeValue(value.data, for: characterist, type: .withoutResponse)
+            print(value.data)
         }
     }
     /// Read data from Arduino Module, if possible
