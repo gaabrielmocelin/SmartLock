@@ -38,6 +38,7 @@ class RemoteLockViewController: UIViewController {
     
     private enum LockStatus { case locked, unlocked }
     private func changeLockImageView(to status: LockStatus) {
+        print(#function)
         switch status {
         case .locked:
             lockStatusImageView.image = #imageLiteral(resourceName: "locked_icon")
@@ -45,7 +46,6 @@ class RemoteLockViewController: UIViewController {
             lockStatusImageView.image = #imageLiteral(resourceName: "unlocked_icon")
         }
     }
-    
 }
 
 extension RemoteLockViewController: LockCommunicatorDelegate {
@@ -62,13 +62,8 @@ extension RemoteLockViewController: LockCommunicatorDelegate {
         case .didProximityUnlock:
             changeLockImageView(to: .unlocked)
         default:
-            print("Do nothing!")
+            break
         }
-    }
-    
-    func communicator(_ communicator: LockCommunicator, didRead data: Data) {
-        print(#function)
-        print(String(data: data, encoding: .utf8)!)
     }
     
     func communicator(_ communicator: LockCommunicator, didWrite data: Data) {
