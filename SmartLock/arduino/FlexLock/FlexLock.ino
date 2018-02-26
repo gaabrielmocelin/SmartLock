@@ -148,9 +148,11 @@ void checkLockButton() {
     switch (state) {
       case LOCKED:
         unlock();
+        sendResponse(UNLOCKED_SENDCOMMAND);
         break;
       case UNLOCKED:
         lock();
+        sendResponse(LOCKED_SENDCOMMAND);
     }
   }
 
