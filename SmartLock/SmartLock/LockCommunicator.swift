@@ -12,6 +12,7 @@ import CoreBluetooth
 protocol LockCommunicatorDelegate {
     func communicatorDidConnect(_ communicator: LockCommunicator)
     func communicator(_ communicator: LockCommunicator, didRead data: Data)
+    func communicator(_ communicator: LockCommunicator, didReceive lockMessage: LockMessage)
     func communicator(_ communicator: LockCommunicator, didWrite data: Data)
     func communicator(_ communicator: LockCommunicator, didReadRSSI RSSI: NSNumber)
 }
@@ -62,7 +63,7 @@ class LockCommunicator: NSObject {
     private let notificationManager = NotificationManager()
     
     //FIX IT: THIS FLAG SHOULD BE ANOTHER THING ******************
-    private var flag = true
+    private var shouldFireNotification = true
     
     // MARK: - Private Methods
     init(delegate: LockCommunicatorDelegate? = nil) {
@@ -158,19 +159,24 @@ extension LockCommunicator: CBPeripheralDelegate {
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         guard let characteristOfInterest = self.characterist, let data = characteristOfInterest.value  else { return }
-        if( characteristic.uuid.uuidString == characteristOfInterest.uuid.uuidString ) {
-            let message = String(data: data, encoding: .utf8)
+        if characteristic.uuid.uuidString == characteristOfInterest.uuid.uuidString {
+            guard let message = String(data: data, encoding: .utf8) else { return }
             
-            if let message = message, message == LockMessage.didBuzz.rawValue, flag{
-                //its a buzzing, create a local push to alert the device
-                notificationManager.sendNotification(title: "Buzzing", subtitle: "There is someone at your door", body: "take a look on the camera or send a message", type: .action, timeInterval: 1)
-                flag = false
-                Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { (timer) in
-                    self.flag = true
-                })
-            }else {
-                // Allows the delegate to handle data exchange (read)
-                self.delegate?.communicator(self, didRead: data)
+            switch message {
+            case LockMessage.didBuzz.rawValue:
+                if shouldFireNotification {
+                    //its a buzzing, create a local push to alert the device
+                    notificationManager.sendNotification(title: "Buzzing", subtitle: "There is someone at your door", body: "take a look on the camera or send a message", type: .action, timeInterval: 1)
+                    shouldFireNotification = false
+                    Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (timer) in
+                        self.shouldFireNotification = true
+                    }
+                }
+                fallthrough
+            default:
+                if let lockMessage = LockMessage(rawValue: message) {
+                    delegate?.communicator(self, didReceive: lockMessage)
+                }
             }
         }
     }
@@ -208,4 +214,3 @@ enum LockCommand: String, DataConvertible {
     case proximityUnlock = "P"
     case receivedBuzzerAlert = "B"
 }
-
