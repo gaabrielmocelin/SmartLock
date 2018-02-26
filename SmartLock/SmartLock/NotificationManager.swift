@@ -10,7 +10,7 @@ import UIKit
 import UserNotifications
 import UserNotificationsUI
 
-enum NotificationType {
+enum NotificationType: String {
     case text
     case action
 }
@@ -44,7 +44,7 @@ class NotificationManager: NSObject {
         content.subtitle = subtitle
         content.body = body
         content.sound = UNNotificationSound.default()
-        content.categoryIdentifier = String(type.hashValue)
+        content.categoryIdentifier = type.rawValue
         
         let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: timeInterval, repeats: false)
         
@@ -68,30 +68,32 @@ class NotificationManager: NSObject {
     }
     
     private func getActionCategory() -> UNNotificationCategory {
-        let openAction = UNNotificationAction(identifier: "open", title: "Open", options: .foreground)
+        let openAction = UNNotificationAction(identifier: "open", title: "Open Camera", options: .foreground)
         let type: NotificationType = .action
-        return UNNotificationCategory(identifier: String(type.hashValue), actions: [openAction], intentIdentifiers: [], options: .customDismissAction)
+        return UNNotificationCategory(identifier: type.rawValue, actions: [openAction], intentIdentifiers: [], options: .customDismissAction)
     }
     
     private func getTextCategory() -> UNNotificationCategory {
         let textaction = UNTextInputNotificationAction(identifier: "keyboard", title: "keyboard", options: .destructive)
         let type: NotificationType = .text
-        return UNNotificationCategory(identifier: String(type.hashValue), actions: [textaction], intentIdentifiers: [], options: .customDismissAction)
+        return UNNotificationCategory(identifier: type.rawValue, actions: [textaction], intentIdentifiers: [], options: .customDismissAction)
     }
     
-//   private func openExecutionTaskViewController() {
-//        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//
-//        if let tabBar = storyboard.instantiateInitialViewController() as? UITabBarController{
-//            if let navBar = tabBar.viewControllers?[0] as? UINavigationController, let viewController = storyboard.instantiateViewController(withIdentifier: "taskList") as? TasksExecutionViewController {
-//                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//                appDelegate.window?.rootViewController = tabBar
-//
-//                navBar.pushViewController(viewController, animated: false)
-//                appDelegate.window?.makeKeyAndVisible()
-//            }
-//        }
-//    }
+   private func openCameraViewController() {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    
+        if let cameraViewController = storyboard.instantiateViewController(withIdentifier: "cameraViewController") as? CameraViewController{
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let window = appDelegate.window
+            var topViewController = window?.rootViewController
+            
+            while topViewController?.presentedViewController != nil{
+                topViewController = topViewController?.presentedViewController
+            }
+            
+            topViewController?.present(cameraViewController, animated: true, completion: nil)
+        }
+    }
 
 }
 
@@ -101,7 +103,7 @@ extension NotificationManager: UNUserNotificationCenterDelegate{
         
         if response.notification.request.identifier == requestIdentifier{
             print("clicked on")
-//            openExecutionTaskViewController()
+            openCameraViewController()
         }
         completionHandler()
     }
