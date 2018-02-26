@@ -160,23 +160,9 @@ extension LockCommunicator: CBPeripheralDelegate {
         guard let characteristOfInterest = self.characterist, let data = characteristOfInterest.value  else { return }
         if characteristic.uuid.uuidString == characteristOfInterest.uuid.uuidString {
             guard let message = String(data: data, encoding: .utf8) else { return }
-            
-            switch message {
-            case LockMessage.didBuzz.rawValue:
-                if shouldFireNotification {
-                    //its a buzzing, create a local push to alert the device
-                    notificationManager.sendNotification(title: "Buzzing", subtitle: "There is someone at your door", body: "take a look on the camera or send a message", type: .action, timeInterval: 1)
-                    shouldFireNotification = false
-                    Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (timer) in
-                        self.shouldFireNotification = true
-                    }
-                }
-                fallthrough
-            default:
-                print("MESSAGE: \(message)")
-                if let lockMessage = LockMessage(rawValue: message) {
-                    delegate?.communicator(self, didReceive: lockMessage)
-                }
+            print("MESSAGE: \(message)")
+            if let lockMessage = LockMessage(rawValue: message) {
+                delegate?.communicator(self, didReceive: lockMessage)
             }
         }
     }
