@@ -11,6 +11,7 @@ import UIKit
 class EntranceHistoryViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    private var entranceHistory: [EntranceItem]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,12 @@ class EntranceHistoryViewController: UIViewController {
         self.tableView.dataSource = self
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.entranceHistory = UserModel.shared.selectedHome!.entranceHistory
+        self.tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -38,13 +45,12 @@ class EntranceHistoryViewController: UIViewController {
 
 extension EntranceHistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return UserModel.shared.selectedHome!.entranceHistory.count
+        return self.entranceHistory.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntranceHistoryTableViewCell", for: indexPath) as! EntranceHistoryTableViewCell
-        
-        
+        cell.configureWith(entranceItem: entranceHistory[indexPath.row])
         return cell
     }
 }

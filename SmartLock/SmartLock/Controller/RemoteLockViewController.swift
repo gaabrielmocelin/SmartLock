@@ -11,22 +11,30 @@ import UIKit
 class RemoteLockViewController: UIViewController {
     
     private var lockCommunicator: LockCommunicator!
-
+    private var user: User!
+    
     @IBAction func lockAction(_ sender: Any) {
         lockCommunicator.send(command: .lock)
+        UserModel.shared.selectedHome!.updateEntranceHistoryWith(user: user, andLockStatus: .locked)
     }
     
     @IBAction func unlockAction(_ sender: Any) {
         lockCommunicator.send(command: .unlock)
+        UserModel.shared.selectedHome!.updateEntranceHistoryWith(user: user, andLockStatus: .unlocked)
     }
    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.lockCommunicator = LockCommunicator(delegate: self)
+//        self.lockCommunicator = LockCommunicator(delegate: self)
     }
 
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.lockCommunicator = LockCommunicator(delegate: self)
+        self.user = UserModel.shared.user
+    }
+    
 }
 
 extension RemoteLockViewController: LockCommunicatorDelegate {

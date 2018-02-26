@@ -82,7 +82,7 @@
 				C28C1C19203F48EA001C80D6 /* LoginViewController.swift */,
 				C28C1C1D203F5205001C80D6 /* HomesViewController.swift */,
 				C28C1C1F203F56B9001C80D6 /* HomeTableViewCell.swift */,
-				E1B8A644203E097B00AC1900 /* ViewController.swift */,
+				E1B8A644203E097B00AC1900 /* RemoteLockViewController.swift */,
 				C28C1C2120408B9F001C80D6 /* EntranceHistoryViewController.swift */,
 				C28C1C2320408EA9001C80D6 /* EntranceHistoryTableViewCell.swift */,
 			);
@@ -111,7 +111,6 @@
 				E12F7B57203F2FF800D39201 /* LockCommunicator.swift */,
 				E1AB627C20408D2500122CC7 /* NotificationManager.swift */,
 				E1B8A642203E097B00AC1900 /* AppDelegate.swift */,
-				E1B8A644203E097B00AC1900 /* RemoteLockViewController.swift */,
 				E1B8A646203E097B00AC1900 /* Main.storyboard */,
 				E1B8A649203E097B00AC1900 /* Assets.xcassets */,
 				E1B8A64B203E097B00AC1900 /* LaunchScreen.storyboard */,
@@ -353,7 +352,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = REMZMNQ72C;
+				DEVELOPMENT_TEAM = 4F4P935HBL;
 				INFOPLIST_FILE = SmartLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gabrielmocelin.SmartLock;
@@ -368,7 +367,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = REMZMNQ72C;
+				DEVELOPMENT_TEAM = 4F4P935HBL;
 				INFOPLIST_FILE = SmartLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gabrielmocelin.SmartLock;
