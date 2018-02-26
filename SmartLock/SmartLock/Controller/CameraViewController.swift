@@ -9,13 +9,19 @@
 import UIKit
 
 class CameraViewController: UIViewController {
+    
+    var lock: Lock?
 
     @IBAction func dismiss(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func unlockButton(_ sender: Any) {
+        lock?.unlock()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        lock = UserModel.shared.selectedHome?.lock
     }
-
 }

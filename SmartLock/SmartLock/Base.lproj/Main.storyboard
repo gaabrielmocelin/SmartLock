@@ -376,6 +376,9 @@
                                 <rect key="frame" x="163" y="449" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Unlock"/>
+                                <connections>
+                                    <action selector="unlockButton:" destination="hwT-fg-Mnp" eventType="touchUpInside" id="rHw-hO-KlO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4B-eg-vsL">
                                 <rect key="frame" x="306" y="83" width="30" height="30"/>
@@ -435,9 +438,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="locked_icon" width="258" height="258"/>
-    </resources>
-    <resources>
         <image name="DevicesIcon" width="32" height="28"/>
+        <image name="locked_icon" width="258" height="258"/>
     </resources>
 </document>
