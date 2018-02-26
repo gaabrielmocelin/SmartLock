@@ -17,6 +17,8 @@ class TabBarController: UITabBarController {
     }
     
     @objc func openCamera() {
-        
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "cameraViewController") as! CameraViewController
+        navigationController?.present(vc, animated: true, completion: nil)
     }
 }

@@ -294,7 +294,6 @@
                     <tabBarItem key="tabBarItem" title="1" id="LMQ-Go-Y99"/>
                     <connections>
                         <outlet property="lockStatusImageView" destination="Vxo-z7-CIt" id="Tgp-xH-uxA"/>
-                        <segue destination="hwT-fg-Mnp" kind="show" id="Law-c0-66q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -304,7 +303,7 @@
         <!--Camera View Controller-->
         <scene sceneID="NAg-fn-Kxy">
             <objects>
-                <viewController storyboardIdentifier="CameraViewController" id="hwT-fg-Mnp" customClass="CameraViewController" customModule="SmartLock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cameraViewController" id="hwT-fg-Mnp" customClass="CameraViewController" customModule="SmartLock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="npQ-QT-BS8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -334,7 +333,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XgC-zj-nfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4" y="1175.2623688155923"/>
+            <point key="canvasLocation" x="2426" y="-424"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7y2-uX-ZE9">
