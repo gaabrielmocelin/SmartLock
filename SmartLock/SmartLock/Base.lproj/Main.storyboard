@@ -10,6 +10,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="FYN-oh-sgz">
@@ -342,17 +347,34 @@
                                     <action selector="lockAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Drx-Ph-8U9"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door Status:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1J-ee-44m">
+                                <rect key="frame" x="132" y="114" width="111.5" height="23"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.46274509803921571" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locked" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYU-og-LTE">
+                                <rect key="frame" x="139.5" y="137" width="97" height="34.5"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="30"/>
+                                <color key="textColor" red="0.29803921568627451" green="0.85098039215686272" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Vxo-z7-CIt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0U2-ek-oEL"/>
                             <constraint firstItem="Vxo-z7-CIt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="BcL-EW-WKI"/>
+                            <constraint firstItem="R1J-ee-44m" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="I46-cz-gfC"/>
+                            <constraint firstItem="PYU-og-LTE" firstAttribute="top" secondItem="R1J-ee-44m" secondAttribute="bottom" id="prg-Rf-Lrv"/>
+                            <constraint firstItem="PYU-og-LTE" firstAttribute="centerX" secondItem="R1J-ee-44m" secondAttribute="centerX" id="wXa-sC-SQg"/>
+                            <constraint firstItem="R1J-ee-44m" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="znP-ja-zzx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="1" id="LMQ-Go-Y99"/>
                     <connections>
                         <outlet property="lockStatusImageView" destination="Vxo-z7-CIt" id="Tgp-xH-uxA"/>
+                        <outlet property="lockStatusLabel" destination="PYU-og-LTE" id="eoX-7d-uwV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
