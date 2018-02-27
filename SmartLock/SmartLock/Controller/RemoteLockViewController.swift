@@ -10,7 +10,6 @@ import UIKit
 
 class RemoteLockViewController: UIViewController {
     
-    private var user: User!
     private var lock: Lock!
     
     @IBOutlet weak var lockStatusImageView: UIImageView!
