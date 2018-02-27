@@ -85,9 +85,9 @@ class RemoteLockViewController: UIViewController {
     private func updateLockButton(to status: LockStatus) {
         switch status{
         case .locked:
-            lockButton.setImage(#imageLiteral(resourceName: "lock_button"), for: .normal)
-        case .unlocked:
             lockButton.setImage(#imageLiteral(resourceName: "unlock_Button"), for: .normal)
+        case .unlocked:
+            lockButton.setImage(#imageLiteral(resourceName: "lock_button"), for: .normal)
         case .open:
             lockButton.setImage(#imageLiteral(resourceName: "open_button"), for: .normal)
         }
