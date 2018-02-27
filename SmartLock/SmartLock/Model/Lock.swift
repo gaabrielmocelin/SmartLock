@@ -18,13 +18,14 @@ class Lock: Observable {
             update(observers: observers, oldValue: oldValue, newValue: status)
         }
     }
+    private(set) var entranceHistory: [EntranceItem]
     
     init(id: String) {
         self.id = id
         self.status = .locked
+        self.entranceHistory = []
         
         self.lockCommunicator = LockCommunicator(delegate: self)
-        
     }
     
     func unlock() {
@@ -48,6 +49,13 @@ class Lock: Observable {
             return observer !== owner
         }
     }
+    
+    // MARK: Entrance History
+    private func updateEntranceHistory() {
+        let user = Session.shared.user!.nickname
+        let entranceItem = EntranceItem(name: user, lockStatus: status)
+        self.entranceHistory.append(entranceItem)
+    }
 }
 
 extension Lock: LockCommunicatorDelegate {
@@ -61,9 +69,11 @@ extension Lock: LockCommunicatorDelegate {
         case .didAutoLock: fallthrough
         case .didLock:
             status = .locked
+            updateEntranceHistory()
         case .didUnlock: fallthrough
         case .didProximityUnlock:
             status = .unlocked
+            updateEntranceHistory()
         case .didBuzz:
             NotificationManager.shared.sendBuzzNotification(from: self)
         }
