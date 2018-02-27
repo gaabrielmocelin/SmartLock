@@ -439,6 +439,7 @@
                         <viewLayoutGuide key="safeArea" id="PQh-Ah-QKt"/>
                     </view>
                     <connections>
+                        <outlet property="cameraView" destination="QXh-GO-xXE" id="jzk-g2-GGs"/>
                         <outlet property="lockButton" destination="lCv-Sj-7RR" id="auQ-xo-pog"/>
                         <outlet property="lockStatusLabel" destination="18N-Cw-8sz" id="NIz-PC-IC3"/>
                     </connections>
