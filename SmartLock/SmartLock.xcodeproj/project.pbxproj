@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		293979A7204492B80076CFCA /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293979A6204492B80076CFCA /* Observable.swift */; };
-		C28C1C18203F396B001C80D6 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C17203F396B001C80D6 /* UserModel.swift */; };
+		C28C1C18203F396B001C80D6 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C17203F396B001C80D6 /* Session.swift */; };
 		C28C1C1A203F48EA001C80D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C19203F48EA001C80D6 /* LoginViewController.swift */; };
 		C28C1C1C203F4F3B001C80D6 /* FakeDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C1B203F4F3B001C80D6 /* FakeDatabase.swift */; };
 		C28C1C1E203F5205001C80D6 /* HomesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C1D203F5205001C80D6 /* HomesViewController.swift */; };
@@ -35,7 +35,7 @@
 
 /* Begin PBXFileReference section */
 		293979A6204492B80076CFCA /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
-		C28C1C17203F396B001C80D6 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		C28C1C17203F396B001C80D6 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		C28C1C19203F48EA001C80D6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C28C1C1B203F4F3B001C80D6 /* FakeDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDatabase.swift; sourceTree = "<group>"; };
 		C28C1C1D203F5205001C80D6 /* HomesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomesViewController.swift; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		C28C1C25204097D2001C80D6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C28C1C17203F396B001C80D6 /* UserModel.swift */,
+				C28C1C17203F396B001C80D6 /* Session.swift */,
 				C28C1C2720409AAC001C80D6 /* User.swift */,
 				C28C1C2920409AB2001C80D6 /* Home.swift */,
 				C28C1C2B20409AC3001C80D6 /* Lock.swift */,
@@ -214,7 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C28C1C18203F396B001C80D6 /* UserModel.swift in Sources */,
+				C28C1C18203F396B001C80D6 /* Session.swift in Sources */,
 				C28C1C2220408B9F001C80D6 /* EntranceHistoryViewController.swift in Sources */,
 				C28C1C2E20409C3E001C80D6 /* EntranceItem.swift in Sources */,
 				E176937A2044514E0070B68D /* CameraViewController.swift in Sources */,
@@ -372,7 +372,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = REMZMNQ72C;
+				DEVELOPMENT_TEAM = 4F4P935HBL;
 				INFOPLIST_FILE = SmartLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gabrielmocelin.SmartLock;
@@ -387,7 +387,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = REMZMNQ72C;
+				DEVELOPMENT_TEAM = 4F4P935HBL;
 				INFOPLIST_FILE = SmartLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gabrielmocelin.SmartLock;
