@@ -26,3 +26,9 @@ extension EntranceItem: Equatable {
         return lhs.name == rhs.name && lhs.lockStatus == rhs.lockStatus && lhs.timeStamp == rhs.timeStamp
     }
 }
+
+extension EntranceItem: CustomStringConvertible {
+    var description: String {
+        return "Name: \(name), LockStatus: \(lockStatus), TimeStamp: \(timeStamp)\n"
+    }
+}

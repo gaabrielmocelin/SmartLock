@@ -31,7 +31,7 @@ class EntranceHistoryTableViewCell: UITableViewCell {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .short
+        dateFormatter.timeStyle = .medium
         self.timestampLabel.text = dateFormatter.string(from: entranceItem.timeStamp)
     }
 }

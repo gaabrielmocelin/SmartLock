@@ -15,10 +15,10 @@ class Lock: Observable {
     var lockCommunicator: LockCommunicator!
     private(set) var status: LockStatus {
         didSet {
-            update(observers: observers, oldValue: oldValue, newValue: status)
             if oldValue != status {
                 updateEntranceHistory()
             }
+            update(observers: observers, oldValue: oldValue, newValue: status)
         }
     }
     private(set) var entranceHistory: [EntranceItem]
