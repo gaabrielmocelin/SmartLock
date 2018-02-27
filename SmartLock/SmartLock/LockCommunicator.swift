@@ -198,4 +198,5 @@ enum LockCommand: String, DataConvertible {
     case lock = "L"
     case proximityUnlock = "P"
     case receivedBuzzerAlert = "B"
+    case status = "S"
 }
