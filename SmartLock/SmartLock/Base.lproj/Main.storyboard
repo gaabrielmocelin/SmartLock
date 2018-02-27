@@ -367,35 +367,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QXh-GO-xXE">
-                                <rect key="frame" x="67" y="134" width="238" height="213"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G4M-Wr-tJg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4B-eg-vsL">
+                                        <rect key="frame" x="18" y="55" width="27" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="27" id="2gS-ts-Ao8"/>
+                                            <constraint firstAttribute="height" constant="27" id="Xri-5z-acB"/>
+                                        </constraints>
+                                        <state key="normal" image="XClose"/>
+                                        <connections>
+                                            <action selector="dismiss:" destination="hwT-fg-Mnp" eventType="touchUpInside" id="JPm-kV-Eks"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locked" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18N-Cw-8sz">
+                                        <rect key="frame" x="45" y="63.5" width="285" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <color key="textColor" red="0.26584070920944214" green="0.85808372497558594" blue="0.3677983283996582" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Door Status:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPP-4A-KJq">
+                                        <rect key="frame" x="45" y="42" width="285" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" red="0.0" green="0.44509595632553101" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="F4B-eg-vsL" secondAttribute="bottom" constant="18" id="2er-Cc-A2R"/>
+                                    <constraint firstItem="18N-Cw-8sz" firstAttribute="leading" secondItem="F4B-eg-vsL" secondAttribute="trailing" id="IlZ-CA-Qgv"/>
+                                    <constraint firstItem="xPP-4A-KJq" firstAttribute="leading" secondItem="F4B-eg-vsL" secondAttribute="trailing" id="K8L-w9-mXj"/>
+                                    <constraint firstItem="F4B-eg-vsL" firstAttribute="leading" secondItem="G4M-Wr-tJg" secondAttribute="leading" constant="18" id="O6G-ng-cRK"/>
+                                    <constraint firstAttribute="trailing" secondItem="18N-Cw-8sz" secondAttribute="trailing" constant="45" id="R8S-aB-cQd"/>
+                                    <constraint firstAttribute="trailing" secondItem="xPP-4A-KJq" secondAttribute="trailing" constant="45" id="YCc-DI-frv"/>
+                                    <constraint firstAttribute="height" constant="100" id="eLA-Aj-arm"/>
+                                    <constraint firstItem="18N-Cw-8sz" firstAttribute="centerY" secondItem="F4B-eg-vsL" secondAttribute="centerY" constant="10" id="haR-6A-VYL"/>
+                                    <constraint firstItem="18N-Cw-8sz" firstAttribute="top" secondItem="xPP-4A-KJq" secondAttribute="bottom" id="yXT-IQ-HOi"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QXh-GO-xXE">
+                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <viewLayoutGuide key="safeArea" id="zI8-NB-vWg"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lCv-Sj-7RR">
-                                <rect key="frame" x="163" y="449" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Unlock"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lCv-Sj-7RR">
+                                <rect key="frame" x="96" y="573" width="183" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="183" id="orH-8L-cJ6"/>
+                                    <constraint firstAttribute="height" constant="64" id="upd-mg-HWd"/>
+                                </constraints>
+                                <state key="normal" image="unlock_Button"/>
                                 <connections>
                                     <action selector="unlockButton:" destination="hwT-fg-Mnp" eventType="touchUpInside" id="rHw-hO-KlO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4B-eg-vsL">
-                                <rect key="frame" x="306" y="83" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Exit"/>
-                                <connections>
-                                    <action selector="dismiss:" destination="hwT-fg-Mnp" eventType="touchUpInside" id="JPm-kV-Eks"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QXh-GO-xXE" firstAttribute="leading" secondItem="PQh-Ah-QKt" secondAttribute="leading" id="4J9-4f-9F8"/>
+                            <constraint firstItem="lCv-Sj-7RR" firstAttribute="centerX" secondItem="npQ-QT-BS8" secondAttribute="centerX" id="Ape-Fh-avE"/>
+                            <constraint firstItem="G4M-Wr-tJg" firstAttribute="top" secondItem="npQ-QT-BS8" secondAttribute="top" id="Tuh-F8-BvB"/>
+                            <constraint firstItem="PQh-Ah-QKt" firstAttribute="bottom" secondItem="lCv-Sj-7RR" secondAttribute="bottom" constant="30" id="ZJo-JG-7ms"/>
+                            <constraint firstItem="QXh-GO-xXE" firstAttribute="bottom" secondItem="PQh-Ah-QKt" secondAttribute="bottom" id="bTU-Gf-umE"/>
+                            <constraint firstItem="G4M-Wr-tJg" firstAttribute="trailing" secondItem="PQh-Ah-QKt" secondAttribute="trailing" id="rWk-mu-RAq"/>
+                            <constraint firstItem="QXh-GO-xXE" firstAttribute="trailing" secondItem="PQh-Ah-QKt" secondAttribute="trailing" id="sTU-cw-Xaj"/>
+                            <constraint firstItem="QXh-GO-xXE" firstAttribute="top" secondItem="G4M-Wr-tJg" secondAttribute="bottom" id="yoF-Mc-IY6"/>
+                            <constraint firstItem="G4M-Wr-tJg" firstAttribute="leading" secondItem="PQh-Ah-QKt" secondAttribute="leading" id="zrt-H1-hKg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PQh-Ah-QKt"/>
                     </view>
+                    <connections>
+                        <outlet property="lockButton" destination="lCv-Sj-7RR" id="auQ-xo-pog"/>
+                        <outlet property="lockStatusLabel" destination="18N-Cw-8sz" id="NIz-PC-IC3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XgC-zj-nfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2426" y="-424"/>
+            <point key="canvasLocation" x="2424.8000000000002" y="-424.13793103448279"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7y2-uX-ZE9">
@@ -439,6 +489,8 @@
     </scenes>
     <resources>
         <image name="DevicesIcon" width="32" height="28"/>
+        <image name="XClose" width="28" height="28"/>
         <image name="locked_icon" width="258" height="258"/>
+        <image name="unlock_Button" width="173" height="59"/>
     </resources>
 </document>
