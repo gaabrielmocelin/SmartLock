@@ -18,7 +18,7 @@ class DevicesViewController: UIViewController {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.members = UserModel.shared.selectedHome!.members
+        self.members = Session.shared.selectedHome!.members
         // Do any additional setup after loading the view.
     }
 

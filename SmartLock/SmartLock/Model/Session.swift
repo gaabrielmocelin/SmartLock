@@ -1,5 +1,5 @@
 //
-//  HomeModel.swift
+//  Session.swift
 //  SmartLock
 //
 //  Created by Matheus Vaccaro on 22/02/18.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-class UserModel {
-    static let shared = UserModel()
+class Session {
+    static let shared = Session()
     
     var user: User?
     var selectedHome: Home?

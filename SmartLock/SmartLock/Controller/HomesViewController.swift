@@ -31,7 +31,7 @@ class HomesViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! UITabBarController
-        destination.title = UserModel.shared.selectedHome!.name
+        destination.title = Session.shared.selectedHome!.name
     }
     
 
@@ -39,19 +39,19 @@ class HomesViewController: UIViewController {
 
 extension HomesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return UserModel.shared.user!.homes.count
+        return Session.shared.user!.homes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
-        let home = UserModel.shared.user!.homes[indexPath.row]
+        let home = Session.shared.user!.homes[indexPath.row]
         cell.configureWith(name: home.name)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let home = UserModel.shared.user!.homes[indexPath.row]
-        UserModel.shared.selectedHome = home
+        let home = Session.shared.user!.homes[indexPath.row]
+        Session.shared.selectedHome = home
         performSegue(withIdentifier: "goToTabBar", sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }

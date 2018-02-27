@@ -15,16 +15,20 @@ class Lock: Observable {
     var lockCommunicator: LockCommunicator!
     private(set) var status: LockStatus {
         didSet {
+            if oldValue != status {
+                updateEntranceHistory()
+            }
             update(observers: observers, oldValue: oldValue, newValue: status)
         }
     }
+    private(set) var entranceHistory: [EntranceItem]
     
     init(id: String) {
         self.id = id
         self.status = .locked
+        self.entranceHistory = []
         
         self.lockCommunicator = LockCommunicator(delegate: self)
-        
     }
     
     func unlock() {
@@ -47,6 +51,13 @@ class Lock: Observable {
             let (owner, _) = entry
             return observer !== owner
         }
+    }
+    
+    // MARK: Entrance History
+    private func updateEntranceHistory() {
+        let user = Session.shared.user!.nickname
+        let entranceItem = EntranceItem(name: user, lockStatus: status)
+        self.entranceHistory.append(entranceItem)
     }
 }
 

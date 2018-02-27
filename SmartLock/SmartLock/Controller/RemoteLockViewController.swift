@@ -10,7 +10,6 @@ import UIKit
 
 class RemoteLockViewController: UIViewController {
     
-    private var user: User!
     private var lock: Lock!
     
     @IBOutlet weak var lockStatusImageView: UIImageView!
@@ -32,9 +31,7 @@ class RemoteLockViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.lock = UserModel.shared.selectedHome!.lock
-        self.user = UserModel.shared.user
+        self.lock = Session.shared.selectedHome!.lock
     }
     
     override func viewWillAppear(_ animated: Bool) {
