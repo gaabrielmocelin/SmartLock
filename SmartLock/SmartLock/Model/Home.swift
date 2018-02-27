@@ -13,20 +13,13 @@ class Home {
     var name: String
     var members: [User]
     var guests: [User]
-    var entranceHistory: [EntranceItem]
     let lock: Lock
     
-    init(id: String, name: String, members: [User], lock: Lock, entranceHistory: [EntranceItem] = []) {
+    init(id: String, name: String, members: [User], lock: Lock) {
         self.id = id
         self.name = name
         self.lock = lock
         self.members = members
         self.guests = []
-        self.entranceHistory = entranceHistory
-    }
-    
-    func updateEntranceHistoryWith(user: User, andLockStatus lockStatus: LockStatus) {
-        let entranceItem = EntranceItem(name: user.nickname, lockStatus: lockStatus, timeStamp: Date())
-        self.entranceHistory.append(entranceItem)
     }
 }
