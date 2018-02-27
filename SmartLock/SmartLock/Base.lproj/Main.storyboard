@@ -91,19 +91,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujI-vq-MaU">
-                                <rect key="frame" x="108.5" y="488" width="157" height="16"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="16" id="oHh-JV-0c5"/>
-                                </constraints>
+                                <rect key="frame" x="108.5" y="498" width="157" height="30"/>
                                 <state key="normal" title="Forgot your password?">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgY-yk-Fzv">
-                                <rect key="frame" x="124.5" y="511" width="126" height="16"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="16" id="zsy-kP-zFF"/>
-                                </constraints>
+                                <rect key="frame" x="124.5" y="525" width="126" height="30"/>
                                 <state key="normal" title="Create an account">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -120,9 +114,9 @@
                             <constraint firstItem="4lM-zb-pWj" firstAttribute="top" secondItem="gE8-zk-jWi" secondAttribute="bottom" constant="15" id="RFN-Sm-hdE"/>
                             <constraint firstItem="djR-3A-BqN" firstAttribute="top" secondItem="MEV-Ks-dcN" secondAttribute="bottom" constant="10" id="brJ-cd-zan"/>
                             <constraint firstItem="6J3-wf-Nzj" firstAttribute="trailing" secondItem="XFV-NS-aqo" secondAttribute="trailing" constant="37" id="eem-sR-A3N"/>
-                            <constraint firstItem="bgY-yk-Fzv" firstAttribute="top" secondItem="ujI-vq-MaU" secondAttribute="bottom" constant="7" id="goB-T1-duV"/>
+                            <constraint firstItem="bgY-yk-Fzv" firstAttribute="top" secondItem="ujI-vq-MaU" secondAttribute="bottom" constant="-3" id="goB-T1-duV"/>
                             <constraint firstItem="4lM-zb-pWj" firstAttribute="centerX" secondItem="RpM-b0-cDB" secondAttribute="centerX" id="gqK-D4-gWk"/>
-                            <constraint firstItem="ujI-vq-MaU" firstAttribute="top" secondItem="4lM-zb-pWj" secondAttribute="bottom" constant="10" id="iXz-D5-Bld"/>
+                            <constraint firstItem="ujI-vq-MaU" firstAttribute="top" secondItem="4lM-zb-pWj" secondAttribute="bottom" constant="20" id="iXz-D5-Bld"/>
                             <constraint firstItem="gE8-zk-jWi" firstAttribute="width" secondItem="XFV-NS-aqo" secondAttribute="width" id="kMR-4e-BKh"/>
                             <constraint firstItem="XFV-NS-aqo" firstAttribute="leading" secondItem="6J3-wf-Nzj" secondAttribute="leading" constant="37" id="o8R-xF-5JX"/>
                             <constraint firstItem="XFV-NS-aqo" firstAttribute="top" secondItem="6J3-wf-Nzj" secondAttribute="top" constant="309" id="qCu-1j-3hW"/>
