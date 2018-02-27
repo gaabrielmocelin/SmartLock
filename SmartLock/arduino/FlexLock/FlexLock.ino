@@ -38,7 +38,8 @@ boolean isUnlockActionOnTimeout = false;
 
 enum LockCommand {  LOCK_COMMAND = 'L',
                     UNLOCK_COMMAND = 'U',
-                    PROXIMITY_UNLOCK_COMMAND = 'P'
+                    PROXIMITY_UNLOCK_COMMAND = 'P',
+                    STATUS_COMMAND = 'S'
                  };
 
 enum LockMessage {  BUZZER_SENDCOMMAND = 'B',
@@ -121,6 +122,14 @@ void checkBluetoothMessages() {
       case LOCK_COMMAND:
         lock();
         sendResponse(LOCKED_SENDCOMMAND);
+      case STATUS_COMMAND:
+        switch (state) {
+          case LOCKED:
+          sendResponse(LOCKED_SENDCOMMAND);
+          break;
+          case UNLOCKED:
+          sendResponse(UNLOCKED_SENDCOMMAND);
+        }
     }
   }
 }
