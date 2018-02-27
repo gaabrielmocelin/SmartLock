@@ -90,7 +90,7 @@ class RemoteLockViewController: UIViewController {
         case .locked:
             lockButton.setImage(#imageLiteral(resourceName: "lock_button"), for: .normal)
         case .unlocked:
-            lockButton.setImage(#imageLiteral(resourceName: "locked_icon"), for: .normal)
+            lockButton.setImage(#imageLiteral(resourceName: "lock_button"), for: .normal)
         case .open:
             lockButton.setImage(#imageLiteral(resourceName: "open_button"), for: .normal)
         }
