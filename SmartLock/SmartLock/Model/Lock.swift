@@ -16,6 +16,9 @@ class Lock: Observable {
     private(set) var status: LockStatus {
         didSet {
             update(observers: observers, oldValue: oldValue, newValue: status)
+            if oldValue != status {
+                updateEntranceHistory()
+            }
         }
     }
     private(set) var entranceHistory: [EntranceItem]
@@ -69,11 +72,9 @@ extension Lock: LockCommunicatorDelegate {
         case .didAutoLock: fallthrough
         case .didLock:
             status = .locked
-            updateEntranceHistory()
         case .didUnlock: fallthrough
         case .didProximityUnlock:
             status = .unlocked
-            updateEntranceHistory()
         case .didBuzz:
             NotificationManager.shared.sendBuzzNotification(from: self)
         }
