@@ -15,15 +15,17 @@ class RemoteLockViewController: UIViewController {
     
     @IBOutlet weak var lockStatusImageView: UIImageView!
     @IBOutlet weak var lockStatusLabel: UILabel!
+    @IBOutlet weak var lockButton: UIButton!
     
     @IBAction func lockAction(_ sender: Any) {
-        lock.lock()
-        UserModel.shared.selectedHome!.updateEntranceHistoryWith(user: user, andLockStatus: .locked)
-    }
-    
-    @IBAction func unlockAction(_ sender: Any) {
-        lock.unlock()
-        UserModel.shared.selectedHome!.updateEntranceHistoryWith(user: user, andLockStatus: .unlocked)
+        switch lock.status {
+        case .locked:
+            lock.unlock()
+        case .unlocked:
+            lock.lock()
+        case .open:
+            break
+        }
     }
 
     override func viewDidLoad() {
@@ -72,6 +74,17 @@ class RemoteLockViewController: UIViewController {
         case .open:
             lockStatusLabel.text = "Open"
             lockStatusLabel.textColor = #colorLiteral(red: 1, green: 0.231372549, blue: 0.1882352941, alpha: 1)
+        }
+    }
+    
+    private func updateLockButton(to status: LockStatus) {
+        switch status{
+        case .locked:
+            lockButton.setImage(#imageLiteral(resourceName: "lock_button"), for: .normal)
+        case .unlocked:
+            lockButton.setImage(#imageLiteral(resourceName: "CameraIcon"), for: .normal)
+        case .open:
+            lockButton.setImage(#imageLiteral(resourceName: "open_button"), for: .normal)
         }
     }
 }
