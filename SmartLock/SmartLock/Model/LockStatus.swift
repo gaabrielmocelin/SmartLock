@@ -16,9 +16,12 @@ enum LockStatus {
             return "Door Locked"
         case .unlocked:
             return "Door Unlocked"
+        case .open:
+            return "Door Open"
         }
     }
     
     case locked
     case unlocked
+    case open
 }

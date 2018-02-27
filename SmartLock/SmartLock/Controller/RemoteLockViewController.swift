@@ -56,6 +56,8 @@ class RemoteLockViewController: UIViewController {
             lockStatusImageView.image = #imageLiteral(resourceName: "locked_icon")
         case .unlocked:
             lockStatusImageView.image = #imageLiteral(resourceName: "unlocked_icon")
+        case .open:
+            lockStatusImageView.image = #imageLiteral(resourceName: "open_icon")
         }
     }
     
@@ -67,6 +69,9 @@ class RemoteLockViewController: UIViewController {
         case .unlocked:
             lockStatusLabel.text = "Unlocked"
             lockStatusLabel.textColor = #colorLiteral(red: 1, green: 0.5843137255, blue: 0, alpha: 1)
+        case .open:
+            lockStatusLabel.text = "Open"
+            lockStatusLabel.textColor = #colorLiteral(red: 1, green: 0.231372549, blue: 0.1882352941, alpha: 1)
         }
     }
 }
