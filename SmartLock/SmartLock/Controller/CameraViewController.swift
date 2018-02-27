@@ -27,7 +27,7 @@ class CameraViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        lock = UserModel.shared.selectedHome?.lock
+        lock = Session.shared.selectedHome?.lock
         loadImages()
     }
     
