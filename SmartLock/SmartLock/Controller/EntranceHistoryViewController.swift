@@ -21,7 +21,7 @@ class EntranceHistoryViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.entranceHistory = UserModel.shared.selectedHome!.entranceHistory
+        self.entranceHistory = Session.shared.selectedHome!.lock.entranceHistory
         self.tableView.reloadData()
     }
     

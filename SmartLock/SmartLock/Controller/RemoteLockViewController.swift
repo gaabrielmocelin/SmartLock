@@ -32,9 +32,7 @@ class RemoteLockViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.lock = UserModel.shared.selectedHome!.lock
-        self.user = UserModel.shared.user
+        self.lock = Session.shared.selectedHome!.lock
     }
     
     override func viewWillAppear(_ animated: Bool) {
