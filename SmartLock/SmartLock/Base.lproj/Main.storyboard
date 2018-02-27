@@ -389,7 +389,7 @@
             </objects>
             <point key="canvasLocation" x="2593" y="409"/>
         </scene>
-        <!--1-->
+        <!--Door-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="RemoteLockViewController" customModule="SmartLock" customModuleProvider="target" sceneMemberID="viewController">
@@ -446,7 +446,7 @@ in order to lock it</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="1" id="LMQ-Go-Y99"/>
+                    <tabBarItem key="tabBarItem" title="Door" image="door_icon" id="LMQ-Go-Y99"/>
                     <connections>
                         <outlet property="closeDoorWarningLabel" destination="9Ks-Et-SDm" id="aif-bj-Ktr"/>
                         <outlet property="lockButton" destination="krC-lV-qJ3" id="rVB-z6-wsK"/>
@@ -589,10 +589,11 @@ in order to lock it</string>
     </scenes>
     <resources>
         <image name="DevicesIcon" width="32" height="28"/>
-        <image name="lock_button" width="173" height="59"/>
         <image name="XClose" width="28" height="28"/>
-        <image name="locked_icon" width="258" height="258"/>
-        <image name="unlock_Button" width="173" height="59"/>
+        <image name="door_icon" width="32" height="28"/>
+        <image name="lock_button" width="173" height="59"/>
+        <image name="locked_icon" width="258" height="251"/>
         <image name="login_logo" width="162" height="162"/>
+        <image name="unlock_Button" width="173" height="59"/>
     </resources>
 </document>
