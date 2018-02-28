@@ -33,6 +33,7 @@
 		E1B8A648203E097B00AC1900 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1B8A646203E097B00AC1900 /* Main.storyboard */; };
 		E1B8A64A203E097B00AC1900 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1B8A649203E097B00AC1900 /* Assets.xcassets */; };
 		E1B8A64D203E097B00AC1900 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1B8A64B203E097B00AC1900 /* LaunchScreen.storyboard */; };
+		E1E555392047523C00B3C2DB /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E555382047523C00B3C2DB /* UIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		E1B8A649203E097B00AC1900 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1B8A64C203E097B00AC1900 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1B8A64E203E097B00AC1900 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1E555382047523C00B3C2DB /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				C28C1C26204097DB001C80D6 /* Controller */,
 				C28C1C25204097D2001C80D6 /* Model */,
 				E12A661620472FC900A36B99 /* CameraImageView.swift */,
+				E1E555382047523C00B3C2DB /* UIButton.swift */,
 			);
 			path = SmartLock;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				E1B8A645203E097B00AC1900 /* RemoteLockViewController.swift in Sources */,
 				C28C1C1E203F5205001C80D6 /* HomesViewController.swift in Sources */,
 				E176937C204484E70070B68D /* TabBarController.swift in Sources */,
+				E1E555392047523C00B3C2DB /* UIButton.swift in Sources */,
 				E1B8A643203E097B00AC1900 /* AppDelegate.swift in Sources */,
 				C28C1C3020409E37001C80D6 /* LockStatus.swift in Sources */,
 				C28C1C1C203F4F3B001C80D6 /* FakeDatabase.swift in Sources */,

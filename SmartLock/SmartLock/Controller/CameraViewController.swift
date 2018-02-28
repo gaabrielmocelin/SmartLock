@@ -27,6 +27,19 @@ class CameraViewController: UIViewController {
         navigationItem.title = "\(lock.name)'s Videofeed"
     }
     
+    
+    //IT SHOULD BE DELETED LATER, ITS TO TEXT THE PUSH CAMERA VC
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidDisappear(animated)
+//
+//        let fakeDatabase = FakeDatabase()
+//        if let user = Session.shared.user{
+//            let u = fakeDatabase.users[user.login]
+//            Session.shared.selectedHome = u!.homes[1]
+//            NotificationManager.shared.sendBuzzNotification(from: Session.shared.selectedHome!.lock)
+//        }
+//    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         cameraView.stopAnimating()

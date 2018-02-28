@@ -13,22 +13,31 @@ class PushCameraViewController: UIViewController {
     @IBOutlet weak var cameraView: CameraImageView!
     @IBOutlet weak var lockButton: UIButton!
     @IBOutlet weak var lockStatusLabel: UILabel!
-    private var lock: Lock?
     private var wasUnlockedFromCamera = false
+    private var lock: Lock?{
+        return Session.shared.selectedHome?.lock
+    }
 
     @IBAction func dismiss(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func unlockButton(_ sender: Any) {
-        wasUnlockedFromCamera = true
-        lock?.unlock()
+        if let lock = lock{
+            if lock.status == .locked{
+                wasUnlockedFromCamera = true
+                lock.unlock()
+            }else if lock.status == .unlocked{
+                lock.lock()
+            }
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        lock = Session.shared.selectedHome?.lock
         cameraView.setupImages()
+        lockButton.layer.cornerRadius = lockButton.frame.size.height / 2
+        lockButton.layer.masksToBounds = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,13 +72,12 @@ class PushCameraViewController: UIViewController {
         case .locked:
             statusLabel = "Locked"
             lockStatusLabel.textColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
-            lockButton.isEnabled = true
-            lockButton.imageView?.image = #imageLiteral(resourceName: "unlock_Button")
+            enableLockButton(withTitle: "UNLOCK", color: UIColor(red: 0, green: 113/255, blue: 255/255, alpha: 1))
+            dismissIfneeded()
         case .unlocked:
             statusLabel = "Unlocked"
             lockStatusLabel.textColor = UIColor(red: 255/255, green: 149/255, blue: 0, alpha: 1)
-            dismissIfneeded()
-            disableLockButton()
+            enableLockButton(withTitle: "LOCK", color: UIColor(red: 0, green: 113/255, blue: 255/255, alpha: 1))
         case .open:
             statusLabel = "Open"
             lockStatusLabel.textColor = UIColor(red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
@@ -81,8 +89,15 @@ class PushCameraViewController: UIViewController {
         }
     }
     
+    func enableLockButton(withTitle title: String, color: UIColor) {
+        lockButton.isEnabled = true
+        lockButton.titleLabel?.text = title
+        lockButton.changeBackGroundColor(to: UIColor.lightGray, withDuration: 0.5)
+    }
+    
     func disableLockButton(){
         lockButton.isEnabled = false
+        lockButton.changeBackGroundColor(to: UIColor.lightGray, withDuration: 0.5)
     }
     
 }
