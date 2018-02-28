@@ -32,16 +32,7 @@ class EntranceHistoryViewController: UIViewController {
         self.lock = Session.shared.selectedHome!.lock
         let home = Session.shared.selectedHome!.name
         self.navigationItem.title = "\(home) \(lock.name)'s History"
-        
-        for navItem in (self.navigationController?.navigationBar.subviews)! {
-            for itemSubView in navItem.subviews {
-                if let largeLabel = itemSubView as? UILabel {
-                    largeLabel.text = self.title
-                    largeLabel.numberOfLines = 0
-                    largeLabel.lineBreakMode = .byWordWrapping
-                }
-            }
-        }
+        breakNavigationItemTitle()
         
         entranceHistory = lock.entranceHistory
         

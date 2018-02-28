@@ -45,3 +45,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension UIViewController {
+    func breakNavigationItemTitle() {
+        for navItem in (self.navigationController?.navigationBar.subviews)! {
+            for itemSubView in navItem.subviews {
+                if let largeLabel = itemSubView as? UILabel {
+                    largeLabel.text = self.title
+                    largeLabel.numberOfLines = 0
+                    largeLabel.lineBreakMode = .byWordWrapping
+                }
+            }
+        }
+    }
+}
