@@ -171,7 +171,7 @@ void checkDoor() {
   Serial.print("CM: ");
   Serial.println(distance);
   
-  delay(100);
+  delay(75);
 }
 
 void didCloseDoor() {
