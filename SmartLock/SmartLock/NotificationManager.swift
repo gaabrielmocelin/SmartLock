@@ -88,7 +88,7 @@ class NotificationManager: NSObject {
    private func openCameraViewController() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
-        if let cameraViewController = storyboard.instantiateViewController(withIdentifier: "cameraViewController") as? CameraViewController{
+        if let cameraViewController = storyboard.instantiateViewController(withIdentifier: "cameraViewController") as? PushCameraViewController{
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let window = appDelegate.window
             var topViewController = window?.rootViewController

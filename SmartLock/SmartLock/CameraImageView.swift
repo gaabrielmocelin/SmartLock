@@ -11,7 +11,6 @@ import UIKit
 class CameraImageView: UIImageView {
 
     func setupImages(){
-        func loadImages() {
             var images: [UIImage] = []
             for index in 1..<14{
                 images.append(UIImage(named: "Frame_\(index)")!)
@@ -19,7 +18,6 @@ class CameraImageView: UIImageView {
             }
             self.animationImages = images
             self.animationDuration = 1.3
-        }
     }
 
 }
