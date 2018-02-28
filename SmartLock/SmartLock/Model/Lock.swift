@@ -23,8 +23,6 @@ class Lock: Observable {
     }
     private(set) var entranceHistory: [EntranceItem]
     
-    private
-    
     init(id: String) {
         self.id = id
         self.status = .locked
