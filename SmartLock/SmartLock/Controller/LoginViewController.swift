@@ -39,9 +39,10 @@ class LoginViewController: UIViewController {
         let username = usernameTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         let user = database.verify(login: username, password: password)
-        if user != nil {
+        if let user = user {
             Session.shared.user = user
-            performSegue(withIdentifier: "goToHomes", sender: nil)
+            Session.shared.selectedHome = user.homes.first
+            performSegue(withIdentifier: "goToTabBar", sender: nil)
         }
     }
     

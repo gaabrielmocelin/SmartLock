@@ -59,7 +59,7 @@ class NotificationManager: NSObject {
     }
     
     func sendBuzzNotification(from lock: Lock) {
-        sendNotification(title: "Lock \(lock.id) is buzzing!", subtitle: "There is someone at your door", body: "take a look on the camera or send a message", type: .action, timeInterval: 1)
+        sendNotification(title: "Lock \(lock.name) is buzzing!", subtitle: "There is someone at your door", body: "take a look on the camera or send a message", type: .action, timeInterval: 1)
     }
     
     func removeAllNotifications() {

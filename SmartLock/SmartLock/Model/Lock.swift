@@ -11,7 +11,7 @@ import Foundation
 class Lock: Observable {
     typealias T = LockStatus
     
-    var id: String
+    let name: String
     var lockCommunicator: LockCommunicator!
     fileprivate(set) var status: LockStatus {
         didSet {
@@ -23,8 +23,8 @@ class Lock: Observable {
     }
     fileprivate(set) var entranceHistory: [EntranceItem]
     
-    init(id: String, isWireless: Bool = true) {
-        self.id = id
+    init(name: String, isWireless: Bool = true) {
+        self.name = name
         self.status = .locked
         self.entranceHistory = []
         
@@ -98,8 +98,8 @@ extension Lock: LockCommunicatorDelegate {
 
 class MockLock: Lock {
     
-    override init(id: String, isWireless: Bool = true) {
-        super.init(id: id, isWireless: false)
+    override init(name: String, isWireless: Bool = true) {
+        super.init(name: name, isWireless: false)
     }
     
     override func unlock() {

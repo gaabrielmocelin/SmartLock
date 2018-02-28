@@ -13,12 +13,11 @@ class DevicesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var members: [User]!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.members = Session.shared.selectedHome!.members
         // Do any additional setup after loading the view.
     }
 
@@ -27,6 +26,13 @@ class DevicesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.members = Session.shared.selectedHome!.members
+        let home = Session.shared.selectedHome!.name
+        self.navigationItem.title = "\(home)'s Devices"
+        
+    }
 
     /*
     // MARK: - Navigation
