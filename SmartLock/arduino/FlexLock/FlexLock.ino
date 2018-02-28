@@ -27,6 +27,10 @@ int button3State = 0;
 enum LockState { LOCKED, UNLOCKED };
 LockState state;
 
+// Door stuff
+enum DoorState { OPEN, CLOSED };
+DoorState doorState;
+
 const unsigned long int LOCK_UPDATE_DELAY = 600;
 unsigned long int lockUpdateTimestamp;
 boolean isLockUpdating = false;
@@ -39,6 +43,10 @@ const unsigned long int UNLOCK_ACTION_TIMEOUT_DELAY = 5000;
 unsigned long int unlockActionTimeoutTimestamp;
 boolean isUnlockActionOnTimeout = false;
 
+const unsigned long int PROXIMITY_UNLOCK_ACTION_TIMEOUT_DELAY = 15000;
+unsigned long int proximityUnlockActionTimeoutTimestamp;
+boolean isProximityUnlockActionOnTimeout = false;
+
 // Bluetooth commands
 
 enum LockCommand {  LOCK_COMMAND = 'L',
@@ -50,7 +58,8 @@ enum LockCommand {  LOCK_COMMAND = 'L',
 enum LockMessage {  BUZZER_SENDCOMMAND = 'B',
                     LOCKED_SENDCOMMAND = 'L',
                     UNLOCKED_SENDCOMMAND = 'U',
-                    PROXIMITY_UNLOCKED_SENDCOMMAND = 'P'
+                    PROXIMITY_UNLOCKED_SENDCOMMAND = 'P',
+                    OPEN_SENDCOMMAND = 'O'
                  };
 
 void setup() {
@@ -76,7 +85,7 @@ uint8_t byteRead = 0;
 int once = 0;
 
 void loop() {
-  
+
   checkLock();
 
   checkButtons();
@@ -106,6 +115,12 @@ void checkLock() {
       isUnlockActionOnTimeout = false;
     }
   }
+
+  if (isProximityUnlockActionOnTimeout) {
+    if (millis() - proximityUnlockActionTimeoutTimestamp >= PROXIMITY_UNLOCK_ACTION_TIMEOUT_DELAY) {
+      isProximityUnlockActionOnTimeout = false;
+    }
+  }
 }
 
 void checkButtons() {
@@ -120,24 +135,32 @@ void checkBluetoothMessages() {
 
     switch (byteRead) {
       case UNLOCK_COMMAND:
-        unlock();
-        sendResponse(UNLOCKED_SENDCOMMAND);
+        if (unlock())
+          sendResponse(UNLOCKED_SENDCOMMAND);
         break;
       case PROXIMITY_UNLOCK_COMMAND:
-        unlock();
-        sendResponse(PROXIMITY_UNLOCKED_SENDCOMMAND);
+        if (doorState == CLOSED && proximityUnlock()) {
+            sendResponse(PROXIMITY_UNLOCKED_SENDCOMMAND);  
+        }
         //do more stuff
         break;
       case LOCK_COMMAND:
-        lock();
+        if (lock())
         sendResponse(LOCKED_SENDCOMMAND);
       case STATUS_COMMAND:
+        switch (doorState) {
+          case OPEN:
+            sendResponse(OPEN_SENDCOMMAND);
+            return;
+          case CLOSED:
+            break;
+        }
         switch (state) {
           case LOCKED:
-          sendResponse(LOCKED_SENDCOMMAND);
-          break;
+            sendResponse(LOCKED_SENDCOMMAND);
+            break;
           case UNLOCKED:
-          sendResponse(UNLOCKED_SENDCOMMAND);
+            sendResponse(UNLOCKED_SENDCOMMAND);
         }
     }
   }
@@ -158,24 +181,33 @@ void checkDoor() {
   digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
- 
+
   // Read the signal from the sensor: a HIGH pulse whose
   // duration is the time (in microseconds) from the sending
   // of the ping to the reception of its echo off of an object.
   duration = pulseIn(echoPin, HIGH);
- 
+
   // convert the time into a distance
-//  cm = (duration/2) / 29.1;
-  distance = (duration*.0343)/2;
-  
-  Serial.print("CM: ");
-  Serial.println(distance);
-  
-  delay(75);
+  distance = (duration * .0343) / 2;
+
+  if (doorState == CLOSED && distance >= 15) {
+    doorState = OPEN;
+    sendResponse(OPEN_SENDCOMMAND);
+  } else if (doorState == OPEN && distance < 15) {
+    doorState = CLOSED;
+    didCloseDoor();
+  }
+
+  //Serial.print("CM: ");
+  //Serial.println(distance);
+
+  //delay(75);
 }
 
 void didCloseDoor() {
-  lock();
+  if (lock())
+    sendResponse(LOCKED_SENDCOMMAND);
+  timeOutProximityUnlockAction();
 }
 
 void checkLockButton() {
@@ -187,12 +219,12 @@ void checkLockButton() {
   if (button1State == LOW || button2State == LOW) {
     switch (state) {
       case LOCKED:
-        unlock();
-        sendResponse(UNLOCKED_SENDCOMMAND);
+        if (unlock())
+          sendResponse(UNLOCKED_SENDCOMMAND);
         break;
       case UNLOCKED:
-        lock();
-        sendResponse(LOCKED_SENDCOMMAND);
+        if (lock())
+          sendResponse(LOCKED_SENDCOMMAND);
     }
   }
 
@@ -214,20 +246,32 @@ void sendBuzzNotification() {
   delay(75);
 }
 
-void unlock() {
-  if(isLockActionOnTimeout) return;
-  
+boolean unlock() {
+  if (isUnlockActionOnTimeout) return false;
+
   lockUpdateTimestamp = millis();
   isLockUpdating = true;
   tranca.write(0);
   state = UNLOCKED;
+
+  return true;
 }
 
-void lock() {
+boolean lock() {
+//  if (isLockActionOnTimeout) return false;
+  
   lockUpdateTimestamp = millis();
   isLockUpdating = true;
   tranca.write(150);
   state = LOCKED;
+
+  return true;
+}
+
+boolean proximityUnlock() {
+  if (isProximityUnlockActionOnTimeout) return false;
+
+  return unlock();
 }
 
 void timeOutLockAction() {
@@ -238,6 +282,11 @@ void timeOutLockAction() {
 void timeOutUnlockAction() {
   unlockActionTimeoutTimestamp = millis();
   isUnlockActionOnTimeout = true;
+}
+
+void timeOutProximityUnlockAction() {
+  proximityUnlockActionTimeoutTimestamp = millis();
+  isProximityUnlockActionOnTimeout = true;
 }
 
 void updateLockStatusColor() {
