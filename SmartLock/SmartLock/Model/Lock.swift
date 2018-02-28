@@ -28,7 +28,7 @@ class Lock: Observable {
         self.status = .locked
         self.entranceHistory = []
         
-        if shouldStart {
+        if isWireless {
             self.lockCommunicator = LockCommunicator(delegate: self)
             defer {
                 lockCommunicator.send(command: .status)
