@@ -98,8 +98,8 @@ extension Lock: LockCommunicatorDelegate {
 
 class MockLock: Lock {
     
-    override init(id: String, isWireless: Bool = true) {
-        super.init(id: id, isWireless: false)
+    override init(name: String, isWireless: Bool = true) {
+        super.init(name: name, isWireless: false)
     }
     
     override func unlock() {

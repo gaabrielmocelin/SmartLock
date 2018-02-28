@@ -37,8 +37,7 @@ class RemoteLockViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.lock = Session.shared.selectedHome!.lock
-        let home = Session.shared.selectedHome!.name
-        self.navigationItem.title = "\(home) \(lock.name)"
+        self.navigationItem.title = "\(lock.name)"
         
         updateLockStatusImageView(to: lock.status)
         updateLockStatusLabel(to: lock.status)

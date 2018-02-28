@@ -30,8 +30,7 @@ class EntranceHistoryViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.lock = Session.shared.selectedHome!.lock
-        let home = Session.shared.selectedHome!.name
-        self.navigationItem.title = "\(home) \(lock.name)'s History"
+        self.navigationItem.title = "\(lock.name)'s History"
         breakNavigationItemTitle()
         
         entranceHistory = lock.entranceHistory
