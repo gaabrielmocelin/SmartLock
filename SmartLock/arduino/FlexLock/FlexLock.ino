@@ -10,9 +10,14 @@ const int button3Pin = 6;
 
 const int piezoPin = 3;
 
-const int redPin = 11;
-const int greenPin = 10;
-const int bluePin = 9;
+const int redPin = 10;
+const int greenPin = 9;
+const int bluePin = 8;
+
+const int trigPin = 11;
+const int echoPin = 12;
+
+long duration, distance;
 
 int button1State = 0;
 int button2State = 0;
@@ -57,6 +62,8 @@ void setup() {
   pinMode(greenPin, OUTPUT);
   pinMode(bluePin, OUTPUT);
   pinMode(piezoPin, OUTPUT);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
 
   lock();
   updateLockStatusColor();
@@ -69,6 +76,7 @@ uint8_t byteRead = 0;
 int once = 0;
 
 void loop() {
+  
   checkLock();
 
   checkButtons();
@@ -76,6 +84,7 @@ void loop() {
   checkBluetoothMessages();
 
   checkDoor();
+
 }
 
 void checkLock() {
@@ -141,6 +150,28 @@ void sendResponse(LockMessage message) {
 
 void checkDoor() {
   //if (isDoorOpen) didOpenDoor(); --something like that
+
+  // The sensor is triggered by a HIGH pulse of 10 or more microseconds.
+  // Give a short LOW pulse beforehand to ensure a clean HIGH pulse:
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(5);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+ 
+  // Read the signal from the sensor: a HIGH pulse whose
+  // duration is the time (in microseconds) from the sending
+  // of the ping to the reception of its echo off of an object.
+  duration = pulseIn(echoPin, HIGH);
+ 
+  // convert the time into a distance
+//  cm = (duration/2) / 29.1;
+  distance = (duration*.0343)/2;
+  
+  Serial.print("CM: ");
+  Serial.println(distance);
+  
+  delay(100);
 }
 
 void didCloseDoor() {
