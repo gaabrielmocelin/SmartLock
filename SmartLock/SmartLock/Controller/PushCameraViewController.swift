@@ -21,8 +21,8 @@ class PushCameraViewController: UIViewController {
     }
     
     @IBAction func unlockButton(_ sender: Any) {
-        lock?.unlock()
         wasUnlockedFromCamera = true
+        lock?.unlock()
     }
     
     override func viewDidLoad() {
@@ -49,26 +49,40 @@ class PushCameraViewController: UIViewController {
         cameraView.stopAnimating()
     }
     
+    private func dismissIfneeded() {
+        if wasUnlockedFromCamera{
+            Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { (timer) in
+                self.dismiss(animated: true, completion: nil)
+            })
+        }
+    }
+    
     private func changeLockViews(to status: LockStatus){
         var statusLabel = ""
         switch status {
         case .locked:
             statusLabel = "Locked"
+            lockStatusLabel.textColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+            lockButton.isEnabled = true
             lockButton.imageView?.image = #imageLiteral(resourceName: "unlock_Button")
         case .unlocked:
             statusLabel = "Unlocked"
-            if wasUnlockedFromCamera{
-                Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { (timer) in
-                    self.dismiss(animated: true, completion: nil)
-                })
-            }
-//            lockButton.imageView?.image = #imageLiteral(resourceName: "lock_button")
+            lockStatusLabel.textColor = UIColor(red: 255/255, green: 149/255, blue: 0, alpha: 1)
+            dismissIfneeded()
+            disableLockButton()
         case .open:
-            print("the door is open, you should do something")
+            statusLabel = "Open"
+            lockStatusLabel.textColor = UIColor(red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
+            disableLockButton()
         }
         
         DispatchQueue.main.async {
             self.lockStatusLabel.text = statusLabel
         }
     }
+    
+    func disableLockButton(){
+        lockButton.isEnabled = false
+    }
+    
 }
