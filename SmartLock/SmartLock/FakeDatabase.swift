@@ -15,7 +15,8 @@ class FakeDatabase {
         let user = User(login: "", nickname: "João", password: "")
         let lock = Lock(id: "1")
         let home = Home(id: "1", name: "Home", members: [user], lock: lock)
-        user.homes = [home]
+        let mockHome = Home(id: "2", name: "Mock", members: [user], lock: MockLock(id: "2"))
+        user.homes = [home, mockHome]
         
         self.users = [user.login : user]
         
