@@ -23,18 +23,6 @@ class HomesViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! UITabBarController
-        destination.title = Session.shared.selectedHome!.name
-    }
-    
-
 }
 
 extension HomesViewController: UITableViewDelegate, UITableViewDataSource {
@@ -46,13 +34,24 @@ extension HomesViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
         let home = Session.shared.user!.homes[indexPath.row]
         cell.configureWith(name: home.name)
+        
+        cell.accessoryType = home === Session.shared.selectedHome! ? .checkmark : .none
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Removes checkmark from previously selected home
+        let oldSelectedHome = Session.shared.selectedHome
+        let oldSelectedHomeIndex = Session.shared.user!.homes.index{ $0 === oldSelectedHome }!
+        tableView.cellForRow(at: IndexPath(row: oldSelectedHomeIndex, section: 0))!.accessoryType = .none
+        
+        // Adds checkmark to new selected home
+        let newHomeCell = tableView.cellForRow(at: indexPath)!
+        newHomeCell.accessoryType = .checkmark
+        
         let home = Session.shared.user!.homes[indexPath.row]
         Session.shared.selectedHome = home
-        performSegue(withIdentifier: "goToTabBar", sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

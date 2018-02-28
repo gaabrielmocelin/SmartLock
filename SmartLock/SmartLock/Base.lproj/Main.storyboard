@@ -139,75 +139,69 @@
         <!--Settings-->
         <scene sceneID="zOa-Xj-aNl">
             <objects>
-                <tableViewController title="Settings" id="TVr-63-XTL" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="YXq-yE-fQQ">
+                <tableViewController title="Settings" id="TVr-63-XTL" customClass="SettingsTableViewController" customModule="SmartLock" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="YXq-yE-fQQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <sections>
-                            <tableViewSection headerTitle="Home settings" id="IrC-Fs-sIy">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="yin-rX-sZJ" detailTextLabel="FeL-iJ-lxl" style="IBUITableViewCellStyleValue1" id="yMd-VZ-KIm">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yMd-VZ-KIm" id="kNc-Rk-xJj">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectedHomeCell" textLabel="yin-rX-sZJ" detailTextLabel="FeL-iJ-lxl" style="IBUITableViewCellStyleValue1" id="yMd-VZ-KIm">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yMd-VZ-KIm" id="kNc-Rk-xJj">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Change place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yin-rX-sZJ">
+                                            <rect key="frame" x="16" y="12" width="105" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Switch homes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yin-rX-sZJ">
-                                                    <rect key="frame" x="16" y="12" width="107.5" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Beach House" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FeL-iJ-lxl">
-                                                    <rect key="frame" x="257" y="12" width="102" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="55s-MZ-KoJ" kind="showDetail" id="ynw-dY-sSs"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="User" id="X1z-Br-wvR">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="X7m-GN-F12" style="IBUITableViewCellStyleDefault" id="geC-So-0fN">
-                                        <rect key="frame" x="0.0" y="155.5" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="geC-So-0fN" id="v1i-Ac-cnW">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" tag="1" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Home" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FeL-iJ-lxl">
+                                            <rect key="frame" x="313" y="12" width="46" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X7m-GN-F12">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="7Vj-iJ-ShN" kind="unwind" unwindAction="unwindToLoginWithSegue:" id="mZb-ft-b1E"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="55s-MZ-KoJ" kind="show" id="vXj-PS-moo"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="logoutCell" textLabel="v5m-gn-6jJ" style="IBUITableViewCellStyleDefault" id="UAv-PJ-zuS">
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UAv-PJ-zuS" id="FFl-2e-Zjr">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="v5m-gn-6jJ">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="7Vj-iJ-ShN" kind="unwind" unwindAction="unwindToLoginWithSegue:" id="QsM-qM-xKc"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="TVr-63-XTL" id="UY0-bi-MFP"/>
                             <outlet property="delegate" destination="TVr-63-XTL" id="edw-o5-Pac"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="mWC-mB-nER"/>
+                    <navigationItem key="navigationItem" title="Account" largeTitleDisplayMode="always" id="mWC-mB-nER"/>
                     <connections>
+                        <outlet property="tableView" destination="YXq-yE-fQQ" id="mOC-Id-a40"/>
                         <segue destination="7Vj-iJ-ShN" kind="unwind" identifier="logoutSegue" unwindAction="unwindToLoginWithSegue:" id="2jM-0P-gxc"/>
                     </connections>
                 </tableViewController>
@@ -232,18 +226,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="nUU-M8-ffn">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeTableViewCell" rowHeight="61" id="ww3-UF-kvd" customClass="HomeTableViewCell" customModule="SmartLock" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HomeTableViewCell" rowHeight="61" id="ww3-UF-kvd" customClass="HomeTableViewCell" customModule="SmartLock" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ww3-UF-kvd" id="ZME-Gc-5Dp">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="60.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="336" height="60.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSm-UW-ozH">
-                                                    <rect key="frame" x="15" y="11" width="319" height="39"/>
+                                                    <rect key="frame" x="15" y="11" width="313" height="39"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -258,6 +252,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="iSm-UW-ozH" id="qyh-vi-Lzh"/>
+                                            <segue destination="xJC-jv-omA" kind="unwind" unwindAction="unwindToSettingsWithSegue:" id="mAh-gd-0aO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -275,9 +270,11 @@
                     <navigationItem key="navigationItem" title="Places" id="NWb-fR-L1W"/>
                     <connections>
                         <outlet property="tableView" destination="nUU-M8-ffn" id="pgn-RV-dFC"/>
+                        <segue destination="xJC-jv-omA" kind="unwind" unwindAction="unwindToSettingsWithSegue:" id="CWv-JY-tbc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9jG-sA-IHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="xJC-jv-omA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3057" y="1180"/>
         </scene>
@@ -676,11 +673,11 @@ in order to lock it</string>
             </objects>
             <point key="canvasLocation" x="1649" y="409"/>
         </scene>
-        <!--4-->
+        <!--Account-->
         <scene sceneID="2S3-GM-dTC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AWa-E8-qOj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="4" id="o8Z-A7-g89"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="account_icon" id="o8Z-A7-g89"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="5G1-oG-m6Y">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
@@ -699,6 +696,7 @@ in order to lock it</string>
     <resources>
         <image name="DevicesIcon" width="32" height="28"/>
         <image name="XClose" width="28" height="28"/>
+        <image name="account_icon" width="32" height="28"/>
         <image name="door_icon" width="32" height="28"/>
         <image name="lock_button" width="173" height="59"/>
         <image name="locked_icon" width="258" height="251"/>
