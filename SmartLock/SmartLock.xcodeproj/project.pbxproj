@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		293979A7204492B80076CFCA /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293979A6204492B80076CFCA /* Observable.swift */; };
+		293979AB204735BB0076CFCA /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293979AA204735BB0076CFCA /* SettingsTableViewController.swift */; };
 		C28C1C18203F396B001C80D6 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C17203F396B001C80D6 /* Session.swift */; };
 		C28C1C1A203F48EA001C80D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C19203F48EA001C80D6 /* LoginViewController.swift */; };
 		C28C1C1C203F4F3B001C80D6 /* FakeDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C1B203F4F3B001C80D6 /* FakeDatabase.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		293979A6204492B80076CFCA /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		293979AA204735BB0076CFCA /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		C28C1C17203F396B001C80D6 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		C28C1C19203F48EA001C80D6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C28C1C1B203F4F3B001C80D6 /* FakeDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDatabase.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				C28C1C2120408B9F001C80D6 /* EntranceHistoryViewController.swift */,
 				C28C1C2320408EA9001C80D6 /* EntranceHistoryTableViewCell.swift */,
 				E17693792044514E0070B68D /* CameraViewController.swift */,
+				293979AA204735BB0076CFCA /* SettingsTableViewController.swift */,
 				C28C1C33204437FB001C80D6 /* DevicesViewController.swift */,
 				C28C1C3520443815001C80D6 /* GuestDeviceTableViewCell.swift */,
 			);
@@ -228,6 +231,7 @@
 				C28C1C1C203F4F3B001C80D6 /* FakeDatabase.swift in Sources */,
 				E1AB627D20408D2500122CC7 /* NotificationManager.swift in Sources */,
 				C28C1C2C20409AC3001C80D6 /* Lock.swift in Sources */,
+				293979AB204735BB0076CFCA /* SettingsTableViewController.swift in Sources */,
 				C28C1C1A203F48EA001C80D6 /* LoginViewController.swift in Sources */,
 				C28C1C20203F56B9001C80D6 /* HomeTableViewCell.swift in Sources */,
 				C28C1C3620443815001C80D6 /* GuestDeviceTableViewCell.swift in Sources */,
@@ -372,7 +376,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4F4P935HBL;
+				DEVELOPMENT_TEAM = LY74HQDURM;
 				INFOPLIST_FILE = SmartLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gabrielmocelin.SmartLock;
@@ -387,7 +391,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4F4P935HBL;
+				DEVELOPMENT_TEAM = LY74HQDURM;
 				INFOPLIST_FILE = SmartLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gabrielmocelin.SmartLock;
