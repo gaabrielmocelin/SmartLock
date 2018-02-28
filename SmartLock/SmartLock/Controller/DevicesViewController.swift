@@ -53,42 +53,56 @@ extension DevicesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // + 1 represents the New Invite button
         if section == 0 {
-            return members.count
+            return members.count + 1
         } else {
-            return 1
+            return 1 + 1
         }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "CONNECTED DEVICES"
+            return "MEMBER DEVICES"
         } else {
-            return "INVITES"
+            return "TEMPORARY DEVICES"
         }
     }
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        if section == 0 {
-            return "This is a sample description that sits below a group."
-        } else {
-            return "An invite will expire after 24 hours."
+        if section == 1 {
+            return "An invite will expire after 24 hours if a timeframe is not set."
         }
+        return nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
+            if indexPath.row == members.count {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "newInviteTableViewCell", for: indexPath) as! NewInviteTableViewCell
+                cell.configureWith(title: "New Member")
+                return cell
+            }
             let cell = tableView.dequeueReusableCell(withIdentifier: "deviceTableViewCell", for: indexPath)
             cell.textLabel?.text = members[indexPath.row].nickname
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "guestDeviceTableViewCell", for: indexPath) as! GuestDeviceTableViewCell
-            cell.configureWith(title: "Marco", startingTime: Date(), endingTime: Date().addingTimeInterval(7200))
-            return cell
+            if indexPath.row == 1 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "newInviteTableViewCell", for: indexPath) as! NewInviteTableViewCell
+                cell.configureWith(title: "New Invite")
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "guestDeviceTableViewCell", for: indexPath) as! GuestDeviceTableViewCell
+                cell.configureWith(title: "Marco", startingTime: Date(), endingTime: Date().addingTimeInterval(7200))
+                return cell
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && indexPath.row == members.count || indexPath.section == 1 && indexPath.row == 1 {
+            performSegue(withIdentifier: "goToNewInvite", sender: self)
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

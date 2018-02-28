@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		293979A7204492B80076CFCA /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293979A6204492B80076CFCA /* Observable.swift */; };
 		293979AB204735BB0076CFCA /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293979AA204735BB0076CFCA /* SettingsTableViewController.swift */; };
+		C20BF4972047409F00126C78 /* NewInviteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20BF4962047409F00126C78 /* NewInviteTableViewCell.swift */; };
 		C28C1C18203F396B001C80D6 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C17203F396B001C80D6 /* Session.swift */; };
 		C28C1C1A203F48EA001C80D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C19203F48EA001C80D6 /* LoginViewController.swift */; };
 		C28C1C1C203F4F3B001C80D6 /* FakeDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C1B203F4F3B001C80D6 /* FakeDatabase.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		293979A6204492B80076CFCA /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		293979AA204735BB0076CFCA /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		C20BF4962047409F00126C78 /* NewInviteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInviteTableViewCell.swift; sourceTree = "<group>"; };
 		C28C1C17203F396B001C80D6 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		C28C1C19203F48EA001C80D6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C28C1C1B203F4F3B001C80D6 /* FakeDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDatabase.swift; sourceTree = "<group>"; };
@@ -103,9 +105,10 @@
 				C28C1C2320408EA9001C80D6 /* EntranceHistoryTableViewCell.swift */,
 				E17693792044514E0070B68D /* PushCameraViewController.swift */,
 				293979AA204735BB0076CFCA /* SettingsTableViewController.swift */,
+				E17693792044514E0070B68D /* CameraViewController.swift */,
 				C28C1C33204437FB001C80D6 /* DevicesViewController.swift */,
 				C28C1C3520443815001C80D6 /* GuestDeviceTableViewCell.swift */,
-				E12A6618204732F400A36B99 /* CameraViewController.swift */,
+				C20BF4962047409F00126C78 /* NewInviteTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				C28C1C2420408EA9001C80D6 /* EntranceHistoryTableViewCell.swift in Sources */,
 				293979A7204492B80076CFCA /* Observable.swift in Sources */,
 				E1B8A645203E097B00AC1900 /* RemoteLockViewController.swift in Sources */,
+				C20BF4972047409F00126C78 /* NewInviteTableViewCell.swift in Sources */,
 				C28C1C1E203F5205001C80D6 /* HomesViewController.swift in Sources */,
 				E1E555392047523C00B3C2DB /* UIButton.swift in Sources */,
 				E1B8A643203E097B00AC1900 /* AppDelegate.swift in Sources */,
