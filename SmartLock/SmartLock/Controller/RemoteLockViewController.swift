@@ -31,11 +31,13 @@ class RemoteLockViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.lock = Session.shared.selectedHome!.lock
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.lock = Session.shared.selectedHome!.lock
+        self.navigationItem.title = "\(lock.id)"
         
         updateLockStatusImageView(to: lock.status)
         updateLockStatusLabel(to: lock.status)
