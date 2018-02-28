@@ -12,6 +12,10 @@ class CameraViewController: UIViewController {
 
     @IBOutlet weak var cameraView: CameraImageView!
     
+    var lock: Lock{
+        return (Session.shared.selectedHome?.lock)!
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         cameraView.setupImages()
@@ -20,6 +24,7 @@ class CameraViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         cameraView.startAnimating()
+        navigationItem.title = "\(lock.name)'s Videofeed"
     }
     
     override func viewDidDisappear(_ animated: Bool) {
