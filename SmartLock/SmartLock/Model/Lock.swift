@@ -23,12 +23,18 @@ class Lock: Observable {
     }
     private(set) var entranceHistory: [EntranceItem]
     
+    private
+    
     init(id: String) {
         self.id = id
         self.status = .locked
         self.entranceHistory = []
         
         self.lockCommunicator = LockCommunicator(delegate: self)
+        
+        defer {
+            lockCommunicator.send(command: .status)
+        }
     }
     
     func unlock() {
