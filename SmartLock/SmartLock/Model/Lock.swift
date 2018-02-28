@@ -11,9 +11,9 @@ import Foundation
 class Lock: Observable {
     typealias T = LockStatus
     
-    let id: String
+    var id: String
     var lockCommunicator: LockCommunicator!
-    private(set) var status: LockStatus {
+    fileprivate(set) var status: LockStatus {
         didSet {
             if oldValue != status {
                 updateEntranceHistory()
@@ -21,17 +21,18 @@ class Lock: Observable {
             update(observers: observers, oldValue: oldValue, newValue: status)
         }
     }
-    private(set) var entranceHistory: [EntranceItem]
+    fileprivate(set) var entranceHistory: [EntranceItem]
     
-    init(id: String) {
+    init(id: String, isWireless: Bool = true) {
         self.id = id
         self.status = .locked
         self.entranceHistory = []
         
-        self.lockCommunicator = LockCommunicator(delegate: self)
-        
-        defer {
-            lockCommunicator.send(command: .status)
+        if shouldStart {
+            self.lockCommunicator = LockCommunicator(delegate: self)
+            defer {
+                lockCommunicator.send(command: .status)
+            }
         }
     }
     
@@ -93,5 +94,19 @@ extension Lock: LockCommunicatorDelegate {
     func communicator(_ communicator: LockCommunicator, didWrite data: Data) {
         // Do nothing
     }
+}
+
+class MockLock: Lock {
     
+    override init(id: String, isWireless: Bool = true) {
+        super.init(id: id, isWireless: false)
+    }
+    
+    override func unlock() {
+        status = .unlocked
+    }
+    
+    override func lock() {
+        status = .locked
+    }
 }
