@@ -10,7 +10,7 @@ import UIKit
 
 class CameraViewController: UIViewController {
     
-    @IBOutlet weak var cameraView: UIImageView!
+    @IBOutlet weak var cameraView: CameraImageView!
     @IBOutlet weak var lockButton: UIButton!
     @IBOutlet weak var lockStatusLabel: UILabel!
     private var lock: Lock?
@@ -28,7 +28,7 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         lock = Session.shared.selectedHome?.lock
-        loadImages()
+        cameraView.setupImages()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,15 +70,5 @@ class CameraViewController: UIViewController {
         DispatchQueue.main.async {
             self.lockStatusLabel.text = statusLabel
         }
-    }
-    
-    func loadImages() {
-        var images: [UIImage] = []
-        for index in 1..<14{
-            images.append(UIImage(named: "Frame_\(index)")!)
-            print("Frame_\(index)")
-        }
-        cameraView.animationImages = images
-        cameraView.animationDuration = 1.3
     }
 }
