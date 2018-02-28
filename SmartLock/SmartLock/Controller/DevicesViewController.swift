@@ -13,10 +13,7 @@ class DevicesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var members: [User]!
-    private var lock: Lock! {
-        return Session.shared.selectedHome!.lock
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
@@ -32,7 +29,9 @@ class DevicesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.members = Session.shared.selectedHome!.members
-        self.navigationItem.title = "\(lock.id)'s Devices"
+        let home = Session.shared.selectedHome!.name
+        self.navigationItem.title = "\(home)'s Devices"
+        
     }
 
     /*
