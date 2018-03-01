@@ -28,11 +28,12 @@ class GuestDeviceTableViewCell: UITableViewCell {
         self.titleLabel.text = title
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .none
+        dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
         let start = dateFormatter.string(from: startingTime)
         let end = dateFormatter.string(from: endingTime)
-        self.timeFrameLabel.text = "\(start) - \(end)"
+//        self.timeFrameLabel.text = "\(start) - \(end)"
+        self.timeFrameLabel.text = "Valid until \(end)"
     }
 
 }

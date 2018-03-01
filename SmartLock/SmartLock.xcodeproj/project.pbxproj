@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		293979A7204492B80076CFCA /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293979A6204492B80076CFCA /* Observable.swift */; };
 		293979AB204735BB0076CFCA /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293979AA204735BB0076CFCA /* SettingsTableViewController.swift */; };
+		C20BF4972047409F00126C78 /* NewInviteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20BF4962047409F00126C78 /* NewInviteTableViewCell.swift */; };
+		C20BF4992047463B00126C78 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20BF4982047463B00126C78 /* InviteViewController.swift */; };
+		C20BF49B2047B0CA00126C78 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20BF49A2047B0C900126C78 /* Eureka.framework */; };
+		C20BF49C2047B0CA00126C78 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C20BF49A2047B0C900126C78 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C249EB5220483D6D00B92471 /* Guest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249EB5120483D6D00B92471 /* Guest.swift */; };
+		C249EB5C204866E000B92471 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249EB5B204866E000B92471 /* CameraViewController.swift */; };
 		C28C1C18203F396B001C80D6 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C17203F396B001C80D6 /* Session.swift */; };
 		C28C1C1A203F48EA001C80D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C19203F48EA001C80D6 /* LoginViewController.swift */; };
 		C28C1C1C203F4F3B001C80D6 /* FakeDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C1B203F4F3B001C80D6 /* FakeDatabase.swift */; };
@@ -24,7 +30,6 @@
 		C28C1C34204437FB001C80D6 /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C33204437FB001C80D6 /* DevicesViewController.swift */; };
 		C28C1C3620443815001C80D6 /* GuestDeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C3520443815001C80D6 /* GuestDeviceTableViewCell.swift */; };
 		E12A661720472FC900A36B99 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A661620472FC900A36B99 /* UIImageView.swift */; };
-		E12A6619204732F400A36B99 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A6618204732F400A36B99 /* CameraViewController.swift */; };
 		E12F7B58203F2FF800D39201 /* LockCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F7B57203F2FF800D39201 /* LockCommunicator.swift */; };
 		E176937A2044514E0070B68D /* PushCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17693792044514E0070B68D /* PushCameraViewController.swift */; };
 		E1AB627D20408D2500122CC7 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AB627C20408D2500122CC7 /* NotificationManager.swift */; };
@@ -36,9 +41,28 @@
 		E1E555392047523C00B3C2DB /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E555382047523C00B3C2DB /* UIButton.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C20BF49D2047B0CA00126C78 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C20BF49C2047B0CA00126C78 /* Eureka.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		293979A6204492B80076CFCA /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		293979AA204735BB0076CFCA /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		C20BF4962047409F00126C78 /* NewInviteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInviteTableViewCell.swift; sourceTree = "<group>"; };
+		C20BF4982047463B00126C78 /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
+		C20BF49A2047B0C900126C78 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Eureka.framework; sourceTree = "<group>"; };
+		C249EB5120483D6D00B92471 /* Guest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guest.swift; sourceTree = "<group>"; };
+		C249EB5B204866E000B92471 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		C28C1C17203F396B001C80D6 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		C28C1C19203F48EA001C80D6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C28C1C1B203F4F3B001C80D6 /* FakeDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDatabase.swift; sourceTree = "<group>"; };
@@ -54,7 +78,6 @@
 		C28C1C33204437FB001C80D6 /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
 		C28C1C3520443815001C80D6 /* GuestDeviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestDeviceTableViewCell.swift; sourceTree = "<group>"; };
 		E12A661620472FC900A36B99 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
-		E12A6618204732F400A36B99 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		E12F7B57203F2FF800D39201 /* LockCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockCommunicator.swift; sourceTree = "<group>"; };
 		E17693792044514E0070B68D /* PushCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushCameraViewController.swift; sourceTree = "<group>"; };
 		E1AB627C20408D2500122CC7 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -73,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C20BF49B2047B0CA00126C78 /* Eureka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +112,7 @@
 				C28C1C2B20409AC3001C80D6 /* Lock.swift */,
 				C28C1C2D20409C3E001C80D6 /* EntranceItem.swift */,
 				C28C1C2F20409E37001C80D6 /* LockStatus.swift */,
+				C249EB5120483D6D00B92471 /* Guest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -95,17 +120,19 @@
 		C28C1C26204097DB001C80D6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C249EB5B204866E000B92471 /* CameraViewController.swift */,
 				C28C1C19203F48EA001C80D6 /* LoginViewController.swift */,
 				C28C1C1D203F5205001C80D6 /* HomesViewController.swift */,
 				C28C1C1F203F56B9001C80D6 /* HomeTableViewCell.swift */,
 				E1B8A644203E097B00AC1900 /* RemoteLockViewController.swift */,
 				C28C1C2120408B9F001C80D6 /* EntranceHistoryViewController.swift */,
 				C28C1C2320408EA9001C80D6 /* EntranceHistoryTableViewCell.swift */,
-				E17693792044514E0070B68D /* PushCameraViewController.swift */,
 				293979AA204735BB0076CFCA /* SettingsTableViewController.swift */,
+				E17693792044514E0070B68D /* PushCameraViewController.swift */,
 				C28C1C33204437FB001C80D6 /* DevicesViewController.swift */,
 				C28C1C3520443815001C80D6 /* GuestDeviceTableViewCell.swift */,
-				E12A6618204732F400A36B99 /* CameraViewController.swift */,
+				C20BF4962047409F00126C78 /* NewInviteTableViewCell.swift */,
+				C20BF4982047463B00126C78 /* InviteViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -113,6 +140,7 @@
 		E1B8A636203E097B00AC1900 = {
 			isa = PBXGroup;
 			children = (
+				C20BF49A2047B0C900126C78 /* Eureka.framework */,
 				E1B8A641203E097B00AC1900 /* SmartLock */,
 				E1B8A640203E097B00AC1900 /* Products */,
 			);
@@ -164,6 +192,7 @@
 				E1B8A63B203E097B00AC1900 /* Sources */,
 				E1B8A63C203E097B00AC1900 /* Frameworks */,
 				E1B8A63D203E097B00AC1900 /* Resources */,
+				C20BF49D2047B0CA00126C78 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -234,17 +263,19 @@
 				C28C1C18203F396B001C80D6 /* Session.swift in Sources */,
 				C28C1C2220408B9F001C80D6 /* EntranceHistoryViewController.swift in Sources */,
 				C28C1C2E20409C3E001C80D6 /* EntranceItem.swift in Sources */,
-				E12A6619204732F400A36B99 /* CameraViewController.swift in Sources */,
+				C20BF4992047463B00126C78 /* InviteViewController.swift in Sources */,
 				E12A661720472FC900A36B99 /* UIImageView.swift in Sources */,
 				E176937A2044514E0070B68D /* PushCameraViewController.swift in Sources */,
 				C28C1C2420408EA9001C80D6 /* EntranceHistoryTableViewCell.swift in Sources */,
 				293979A7204492B80076CFCA /* Observable.swift in Sources */,
 				E1B8A645203E097B00AC1900 /* RemoteLockViewController.swift in Sources */,
+				C20BF4972047409F00126C78 /* NewInviteTableViewCell.swift in Sources */,
 				C28C1C1E203F5205001C80D6 /* HomesViewController.swift in Sources */,
 				E1E555392047523C00B3C2DB /* UIButton.swift in Sources */,
 				E1B8A643203E097B00AC1900 /* AppDelegate.swift in Sources */,
 				C28C1C3020409E37001C80D6 /* LockStatus.swift in Sources */,
 				C28C1C1C203F4F3B001C80D6 /* FakeDatabase.swift in Sources */,
+				C249EB5220483D6D00B92471 /* Guest.swift in Sources */,
 				E1AB627D20408D2500122CC7 /* NotificationManager.swift in Sources */,
 				C28C1C2C20409AC3001C80D6 /* Lock.swift in Sources */,
 				293979AB204735BB0076CFCA /* SettingsTableViewController.swift in Sources */,
@@ -253,6 +284,7 @@
 				C28C1C3620443815001C80D6 /* GuestDeviceTableViewCell.swift in Sources */,
 				E12F7B58203F2FF800D39201 /* LockCommunicator.swift in Sources */,
 				C28C1C2A20409AB2001C80D6 /* Home.swift in Sources */,
+				C249EB5C204866E000B92471 /* CameraViewController.swift in Sources */,
 				C28C1C34204437FB001C80D6 /* DevicesViewController.swift in Sources */,
 				C28C1C2820409AAC001C80D6 /* User.swift in Sources */,
 			);
@@ -392,7 +424,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = REMZMNQ72C;
+				DEVELOPMENT_TEAM = 4F4P935HBL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SmartLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gabrielmocelin.SmartLock;
@@ -407,7 +443,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = REMZMNQ72C;
+				DEVELOPMENT_TEAM = 4F4P935HBL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SmartLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gabrielmocelin.SmartLock;

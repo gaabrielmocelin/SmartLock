@@ -12,7 +12,7 @@ class FakeDatabase {
     var users: [String : User]
     
     init() {
-        let user = User(login: "", nickname: "João", password: "")
+        let user = User(login: "", nickname: "João", password: "", phone: "999999999")
         let lock = Lock(name: "1")
         let home = Home(id: "1", name: "Home", members: [user], lock: lock)
         let mockHome = Home(id: "2", name: "Mock", members: [user], lock: MockLock(name: "2"))
@@ -20,10 +20,13 @@ class FakeDatabase {
         
         self.users = [user.login : user]
         
-        let user2 = User(login: "", nickname: "Maria", password: "")
-        let user3 = User(login: "", nickname: "Pedro", password: "")
+        let user2 = User(login: "", nickname: "Maria", password: "", phone: "999999999")
+        let user3 = User(login: "", nickname: "Pedro", password: "", phone: "999999999")
         let members = [user, user2, user3]
         home.members = members
+        
+        let guest1 = Guest(name: "Marco", phone: "999999999", startingDate: Date(), endingDate: Date().addingTimeInterval(7200))
+        home.guests = [guest1]
     }
     
     func verify(login: String, password: String) -> User? {
