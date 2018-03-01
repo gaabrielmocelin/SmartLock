@@ -202,20 +202,49 @@ void checkDoor() {
   // convert the time into a distance
   distance = (duration * .0343) / 2;
 
-  if (doorState == CLOSED && distance >= 15) {
+  if (doorState == CLOSED && checkForOpen()) {
     updateDoorStatus(OPEN);
-  
-   // sendResponse(OPEN_SENDCOMMAND);
-  } else if (doorState == OPEN && distance < 15) {
+  } else if (doorState == OPEN && checkForClose()) {
     updateDoorStatus(CLOSED);
-//    doorState = CLOSED;
-//    didCloseDoor();
+  }
+}
+
+boolean isCheckingDoorOpening = false;
+boolean isCheckingDoorClosing = false;
+unsigned long int checkingDoorTimestamp;
+const unsigned long int CHECK_DOOR_DURATION = 300;
+
+boolean checkForOpen() {
+  if (!isCheckingDoorOpening) {
+    isCheckingDoorOpening = true;
+    isCheckingDoorClosing = false;  
+    checkingDoorTimestamp = millis();
+    return false;
   }
 
-  //Serial.print("CM: ");
-  //Serial.println(distance);
+  if (distance < 15) {
+    isCheckingDoorOpening = false;   
+    return false; 
+  } else if (millis() - checkingDoorTimestamp >= CHECK_DOOR_DURATION) {
+    return true;
+  }
+}
 
-  //delay(75);
+boolean checkForClose() {
+  if (!isCheckingDoorClosing) {
+    isCheckingDoorClosing = true;
+    isCheckingDoorOpening = false;
+    checkingDoorTimestamp = millis();
+    return false;
+  }
+
+  if (distance >= 15) {
+    isCheckingDoorClosing = false;
+    return false;
+  } else if (millis() - checkingDoorTimestamp >= CHECK_DOOR_DURATION) {
+    
+    return true;
+  }
 }
 
 void updateDoorStatus(DoorState newState) {
