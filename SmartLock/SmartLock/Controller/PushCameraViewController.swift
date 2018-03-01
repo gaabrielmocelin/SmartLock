@@ -57,7 +57,7 @@ class PushCameraViewController: UIViewController {
         lockButton.layer.masksToBounds = true
         
         //load fake images to simulate the videofeed
-        cameraView.setupMockAnimation()
+        cameraView.setupMockAnimation2()
     }
     
     override func viewWillAppear(_ animated: Bool) {

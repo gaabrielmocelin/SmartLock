@@ -18,7 +18,7 @@ class CameraViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cameraView.setupMockAnimation()
+        cameraView.setupMockAnimation2()
     }
 
     override func viewWillAppear(_ animated: Bool) {
