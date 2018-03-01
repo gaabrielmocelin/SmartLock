@@ -263,6 +263,8 @@ void updateDoorStatus(DoorState newState) {
 }
 
 void didCloseDoor() {
+  sendResponse(UNLOCKED_SENDCOMMAND);
+  delay(300);
   if (lock())
     sendResponse(LOCKED_SENDCOMMAND);
   timeOutProximityUnlockAction();
