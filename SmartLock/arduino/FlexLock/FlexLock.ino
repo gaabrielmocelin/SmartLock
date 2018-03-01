@@ -43,7 +43,11 @@ const unsigned long int UNLOCK_ACTION_TIMEOUT_DELAY = 5000;
 unsigned long int unlockActionTimeoutTimestamp;
 boolean isUnlockActionOnTimeout = false;
 
-const unsigned long int PROXIMITY_UNLOCK_ACTION_TIMEOUT_DELAY = 15000;
+const unsigned long int DOOR_STATUS_UPDATE_DELAY = 500;
+unsigned long int doorStatusChangeTimestamp;
+boolean isUpdatingDoorStatus = false;
+
+const unsigned long int PROXIMITY_UNLOCK_ACTION_TIMEOUT_DELAY = 10000;
 unsigned long int proximityUnlockActionTimeoutTimestamp;
 boolean isProximityUnlockActionOnTimeout = false;
 
@@ -76,6 +80,8 @@ void setup() {
 
   lock();
   updateLockStatusColor();
+  checkDoor();
+
   Serial.begin(115200);
 }
 
@@ -119,6 +125,12 @@ void checkLock() {
   if (isProximityUnlockActionOnTimeout) {
     if (millis() - proximityUnlockActionTimeoutTimestamp >= PROXIMITY_UNLOCK_ACTION_TIMEOUT_DELAY) {
       isProximityUnlockActionOnTimeout = false;
+    }
+  }
+
+  if (isUpdatingDoorStatus) {
+    if (millis() - doorStatusChangeTimestamp >= DOOR_STATUS_UPDATE_DELAY) {
+      isUpdatingDoorStatus = false;
     }
   }
 }
@@ -191,17 +203,34 @@ void checkDoor() {
   distance = (duration * .0343) / 2;
 
   if (doorState == CLOSED && distance >= 15) {
-    doorState = OPEN;
-    sendResponse(OPEN_SENDCOMMAND);
+    updateDoorStatus(OPEN);
+  
+   // sendResponse(OPEN_SENDCOMMAND);
   } else if (doorState == OPEN && distance < 15) {
-    doorState = CLOSED;
-    didCloseDoor();
+    updateDoorStatus(CLOSED);
+//    doorState = CLOSED;
+//    didCloseDoor();
   }
 
   //Serial.print("CM: ");
   //Serial.println(distance);
 
   //delay(75);
+}
+
+void updateDoorStatus(DoorState newState) {
+  if (isUpdatingDoorStatus) return;
+  isUpdatingDoorStatus = true;
+  doorStatusChangeTimestamp = millis();
+  
+  doorState = newState;
+  switch(doorState) {
+    case OPEN:
+    sendResponse(OPEN_SENDCOMMAND);
+    break;
+    case CLOSED:
+    didCloseDoor();
+  }
 }
 
 void didCloseDoor() {
