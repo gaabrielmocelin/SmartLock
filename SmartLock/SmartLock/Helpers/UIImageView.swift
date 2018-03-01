@@ -32,11 +32,12 @@ extension UIImageView {
     
     func setupMockAnimation2() {
         var names: [String] = []
-        for index in 0 ... 87 {
+        let totalFrames = 50
+        for index in 0 ... totalFrames {
             names.append("frame_\(index)_delay-0.04s")
         }
         
-        setupAnimation(forLiteralNames: names, withDuration: 3.52)
+        setupAnimation(forLiteralNames: names, withDuration: 50 * 0.04)
     }
 
 }
