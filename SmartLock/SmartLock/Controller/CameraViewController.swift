@@ -25,6 +25,7 @@ class CameraViewController: UIViewController {
         super.viewWillAppear(animated)
         cameraView.startAnimating()
         navigationItem.title = "\(lock.name)'s Videofeed"
+        breakNavigationItemTitle()
     }
     
     

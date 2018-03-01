@@ -35,7 +35,7 @@ class DevicesViewController: UIViewController {
         self.guests = Session.shared.selectedHome!.guests
         let home = Session.shared.selectedHome!.name
         self.navigationItem.title = "\(home)'s Devices"
-        
+        breakNavigationItemTitle()
     }
 
     
