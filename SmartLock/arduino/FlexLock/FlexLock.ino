@@ -311,7 +311,7 @@ boolean unlock() {
 
   lockUpdateTimestamp = millis();
   isLockUpdating = true;
-  tranca.write(0);
+  tranca.write(150);
   state = UNLOCKED;
 
   return true;
@@ -322,7 +322,7 @@ boolean lock() {
   
   lockUpdateTimestamp = millis();
   isLockUpdating = true;
-  tranca.write(150);
+  tranca.write(0);
   state = LOCKED;
 
   return true;
