@@ -60,9 +60,11 @@ class Lock: Observable {
     
     // MARK: Entrance History
     private func updateEntranceHistory() {
-        let user = Session.shared.user!.nickname
-        let entranceItem = EntranceItem(name: user, lockStatus: status)
-        self.entranceHistory.append(entranceItem)
+        if let user = Session.shared.user {
+            let userName = user.nickname
+            let entranceItem = EntranceItem(name: userName, lockStatus: status)
+            self.entranceHistory.append(entranceItem)
+        }
     }
 }
 
@@ -88,7 +90,8 @@ extension Lock: LockCommunicatorDelegate {
     }
     
     func communicator(_ communicator: LockCommunicator, didReadRSSI RSSI: NSNumber) {
-        if RSSI.floatValue > -59 {
+        print(RSSI)
+        if RSSI.floatValue > -62 {
             communicator.send(command: .proximityUnlock)
         }
     }
