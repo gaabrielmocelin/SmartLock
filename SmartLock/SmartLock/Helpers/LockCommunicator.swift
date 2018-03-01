@@ -189,6 +189,7 @@ enum LockMessage: String, DataConvertible {
     case didProximityUnlock = "P"
     case didAutoLock = "A"
     case didBuzz = "B"
+    case didOpen = "O"
 }
 
 enum LockCommand: String, DataConvertible {
