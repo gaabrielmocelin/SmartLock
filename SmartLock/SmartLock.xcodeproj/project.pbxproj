@@ -13,6 +13,7 @@
 		C20BF4992047463B00126C78 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20BF4982047463B00126C78 /* InviteViewController.swift */; };
 		C20BF49B2047B0CA00126C78 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20BF49A2047B0C900126C78 /* Eureka.framework */; };
 		C20BF49C2047B0CA00126C78 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C20BF49A2047B0C900126C78 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C249EB5220483D6D00B92471 /* Guest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249EB5120483D6D00B92471 /* Guest.swift */; };
 		C28C1C18203F396B001C80D6 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C17203F396B001C80D6 /* Session.swift */; };
 		C28C1C1A203F48EA001C80D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C19203F48EA001C80D6 /* LoginViewController.swift */; };
 		C28C1C1C203F4F3B001C80D6 /* FakeDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C1B203F4F3B001C80D6 /* FakeDatabase.swift */; };
@@ -60,6 +61,7 @@
 		C20BF4962047409F00126C78 /* NewInviteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInviteTableViewCell.swift; sourceTree = "<group>"; };
 		C20BF4982047463B00126C78 /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		C20BF49A2047B0C900126C78 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Eureka.framework; sourceTree = "<group>"; };
+		C249EB5120483D6D00B92471 /* Guest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guest.swift; sourceTree = "<group>"; };
 		C28C1C17203F396B001C80D6 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		C28C1C19203F48EA001C80D6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C28C1C1B203F4F3B001C80D6 /* FakeDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDatabase.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				C28C1C2B20409AC3001C80D6 /* Lock.swift */,
 				C28C1C2D20409C3E001C80D6 /* EntranceItem.swift */,
 				C28C1C2F20409E37001C80D6 /* LockStatus.swift */,
+				C249EB5120483D6D00B92471 /* Guest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				E1B8A643203E097B00AC1900 /* AppDelegate.swift in Sources */,
 				C28C1C3020409E37001C80D6 /* LockStatus.swift in Sources */,
 				C28C1C1C203F4F3B001C80D6 /* FakeDatabase.swift in Sources */,
+				C249EB5220483D6D00B92471 /* Guest.swift in Sources */,
 				E1AB627D20408D2500122CC7 /* NotificationManager.swift in Sources */,
 				C28C1C2C20409AC3001C80D6 /* Lock.swift in Sources */,
 				293979AB204735BB0076CFCA /* SettingsTableViewController.swift in Sources */,

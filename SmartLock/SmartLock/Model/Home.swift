@@ -12,7 +12,7 @@ class Home {
     let id: String
     var name: String
     var members: [User]
-    var guests: [User]
+    var guests: [Guest]
     let lock: Lock
     
     init(id: String, name: String, members: [User], lock: Lock) {

@@ -12,12 +12,14 @@ class User {
     let login: String
     var nickname: String
     var password: String
+    var phone: String
     var homes: [Home]
     
-    init(login: String, nickname: String, password: String, homes: [Home] = []) {
+    init(login: String = "", nickname: String, password: String = "", phone: String, homes: [Home] = []) {
         self.login = login
         self.nickname = nickname
         self.password = password
+        self.phone = phone
         self.homes = homes
     }
 }
