@@ -464,42 +464,11 @@
         <!--New Member-->
         <scene sceneID="SUq-4X-jsm">
             <objects>
-                <viewController id="yg4-zM-Zis" sceneMemberID="viewController">
+                <viewController id="yg4-zM-Zis" customClass="InviteViewController" customModule="SmartLock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6ML-Uf-V19">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="5uP-he-sJh">
-                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="textViewCell" textLabel="Lkv-2x-CDg" style="IBUITableViewCellStyleDefault" id="RPB-eP-6uS">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RPB-eP-6uS" id="556-aJ-Jog">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lkv-2x-CDg">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="5uP-he-sJh" firstAttribute="leading" secondItem="SbS-Cq-cRB" secondAttribute="leading" id="1q6-I9-zCv"/>
-                            <constraint firstItem="5uP-he-sJh" firstAttribute="top" secondItem="SbS-Cq-cRB" secondAttribute="top" id="3pS-36-qjz"/>
-                            <constraint firstItem="SbS-Cq-cRB" firstAttribute="trailing" secondItem="5uP-he-sJh" secondAttribute="trailing" id="DEJ-qA-wA1"/>
-                            <constraint firstItem="SbS-Cq-cRB" firstAttribute="bottom" secondItem="5uP-he-sJh" secondAttribute="bottom" id="kmP-Ch-aZT"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SbS-Cq-cRB"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Member" id="6oG-ku-Qea">
