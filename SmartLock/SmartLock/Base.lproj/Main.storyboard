@@ -502,7 +502,7 @@ in order to lock it</string>
                                     <constraint firstItem="18N-Cw-8sz" firstAttribute="top" secondItem="xPP-4A-KJq" secondAttribute="bottom" id="yXT-IQ-HOi"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QXh-GO-xXE" customClass="CameraImageView" customModule="SmartLock" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QXh-GO-xXE">
                                 <rect key="frame" x="0.0" y="100" width="375" height="567"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <viewLayoutGuide key="safeArea" id="zI8-NB-vWg"/>
@@ -536,7 +536,7 @@ in order to lock it</string>
                         <viewLayoutGuide key="safeArea" id="PQh-Ah-QKt"/>
                     </view>
                     <connections>
-                        <outlet property="cameraView" destination="QXh-GO-xXE" id="o2E-yj-xsA"/>
+                        <outlet property="cameraView" destination="QXh-GO-xXE" id="1lZ-4U-zQs"/>
                         <outlet property="lockButton" destination="lCv-Sj-7RR" id="auQ-xo-pog"/>
                         <outlet property="lockStatusLabel" destination="18N-Cw-8sz" id="NIz-PC-IC3"/>
                     </connections>
@@ -613,7 +613,7 @@ in order to lock it</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5zp-SI-aMK" customClass="CameraImageView" customModule="SmartLock" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5zp-SI-aMK">
                                 <rect key="frame" x="0.0" y="116" width="375" height="502"/>
                             </imageView>
                         </subviews>
@@ -628,7 +628,7 @@ in order to lock it</string>
                     </view>
                     <navigationItem key="navigationItem" id="AVh-1a-FHD"/>
                     <connections>
-                        <outlet property="cameraView" destination="5zp-SI-aMK" id="Z2J-81-BW3"/>
+                        <outlet property="cameraView" destination="5zp-SI-aMK" id="C8f-st-FVQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zpb-a3-zUV" userLabel="First Responder" sceneMemberID="firstResponder"/>

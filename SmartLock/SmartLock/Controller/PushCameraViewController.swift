@@ -10,10 +10,10 @@ import UIKit
 
 class PushCameraViewController: UIViewController {
     
-    @IBOutlet weak var cameraView: CameraImageView!
+    @IBOutlet weak var cameraView: UIImageView!
     @IBOutlet weak var lockButton: UIButton!
     @IBOutlet weak var lockStatusLabel: UILabel!
-    private var wasUnlockedFromCamera = false
+    private var wasUnlockedByTheCamera: (Bool, Bool) = (false,false)
     private var lock: Lock?{
         return Session.shared.selectedHome?.lock
     }
@@ -25,7 +25,7 @@ class PushCameraViewController: UIViewController {
     @IBAction func unlockButton(_ sender: Any) {
         if let lock = lock{
             if lock.status == .locked{
-                wasUnlockedFromCamera = true
+                wasUnlockedByTheCamera.0 = true
                 lock.unlock()
             }else if lock.status == .unlocked{
                 lock.lock()
@@ -35,9 +35,10 @@ class PushCameraViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cameraView.setupImages()
         lockButton.layer.cornerRadius = lockButton.frame.size.height / 2
         lockButton.layer.masksToBounds = true
+        
+        cameraView.setupMockAnimation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,7 +49,7 @@ class PushCameraViewController: UIViewController {
         }
         changeLockViews(to: (lock?.status)!)
         cameraView.startAnimating()
-        wasUnlockedFromCamera = false
+        wasUnlockedByTheCamera = (false, false)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -58,8 +59,8 @@ class PushCameraViewController: UIViewController {
         cameraView.stopAnimating()
     }
     
-    private func dismissIfneeded() {
-        if wasUnlockedFromCamera{
+    private func automaticDismissVCIfNeeded() {
+        if wasUnlockedByTheCamera.0, wasUnlockedByTheCamera.1{
             Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { (timer) in
                 self.dismiss(animated: true, completion: nil)
             })
@@ -73,12 +74,13 @@ class PushCameraViewController: UIViewController {
             statusLabel = "Locked"
             lockStatusLabel.textColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
             enableLockButton(withTitle: "UNLOCK", color: UIColor(red: 0, green: 113/255, blue: 255/255, alpha: 1))
-            dismissIfneeded()
+            automaticDismissVCIfNeeded()
         case .unlocked:
             statusLabel = "Unlocked"
             lockStatusLabel.textColor = UIColor(red: 255/255, green: 149/255, blue: 0, alpha: 1)
             enableLockButton(withTitle: "LOCK", color: UIColor(red: 0, green: 113/255, blue: 255/255, alpha: 1))
         case .open:
+            wasUnlockedByTheCamera = wasUnlockedByTheCamera.0 ? (true,true) : (true,false)
             statusLabel = "Open"
             lockStatusLabel.textColor = UIColor(red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
             disableLockButton()
@@ -91,8 +93,16 @@ class PushCameraViewController: UIViewController {
     
     func enableLockButton(withTitle title: String, color: UIColor) {
         lockButton.isEnabled = true
-        lockButton.titleLabel?.text = title
-        lockButton.changeBackGroundColor(to: UIColor.lightGray, withDuration: 0.5)
+        lockButton.setTitle(title, for: UIControlState.normal)
+        lockButton.changeBackGroundColor(to: color, withDuration: 0.5)
+        
+        UIButton.animate(withDuration: 0.2, delay: 0, options: .allowAnimatedContent, animations: {
+            self.lockButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        }) { (bool) in
+            UIButton.animate(withDuration: 0.2) {
+                self.lockButton.transform = CGAffineTransform.identity
+            }
+        }
     }
     
     func disableLockButton(){

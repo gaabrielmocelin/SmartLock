@@ -22,7 +22,7 @@
 		C28C1C3020409E37001C80D6 /* LockStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C2F20409E37001C80D6 /* LockStatus.swift */; };
 		C28C1C34204437FB001C80D6 /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C33204437FB001C80D6 /* DevicesViewController.swift */; };
 		C28C1C3620443815001C80D6 /* GuestDeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C3520443815001C80D6 /* GuestDeviceTableViewCell.swift */; };
-		E12A661720472FC900A36B99 /* CameraImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A661620472FC900A36B99 /* CameraImageView.swift */; };
+		E12A661720472FC900A36B99 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A661620472FC900A36B99 /* UIImageView.swift */; };
 		E12A6619204732F400A36B99 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A6618204732F400A36B99 /* CameraViewController.swift */; };
 		E12F7B58203F2FF800D39201 /* LockCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F7B57203F2FF800D39201 /* LockCommunicator.swift */; };
 		E176937A2044514E0070B68D /* PushCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17693792044514E0070B68D /* PushCameraViewController.swift */; };
@@ -52,7 +52,7 @@
 		C28C1C2F20409E37001C80D6 /* LockStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockStatus.swift; sourceTree = "<group>"; };
 		C28C1C33204437FB001C80D6 /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
 		C28C1C3520443815001C80D6 /* GuestDeviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestDeviceTableViewCell.swift; sourceTree = "<group>"; };
-		E12A661620472FC900A36B99 /* CameraImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraImageView.swift; sourceTree = "<group>"; };
+		E12A661620472FC900A36B99 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		E12A6618204732F400A36B99 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		E12F7B57203F2FF800D39201 /* LockCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockCommunicator.swift; sourceTree = "<group>"; };
 		E17693792044514E0070B68D /* PushCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushCameraViewController.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 				C28C1C1B203F4F3B001C80D6 /* FakeDatabase.swift */,
 				C28C1C26204097DB001C80D6 /* Controller */,
 				C28C1C25204097D2001C80D6 /* Model */,
-				E12A661620472FC900A36B99 /* CameraImageView.swift */,
+				E12A661620472FC900A36B99 /* UIImageView.swift */,
 				E1E555382047523C00B3C2DB /* UIButton.swift */,
 			);
 			path = SmartLock;
@@ -227,7 +227,7 @@
 				C28C1C2220408B9F001C80D6 /* EntranceHistoryViewController.swift in Sources */,
 				C28C1C2E20409C3E001C80D6 /* EntranceItem.swift in Sources */,
 				E12A6619204732F400A36B99 /* CameraViewController.swift in Sources */,
-				E12A661720472FC900A36B99 /* CameraImageView.swift in Sources */,
+				E12A661720472FC900A36B99 /* UIImageView.swift in Sources */,
 				E176937A2044514E0070B68D /* PushCameraViewController.swift in Sources */,
 				C28C1C2420408EA9001C80D6 /* EntranceHistoryTableViewCell.swift in Sources */,
 				293979A7204492B80076CFCA /* Observable.swift in Sources */,
