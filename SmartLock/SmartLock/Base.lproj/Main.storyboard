@@ -471,22 +471,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locked_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Vxo-z7-CIt">
-                                <rect key="frame" x="58.5" y="205" width="258" height="251"/>
+                                <rect key="frame" x="58.5" y="257" width="258" height="251"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door Status:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1J-ee-44m">
-                                <rect key="frame" x="132" y="114" width="111.5" height="23"/>
+                                <rect key="frame" x="132" y="166" width="111.5" height="23"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.46274509803921571" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locked" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYU-og-LTE">
-                                <rect key="frame" x="139.5" y="137" width="97" height="34.5"/>
+                                <rect key="frame" x="139.5" y="189" width="97" height="34.5"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="30"/>
                                 <color key="textColor" red="0.29803921568627451" green="0.85098039215686272" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krC-lV-qJ3">
-                                <rect key="frame" x="101" y="414.5" width="173" height="59"/>
+                                <rect key="frame" x="101" y="466.5" width="173" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="173" id="igr-eb-5i9"/>
                                 </constraints>
@@ -496,7 +496,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ks-Et-SDm">
-                                <rect key="frame" x="140" y="486" width="95.5" height="30"/>
+                                <rect key="frame" x="140" y="538" width="95.5" height="30"/>
                                 <string key="text">Close the door 
 in order to lock it</string>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
@@ -651,8 +651,8 @@ in order to lock it</string>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xMc-6h-Zfs" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Door" image="door_icon" id="LMQ-Go-Y99"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fd6-IL-wfB">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="fd6-IL-wfB">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
