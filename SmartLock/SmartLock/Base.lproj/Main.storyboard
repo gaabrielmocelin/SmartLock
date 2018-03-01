@@ -517,6 +517,7 @@ in order to lock it</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="UNLOCK"/>
                                 <connections>
+                                    <action selector="touchDownLockButton:" destination="hwT-fg-Mnp" eventType="touchDown" id="XJc-37-Wo0"/>
                                     <action selector="unlockButton:" destination="hwT-fg-Mnp" eventType="touchUpInside" id="rHw-hO-KlO"/>
                                 </connections>
                             </button>
