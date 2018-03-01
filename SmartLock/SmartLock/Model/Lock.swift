@@ -82,6 +82,8 @@ extension Lock: LockCommunicatorDelegate {
             status = .unlocked
         case .didBuzz:
             NotificationManager.shared.sendBuzzNotification(from: self)
+        case .didOpen:
+            status = .open
         }
     }
     
