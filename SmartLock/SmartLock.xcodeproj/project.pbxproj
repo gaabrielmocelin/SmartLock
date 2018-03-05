@@ -15,6 +15,14 @@
 		C20BF49C2047B0CA00126C78 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C20BF49A2047B0C900126C78 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C249EB5220483D6D00B92471 /* Guest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249EB5120483D6D00B92471 /* Guest.swift */; };
 		C249EB5C204866E000B92471 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249EB5B204866E000B92471 /* CameraViewController.swift */; };
+		C249EB8B204DCA8E00B92471 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C249EB89204DCA8E00B92471 /* Interface.storyboard */; };
+		C249EB8D204DCA8E00B92471 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C249EB8C204DCA8E00B92471 /* Assets.xcassets */; };
+		C249EB94204DCA8E00B92471 /* SmartLockWatchOS Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C249EB93204DCA8E00B92471 /* SmartLockWatchOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C249EB99204DCA8E00B92471 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249EB98204DCA8E00B92471 /* InterfaceController.swift */; };
+		C249EB9B204DCA8E00B92471 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249EB9A204DCA8E00B92471 /* ExtensionDelegate.swift */; };
+		C249EB9D204DCA8E00B92471 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249EB9C204DCA8E00B92471 /* NotificationController.swift */; };
+		C249EB9F204DCA8E00B92471 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C249EB9E204DCA8E00B92471 /* Assets.xcassets */; };
+		C249EBA4204DCA8E00B92471 /* SmartLockWatchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C249EB87204DCA8E00B92471 /* SmartLockWatchOS.app */; };
 		C28C1C18203F396B001C80D6 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C17203F396B001C80D6 /* Session.swift */; };
 		C28C1C1A203F48EA001C80D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C19203F48EA001C80D6 /* LoginViewController.swift */; };
 		C28C1C1C203F4F3B001C80D6 /* FakeDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C1B203F4F3B001C80D6 /* FakeDatabase.swift */; };
@@ -41,6 +49,23 @@
 		E1E555392047523C00B3C2DB /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E555382047523C00B3C2DB /* UIButton.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C249EB95204DCA8E00B92471 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1B8A637203E097B00AC1900 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C249EB92204DCA8E00B92471;
+			remoteInfo = "SmartLockWatchOS Extension";
+		};
+		C249EBA2204DCA8E00B92471 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1B8A637203E097B00AC1900 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C249EB86204DCA8E00B92471;
+			remoteInfo = SmartLockWatchOS;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		C20BF49D2047B0CA00126C78 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -53,6 +78,28 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C249EBAA204DCA8E00B92471 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C249EB94204DCA8E00B92471 /* SmartLockWatchOS Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C249EBAC204DCA8E00B92471 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				C249EBA4204DCA8E00B92471 /* SmartLockWatchOS.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +110,17 @@
 		C20BF49A2047B0C900126C78 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Eureka.framework; sourceTree = "<group>"; };
 		C249EB5120483D6D00B92471 /* Guest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guest.swift; sourceTree = "<group>"; };
 		C249EB5B204866E000B92471 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		C249EB87204DCA8E00B92471 /* SmartLockWatchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartLockWatchOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C249EB8A204DCA8E00B92471 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		C249EB8C204DCA8E00B92471 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C249EB8E204DCA8E00B92471 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C249EB93204DCA8E00B92471 /* SmartLockWatchOS Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SmartLockWatchOS Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C249EB98204DCA8E00B92471 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		C249EB9A204DCA8E00B92471 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		C249EB9C204DCA8E00B92471 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		C249EB9E204DCA8E00B92471 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C249EBA0204DCA8E00B92471 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C249EBA1204DCA8E00B92471 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		C28C1C17203F396B001C80D6 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		C28C1C19203F48EA001C80D6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C28C1C1B203F4F3B001C80D6 /* FakeDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDatabase.swift; sourceTree = "<group>"; };
@@ -92,6 +150,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C249EB90204DCA8E00B92471 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E1B8A63C203E097B00AC1900 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -103,6 +168,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C249EB88204DCA8E00B92471 /* SmartLockWatchOS */ = {
+			isa = PBXGroup;
+			children = (
+				C249EB89204DCA8E00B92471 /* Interface.storyboard */,
+				C249EB8C204DCA8E00B92471 /* Assets.xcassets */,
+				C249EB8E204DCA8E00B92471 /* Info.plist */,
+			);
+			path = SmartLockWatchOS;
+			sourceTree = "<group>";
+		};
+		C249EB97204DCA8E00B92471 /* SmartLockWatchOS Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C249EB98204DCA8E00B92471 /* InterfaceController.swift */,
+				C249EB9A204DCA8E00B92471 /* ExtensionDelegate.swift */,
+				C249EB9C204DCA8E00B92471 /* NotificationController.swift */,
+				C249EB9E204DCA8E00B92471 /* Assets.xcassets */,
+				C249EBA0204DCA8E00B92471 /* Info.plist */,
+				C249EBA1204DCA8E00B92471 /* PushNotificationPayload.apns */,
+			);
+			path = "SmartLockWatchOS Extension";
+			sourceTree = "<group>";
+		};
 		C28C1C25204097D2001C80D6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +230,8 @@
 			children = (
 				C20BF49A2047B0C900126C78 /* Eureka.framework */,
 				E1B8A641203E097B00AC1900 /* SmartLock */,
+				C249EB88204DCA8E00B92471 /* SmartLockWatchOS */,
+				C249EB97204DCA8E00B92471 /* SmartLockWatchOS Extension */,
 				E1B8A640203E097B00AC1900 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -150,6 +240,8 @@
 			isa = PBXGroup;
 			children = (
 				E1B8A63F203E097B00AC1900 /* SmartLock.app */,
+				C249EB87204DCA8E00B92471 /* SmartLockWatchOS.app */,
+				C249EB93204DCA8E00B92471 /* SmartLockWatchOS Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -185,6 +277,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C249EB86204DCA8E00B92471 /* SmartLockWatchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C249EBAB204DCA8E00B92471 /* Build configuration list for PBXNativeTarget "SmartLockWatchOS" */;
+			buildPhases = (
+				C249EB85204DCA8E00B92471 /* Resources */,
+				C249EBAA204DCA8E00B92471 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C249EB96204DCA8E00B92471 /* PBXTargetDependency */,
+			);
+			name = SmartLockWatchOS;
+			productName = SmartLockWatchOS;
+			productReference = C249EB87204DCA8E00B92471 /* SmartLockWatchOS.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		C249EB92204DCA8E00B92471 /* SmartLockWatchOS Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C249EBA9204DCA8E00B92471 /* Build configuration list for PBXNativeTarget "SmartLockWatchOS Extension" */;
+			buildPhases = (
+				C249EB8F204DCA8E00B92471 /* Sources */,
+				C249EB90204DCA8E00B92471 /* Frameworks */,
+				C249EB91204DCA8E00B92471 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SmartLockWatchOS Extension";
+			productName = "SmartLockWatchOS Extension";
+			productReference = C249EB93204DCA8E00B92471 /* SmartLockWatchOS Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		E1B8A63E203E097B00AC1900 /* SmartLock */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1B8A651203E097B00AC1900 /* Build configuration list for PBXNativeTarget "SmartLock" */;
@@ -193,10 +319,12 @@
 				E1B8A63C203E097B00AC1900 /* Frameworks */,
 				E1B8A63D203E097B00AC1900 /* Resources */,
 				C20BF49D2047B0CA00126C78 /* Embed Frameworks */,
+				C249EBAC204DCA8E00B92471 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C249EBA3204DCA8E00B92471 /* PBXTargetDependency */,
 			);
 			name = SmartLock;
 			productName = SmartLock;
@@ -213,6 +341,14 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Gabriel Mocelin";
 				TargetAttributes = {
+					C249EB86204DCA8E00B92471 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					C249EB92204DCA8E00B92471 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					E1B8A63E203E097B00AC1900 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -238,11 +374,30 @@
 			projectRoot = "";
 			targets = (
 				E1B8A63E203E097B00AC1900 /* SmartLock */,
+				C249EB86204DCA8E00B92471 /* SmartLockWatchOS */,
+				C249EB92204DCA8E00B92471 /* SmartLockWatchOS Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C249EB85204DCA8E00B92471 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C249EB8D204DCA8E00B92471 /* Assets.xcassets in Resources */,
+				C249EB8B204DCA8E00B92471 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C249EB91204DCA8E00B92471 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C249EB9F204DCA8E00B92471 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E1B8A63D203E097B00AC1900 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -256,6 +411,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C249EB8F204DCA8E00B92471 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C249EB9D204DCA8E00B92471 /* NotificationController.swift in Sources */,
+				C249EB9B204DCA8E00B92471 /* ExtensionDelegate.swift in Sources */,
+				C249EB99204DCA8E00B92471 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E1B8A63B203E097B00AC1900 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -292,7 +457,28 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C249EB96204DCA8E00B92471 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C249EB92204DCA8E00B92471 /* SmartLockWatchOS Extension */;
+			targetProxy = C249EB95204DCA8E00B92471 /* PBXContainerItemProxy */;
+		};
+		C249EBA3204DCA8E00B92471 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C249EB86204DCA8E00B92471 /* SmartLockWatchOS */;
+			targetProxy = C249EBA2204DCA8E00B92471 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		C249EB89204DCA8E00B92471 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C249EB8A204DCA8E00B92471 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		E1B8A646203E097B00AC1900 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -312,6 +498,80 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C249EBA5204DCA8E00B92471 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LY74HQDURM;
+				IBSC_MODULE = SmartLockWatchOS_Extension;
+				INFOPLIST_FILE = SmartLockWatchOS/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = gabrielmocelin.SmartLock.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		C249EBA6204DCA8E00B92471 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LY74HQDURM;
+				IBSC_MODULE = SmartLockWatchOS_Extension;
+				INFOPLIST_FILE = SmartLockWatchOS/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = gabrielmocelin.SmartLock.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
+		C249EBA7204DCA8E00B92471 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4F4P935HBL;
+				INFOPLIST_FILE = "SmartLockWatchOS Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gabrielmocelin.SmartLock.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		C249EBA8204DCA8E00B92471 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4F4P935HBL;
+				INFOPLIST_FILE = "SmartLockWatchOS Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gabrielmocelin.SmartLock.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
 		E1B8A64F203E097B00AC1900 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -460,6 +720,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C249EBA9204DCA8E00B92471 /* Build configuration list for PBXNativeTarget "SmartLockWatchOS Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C249EBA7204DCA8E00B92471 /* Debug */,
+				C249EBA8204DCA8E00B92471 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C249EBAB204DCA8E00B92471 /* Build configuration list for PBXNativeTarget "SmartLockWatchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C249EBA5204DCA8E00B92471 /* Debug */,
+				C249EBA6204DCA8E00B92471 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E1B8A63A203E097B00AC1900 /* Build configuration list for PBXProject "SmartLock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
