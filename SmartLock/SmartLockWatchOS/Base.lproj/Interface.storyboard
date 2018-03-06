@@ -16,6 +16,11 @@
                     <items>
                         <table alignment="left" id="5pR-Rh-VTS"/>
                         <label alignment="left" text="good" id="Rf7-NU-Fih"/>
+                        <button width="1" alignment="left" title="Button" id="Lb8-Rc-elJ">
+                            <connections>
+                                <action selector="didPressButton" destination="AgC-eL-Hgc" id="lpU-c2-iuh"/>
+                            </connections>
+                        </button>
                     </items>
                     <connections>
                         <segue destination="suz-2A-xiR" kind="relationship" relationship="nextPage" id="yst-ru-MZ2"/>

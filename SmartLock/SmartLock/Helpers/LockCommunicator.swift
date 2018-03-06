@@ -16,20 +16,7 @@ protocol LockCommunicatorDelegate {
     func communicator(_ communicator: LockCommunicator, didReadRSSI RSSI: NSNumber)
 }
 
-protocol DataConvertible {
-    var data: Data { get }
-}
 
-extension Data: DataConvertible {
-    var data: Data { return self }
-}
-extension String : DataConvertible {
-    var data: Data { return self.data(using: .utf8) ?? Data() }
-}
-
-extension UInt8: DataConvertible {
-    var data: Data { return Data.init(bytes: [self]) }
-}
 
 /// This class abstracts communication with the Arduino Bluetooth Module.
 /// It has methods for reading and writing data to Arduino.
@@ -181,24 +168,4 @@ extension LockCommunicator: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
         delegate?.communicator(self, didReadRSSI: RSSI)
     }
-}
-enum LockMessage: String, DataConvertible {
-    var data: Data { return self.rawValue.data }
-    
-    case didUnlock = "U"
-    case didLock = "L"
-    case didProximityUnlock = "P"
-    case didAutoLock = "A"
-    case didBuzz = "B"
-    case didOpen = "O"
-}
-
-enum LockCommand: String, DataConvertible {
-    var data: Data { return self.rawValue.data }
-    
-    case unlock = "U"
-    case lock = "L"
-    case proximityUnlock = "P"
-    case receivedBuzzerAlert = "B"
-    case status = "S"
 }

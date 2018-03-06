@@ -441,9 +441,12 @@
 				C249EBAE204F076A00B92471 /* CameraInterfaceController.swift in Sources */,
 				C249EBC0204F2E0E00B92471 /* WatchLockMessageKey.swift in Sources */,
 				C249EB9D204DCA8E00B92471 /* NotificationController.swift in Sources */,
+<<<<<<< HEAD
 				34285F1E2051A75900B00B1C /* ComplicationController.swift in Sources */,
+=======
 				C249EBBA204F2C4900B92471 /* LockMessage.swift in Sources */,
 				C249EBB9204F2C4300B92471 /* LockCommand.swift in Sources */,
+>>>>>>> WIP Watch and iPhone communication
 				C249EB9B204DCA8E00B92471 /* ExtensionDelegate.swift in Sources */,
 				C249EB99204DCA8E00B92471 /* DoorInterfaceController.swift in Sources */,
 			);

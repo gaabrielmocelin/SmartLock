@@ -8,7 +8,7 @@
 
 import WatchKit
 import Foundation
-
+import WatchConnectivity
 
 class DoorInterfaceController: WKInterfaceController {
 
@@ -27,5 +27,13 @@ class DoorInterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-
+   
+    @IBAction func didPressButton() {
+        let session = WCSession.default
+        let command = LockCommand.unlock.rawValue
+        let message = [WatchLockMessageKey.name : "Front Door", WatchLockMessageKey.command : command]
+        let data = NSKeyedArchiver.archivedData(withRootObject: message)
+        session.sendMessageData(data, replyHandler: nil, errorHandler: nil)
+    }
+    
 }

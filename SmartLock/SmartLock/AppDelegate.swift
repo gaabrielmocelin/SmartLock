@@ -7,16 +7,25 @@
 //
 
 import UIKit
+import WatchConnectivity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    var session: WCSession?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let notificationManager = NotificationManager()
         notificationManager.requestAuthorization(completionHandler: nil)
+        
+        if (WCSession.isSupported()) {
+            session = WCSession.default
+            session?.delegate = self
+            session?.activate()
+        }
+        
         return true
     }
 
@@ -54,6 +63,29 @@ extension UIViewController {
                     largeLabel.numberOfLines = 0
                     largeLabel.lineBreakMode = .byWordWrapping
                 }
+            }
+        }
+    }
+}
+
+extension AppDelegate: WCSessionDelegate {
+    func sessionDidBecomeInactive(_ session: WCSession) {
+    
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    func session(_ session: WCSession, didReceiveMessageData messageData: Data, replyHandler: @escaping (Data) -> Void) {
+        if let message = NSKeyedUnarchiver.unarchiveObject(with: messageData) as? [WatchLockMessageKey : String] {
+            guard let lockName = message[WatchLockMessageKey.name], let command = message[WatchLockMessageKey.command], let user = Session.shared.user else { return }
+            if let lock = user.homes.map({ $0.lock }).filter({ $0.name == lockName }).first, let lockCommand = LockCommand(rawValue: command) {
+                lock.lockCommunicator.send(command: lockCommand)
             }
         }
     }
