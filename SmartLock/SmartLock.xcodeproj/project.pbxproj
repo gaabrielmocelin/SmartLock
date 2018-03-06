@@ -513,7 +513,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+				WATCHOS_DEPLOYMENT_TARGET = 4.1;
 			};
 			name = Debug;
 		};
@@ -532,7 +532,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+				WATCHOS_DEPLOYMENT_TARGET = 4.1;
 			};
 			name = Release;
 		};
@@ -541,7 +541,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4F4P935HBL;
+				DEVELOPMENT_TEAM = LY74HQDURM;
 				INFOPLIST_FILE = "SmartLockWatchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gabrielmocelin.SmartLock.watchkitapp.watchkitextension;
@@ -550,7 +550,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+				WATCHOS_DEPLOYMENT_TARGET = 4.1;
 			};
 			name = Debug;
 		};
@@ -559,7 +559,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4F4P935HBL;
+				DEVELOPMENT_TEAM = LY74HQDURM;
 				INFOPLIST_FILE = "SmartLockWatchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gabrielmocelin.SmartLock.watchkitapp.watchkitextension;
@@ -568,7 +568,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+				WATCHOS_DEPLOYMENT_TARGET = 4.1;
 			};
 			name = Release;
 		};
