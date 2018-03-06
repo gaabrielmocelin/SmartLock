@@ -1,5 +1,5 @@
 //
-//  InterfaceController.swift
+//  DoorInterfaceController.swift
 //  SmartLockWatchOS Extension
 //
 //  Created by Matheus Vaccaro on 05/03/18.
@@ -10,11 +10,11 @@ import WatchKit
 import Foundation
 
 
-class InterfaceController: WKInterfaceController {
+class DoorInterfaceController: WKInterfaceController {
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
+        print("AWAKE DOOR")
         // Configure interface objects here.
     }
     

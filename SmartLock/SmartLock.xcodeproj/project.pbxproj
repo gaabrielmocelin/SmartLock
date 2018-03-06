@@ -19,11 +19,12 @@
 		C249EB8B204DCA8E00B92471 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C249EB89204DCA8E00B92471 /* Interface.storyboard */; };
 		C249EB8D204DCA8E00B92471 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C249EB8C204DCA8E00B92471 /* Assets.xcassets */; };
 		C249EB94204DCA8E00B92471 /* SmartLockWatchOS Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C249EB93204DCA8E00B92471 /* SmartLockWatchOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		C249EB99204DCA8E00B92471 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249EB98204DCA8E00B92471 /* InterfaceController.swift */; };
+		C249EB99204DCA8E00B92471 /* DoorInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249EB98204DCA8E00B92471 /* DoorInterfaceController.swift */; };
 		C249EB9B204DCA8E00B92471 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249EB9A204DCA8E00B92471 /* ExtensionDelegate.swift */; };
 		C249EB9D204DCA8E00B92471 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249EB9C204DCA8E00B92471 /* NotificationController.swift */; };
 		C249EB9F204DCA8E00B92471 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C249EB9E204DCA8E00B92471 /* Assets.xcassets */; };
 		C249EBA4204DCA8E00B92471 /* SmartLockWatchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C249EB87204DCA8E00B92471 /* SmartLockWatchOS.app */; };
+		C249EBAE204F076A00B92471 /* CameraInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249EBAD204F076A00B92471 /* CameraInterfaceController.swift */; };
 		C28C1C18203F396B001C80D6 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C17203F396B001C80D6 /* Session.swift */; };
 		C28C1C1A203F48EA001C80D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C19203F48EA001C80D6 /* LoginViewController.swift */; };
 		C28C1C1C203F4F3B001C80D6 /* FakeDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C1B203F4F3B001C80D6 /* FakeDatabase.swift */; };
@@ -117,12 +118,13 @@
 		C249EB8C204DCA8E00B92471 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C249EB8E204DCA8E00B92471 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C249EB93204DCA8E00B92471 /* SmartLockWatchOS Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SmartLockWatchOS Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C249EB98204DCA8E00B92471 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		C249EB98204DCA8E00B92471 /* DoorInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorInterfaceController.swift; sourceTree = "<group>"; };
 		C249EB9A204DCA8E00B92471 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		C249EB9C204DCA8E00B92471 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		C249EB9E204DCA8E00B92471 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C249EBA0204DCA8E00B92471 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C249EBA1204DCA8E00B92471 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		C249EBAD204F076A00B92471 /* CameraInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraInterfaceController.swift; sourceTree = "<group>"; };
 		C28C1C17203F396B001C80D6 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		C28C1C19203F48EA001C80D6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C28C1C1B203F4F3B001C80D6 /* FakeDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDatabase.swift; sourceTree = "<group>"; };
@@ -183,7 +185,8 @@
 		C249EB97204DCA8E00B92471 /* SmartLockWatchOS Extension */ = {
 			isa = PBXGroup;
 			children = (
-				C249EB98204DCA8E00B92471 /* InterfaceController.swift */,
+				C249EB98204DCA8E00B92471 /* DoorInterfaceController.swift */,
+				C249EBAD204F076A00B92471 /* CameraInterfaceController.swift */,
 				C249EB9A204DCA8E00B92471 /* ExtensionDelegate.swift */,
 				C249EB9C204DCA8E00B92471 /* NotificationController.swift */,
 				34285F1D2051A75900B00B1C /* ComplicationController.swift */,
@@ -418,10 +421,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C249EBAE204F076A00B92471 /* CameraInterfaceController.swift in Sources */,
 				C249EB9D204DCA8E00B92471 /* NotificationController.swift in Sources */,
 				34285F1E2051A75900B00B1C /* ComplicationController.swift in Sources */,
 				C249EB9B204DCA8E00B92471 /* ExtensionDelegate.swift in Sources */,
-				C249EB99204DCA8E00B92471 /* InterfaceController.swift in Sources */,
+				C249EB99204DCA8E00B92471 /* DoorInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
