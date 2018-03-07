@@ -14,44 +14,48 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="DoorInterfaceController" customModule="SmartLockWatchOS_Extension">
                     <items>
-                        <table alignment="left" id="5pR-Rh-VTS"/>
-                        <label alignment="left" text="good" id="Rf7-NU-Fih"/>
-                        <button width="1" alignment="left" title="Button" id="Lb8-Rc-elJ">
-                            <connections>
-                                <action selector="didPressButton" destination="AgC-eL-Hgc" id="lpU-c2-iuh"/>
-                            </connections>
-                        </button>
+                        <group width="1" height="1" alignment="left" verticalAlignment="bottom" layout="vertical" id="iWe-pU-sUa">
+                            <items>
+                                <group width="1" height="0.75" alignment="center" layout="overlap" id="OmE-Gf-BNp">
+                                    <items>
+                                        <imageView alignment="center" verticalAlignment="center" image="Frame_1" id="y5X-MN-oPi" userLabel="Camera"/>
+                                        <imageView alignment="center" verticalAlignment="center" image="IconLocked" id="ECg-Rl-wz2"/>
+                                    </items>
+                                </group>
+                                <group width="1" height="0.25" alignment="left" id="Xrn-mc-KQG">
+                                    <items>
+                                        <button height="1" alignment="left" title="Camera" backgroundImage="blueBg" id="uBZ-gg-kMf">
+                                            <connections>
+                                                <action selector="didPressCameraButton" destination="AgC-eL-Hgc" id="Amm-nw-ObK"/>
+                                            </connections>
+                                        </button>
+                                        <button width="0.5" height="1" alignment="left" title="Lock" backgroundImage="blueBg" id="Lb8-Rc-elJ">
+                                            <connections>
+                                                <action selector="didPressLockButton" destination="AgC-eL-Hgc" id="Fe7-Ba-aVo"/>
+                                            </connections>
+                                        </button>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
                     </items>
                     <connections>
-                        <segue destination="suz-2A-xiR" kind="relationship" relationship="nextPage" id="yst-ru-MZ2"/>
+                        <outlet property="camera" destination="y5X-MN-oPi" id="Bhn-7s-Plj"/>
+                        <outlet property="cameraButton" destination="uBZ-gg-kMf" id="OqF-Ml-zs1"/>
+                        <outlet property="lockButton" destination="Lb8-Rc-elJ" id="boI-YJ-ddk"/>
+                        <outlet property="lockStatusIcon" destination="ECg-Rl-wz2" id="ziv-Mb-Aqw"/>
+                        <segue destination="tM7-KB-N87" kind="relationship" relationship="nextPage" id="3vH-0E-OAb"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
         </scene>
-        <!--Camera Interface Controller-->
-        <scene sceneID="uL1-HC-QuV">
-            <objects>
-                <controller id="suz-2A-xiR" customClass="CameraInterfaceController" customModule="SmartLockWatchOS_Extension">
-                    <items>
-                        <label alignment="left" text="meme" id="yJG-v3-tGV"/>
-                        <button width="1" alignment="left" title="Button" id="CxZ-i1-3ai">
-                            <connections>
-                                <action selector="didPressButton" destination="suz-2A-xiR" id="537-X2-yjE"/>
-                                <segue destination="yIj-ZF-EAP" kind="modal" id="Yry-EX-CtR"/>
-                            </connections>
-                        </button>
-                    </items>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="468" y="345"/>
-        </scene>
         <!--Interface Controller-->
-        <scene sceneID="o0L-o9-PcJ">
+        <scene sceneID="BML-TI-Qp8">
             <objects>
-                <controller id="yIj-ZF-EAP"/>
+                <controller id="tM7-KB-N87"/>
             </objects>
-            <point key="canvasLocation" x="739" y="345"/>
+            <point key="canvasLocation" x="457" y="345"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -69,6 +73,13 @@
             </objects>
             <point key="canvasLocation" x="220" y="643"/>
         </scene>
+        <!--Interface Controller-->
+        <scene sceneID="Mha-3X-FY0">
+            <objects>
+                <controller id="W4A-nP-JDx"/>
+            </objects>
+            <point key="canvasLocation" x="152" y="927"/>
+        </scene>
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
@@ -77,4 +88,5 @@
             <point key="canvasLocation" x="468" y="643"/>
         </scene>
     </scenes>
+    <color key="tintColor" name="selectedMenuItemColor" catalog="System" colorSpace="catalog"/>
 </document>

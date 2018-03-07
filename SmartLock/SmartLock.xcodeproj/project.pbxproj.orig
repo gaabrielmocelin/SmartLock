@@ -47,6 +47,8 @@
 		C28C1C3020409E37001C80D6 /* LockStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C2F20409E37001C80D6 /* LockStatus.swift */; };
 		C28C1C34204437FB001C80D6 /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C33204437FB001C80D6 /* DevicesViewController.swift */; };
 		C28C1C3620443815001C80D6 /* GuestDeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C3520443815001C80D6 /* GuestDeviceTableViewCell.swift */; };
+		C298A90120504B680087B4AF /* LockStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C2F20409E37001C80D6 /* LockStatus.swift */; };
+		C298A903205059520087B4AF /* GradientLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C298A902205059520087B4AF /* GradientLock.swift */; };
 		E12A661720472FC900A36B99 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A661620472FC900A36B99 /* UIImageView.swift */; };
 		E12F7B58203F2FF800D39201 /* LockCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F7B57203F2FF800D39201 /* LockCommunicator.swift */; };
 		E176937A2044514E0070B68D /* PushCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17693792044514E0070B68D /* PushCameraViewController.swift */; };
@@ -151,6 +153,7 @@
 		C28C1C2F20409E37001C80D6 /* LockStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockStatus.swift; sourceTree = "<group>"; };
 		C28C1C33204437FB001C80D6 /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
 		C28C1C3520443815001C80D6 /* GuestDeviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestDeviceTableViewCell.swift; sourceTree = "<group>"; };
+		C298A902205059520087B4AF /* GradientLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLock.swift; sourceTree = "<group>"; };
 		E12A661620472FC900A36B99 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		E12F7B57203F2FF800D39201 /* LockCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockCommunicator.swift; sourceTree = "<group>"; };
 		E17693792044514E0070B68D /* PushCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushCameraViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +208,7 @@
 				C249EB9E204DCA8E00B92471 /* Assets.xcassets */,
 				C249EBA0204DCA8E00B92471 /* Info.plist */,
 				C249EBA1204DCA8E00B92471 /* PushNotificationPayload.apns */,
+				C298A902205059520087B4AF /* GradientLock.swift */,
 			);
 			path = "SmartLockWatchOS Extension";
 			sourceTree = "<group>";
@@ -438,15 +442,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C249EBBD204F2CAA00B92471 /* DataConvertible.swift in Sources */,
+				C298A90120504B680087B4AF /* LockStatus.swift in Sources */,
+				C298A903205059520087B4AF /* GradientLock.swift in Sources */,
 				C249EBAE204F076A00B92471 /* CameraInterfaceController.swift in Sources */,
 				C249EBC0204F2E0E00B92471 /* WatchLockMessageKey.swift in Sources */,
 				C249EB9D204DCA8E00B92471 /* NotificationController.swift in Sources */,
-<<<<<<< HEAD
 				34285F1E2051A75900B00B1C /* ComplicationController.swift in Sources */,
-=======
 				C249EBBA204F2C4900B92471 /* LockMessage.swift in Sources */,
 				C249EBB9204F2C4300B92471 /* LockCommand.swift in Sources */,
->>>>>>> WIP Watch and iPhone communication
 				C249EB9B204DCA8E00B92471 /* ExtensionDelegate.swift in Sources */,
 				C249EB99204DCA8E00B92471 /* DoorInterfaceController.swift in Sources */,
 			);
@@ -719,7 +722,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = EM3U64LP5V;
+=======
+				DEVELOPMENT_TEAM = 4F4P935HBL;
+>>>>>>> Add lock interface
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -738,7 +745,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = EM3U64LP5V;
+=======
+				DEVELOPMENT_TEAM = 4F4P935HBL;
+>>>>>>> Add lock interface
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
