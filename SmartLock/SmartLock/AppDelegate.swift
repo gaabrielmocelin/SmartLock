@@ -85,14 +85,14 @@ extension AppDelegate: WCSessionDelegate {
         guard let user = Session.shared.user else { return }
         guard let selectedHome = Session.shared.selectedHome else { return }
         
-        let locks = user.homes.map { $0.lock }
-        let selectedLockIndex = user.homes.enumerated().filter {
-            $0.element === selectedHome
-        }.first!.offset
+//        let selectedLockIndex = user.homes.enumerated().filter {
+//            $0.element === selectedHome
+//            }.first!.offset
+        let locks = user.homes.map { ($0.lock.name, $0.lock.status.rawValue, $0 === selectedHome) }
         
         var context: [String : Any] = [:]
         context["locks"] = locks
-        context["selectedLock"] = selectedLockIndex
+//        context["selectedLock"] = selectedLockIndex
         
         do {
             try WCSession.default.updateApplicationContext(context)

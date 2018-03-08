@@ -36,10 +36,20 @@ class DoorInterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         print("AWAKE DOOR")
-        lockStatus = LockStatus.locked
+        
         isDisplayingCamera = false
-        self.setTitle("Door")
-        // Configure interface objects here.
+        
+        if let context = context as? [String : Any] {
+            let lockName = context["lockName"] as! String
+            let lockStatus = LockStatus(rawValue: (context["lockStatus"] as! String))
+            let isSelected = context["isSelected"] as! Bool
+            
+            self.setTitle(lockName)
+            self.lockStatus = lockStatus
+            if isSelected {
+                becomeCurrentPage()
+            }
+        }
     }
     
     override func willActivate() {

@@ -63,6 +63,17 @@ extension ExtensionDelegate: WCSessionDelegate {
     }
     
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
-        WKInterfaceController.reloadRootControllers(withNamesAndContexts: <#T##[(name: String, context: AnyObject)]#>)
+        let locks = applicationContext["locks"] as! [(String, String, Bool)]
+        
+        let contexts: [(String, AnyObject)] = locks.map {
+            var context: [String : Any] = [:]
+            context["lockName"] = $0.0
+            context["lockStatus"] = $0.1
+            context["isSelected"] = $0.2
+            
+            return ($0.0, context as AnyObject)
+        }
+        
+//        WKInterfaceController.reloadRootControllers(withNamesAndContexts: contexts)
     }
 }
