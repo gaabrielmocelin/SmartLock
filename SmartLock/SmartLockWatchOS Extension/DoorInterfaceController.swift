@@ -38,11 +38,25 @@ class DoorInterfaceController: WKInterfaceController {
         print("AWAKE DOOR")
         lockStatus = LockStatus.locked
         isDisplayingCamera = false
+        self.setTitle("Door")
         // Configure interface objects here.
     }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
+//        let context = WCSession.default.receivedApplicationContext
+//        
+//        let locks = context["locks"] as! [String]
+//        
+//        let myLock = locks.first!
+//        
+//        self.setTitle(myLock)
+        
+//
+//        var context: [String : Any] = [:]
+//        context["locks"] = locks
+//        context["selectedLock"] = selectedLockIndex
+        
         super.willActivate()
     }
     
@@ -52,27 +66,41 @@ class DoorInterfaceController: WKInterfaceController {
     }
    
     @IBAction func didPressLockButton() {
+        print(#function)
+        
         let session = WCSession.default
         if session.isReachable {
             let command: LockCommand
             switch lockStatus {
             case .locked:
                 command = LockCommand.unlock
-                lockStatus = .unlocked
+//                lockStatus = .unlocked
             case .unlocked:
                 command = LockCommand.lock
-                lockStatus = .locked
+//                lockStatus = .locked
             default:
                 return
             }
             let message = [WatchLockMessageKey.name.rawValue : "Front Door", WatchLockMessageKey.command.rawValue : command.rawValue]
             let data = NSKeyedArchiver.archivedData(withRootObject: message)
-            session.sendMessageData(data, replyHandler: nil, errorHandler: nil)
+            session.sendMessageData(data, replyHandler: { (msg) in
+                print(msg)
+            }, errorHandler: { (error) in
+                print(error)
+            })
         }
     }
     
     @IBAction func didPressCameraButton() {
         isDisplayingCamera = !isDisplayingCamera
+        
+        let context = WCSession.default.receivedApplicationContext
+        
+        let locks = context["locks"] as! [String]
+        
+        let myLock = locks.first!
+        
+        self.setTitle(myLock)
     }
     
     private func didUpdate(lockStatus: LockStatus) {

@@ -542,7 +542,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EM3U64LP5V;
+				DEVELOPMENT_TEAM = 4F4P935HBL;
 				IBSC_MODULE = SmartLockWatchOS_Extension;
 				INFOPLIST_FILE = SmartLockWatchOS/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = gabrielmocelin.SmartLock.watchkitapp;
@@ -561,7 +561,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EM3U64LP5V;
+				DEVELOPMENT_TEAM = 4F4P935HBL;
 				IBSC_MODULE = SmartLockWatchOS_Extension;
 				INFOPLIST_FILE = SmartLockWatchOS/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = gabrielmocelin.SmartLock.watchkitapp;
@@ -579,7 +579,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EM3U64LP5V;
+				DEVELOPMENT_TEAM = 4F4P935HBL;
 				INFOPLIST_FILE = "SmartLockWatchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gabrielmocelin.SmartLock.watchkitapp.watchkitextension;
@@ -597,7 +597,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EM3U64LP5V;
+				DEVELOPMENT_TEAM = 4F4P935HBL;
 				INFOPLIST_FILE = "SmartLockWatchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gabrielmocelin.SmartLock.watchkitapp.watchkitextension;
@@ -722,11 +722,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-<<<<<<< HEAD
-				DEVELOPMENT_TEAM = EM3U64LP5V;
-=======
 				DEVELOPMENT_TEAM = 4F4P935HBL;
->>>>>>> Add lock interface
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -745,11 +741,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-<<<<<<< HEAD
-				DEVELOPMENT_TEAM = EM3U64LP5V;
-=======
 				DEVELOPMENT_TEAM = 4F4P935HBL;
->>>>>>> Add lock interface
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

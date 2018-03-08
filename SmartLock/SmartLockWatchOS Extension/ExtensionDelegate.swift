@@ -61,4 +61,8 @@ extension ExtensionDelegate: WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         
     }
+    
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        WKInterfaceController.reloadRootControllers(withNamesAndContexts: <#T##[(name: String, context: AnyObject)]#>)
+    }
 }

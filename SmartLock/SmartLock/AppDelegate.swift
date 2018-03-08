@@ -78,13 +78,34 @@ extension AppDelegate: WCSessionDelegate {
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+       updateContext()
+    }
+    
+    func updateContext() {
+        guard let user = Session.shared.user else { return }
+        guard let selectedHome = Session.shared.selectedHome else { return }
         
+        let locks = user.homes.map { $0.lock }
+        let selectedLockIndex = user.homes.enumerated().filter {
+            $0.element === selectedHome
+        }.first!.offset
+        
+        var context: [String : Any] = [:]
+        context["locks"] = locks
+        context["selectedLock"] = selectedLockIndex
+        
+        do {
+            try WCSession.default.updateApplicationContext(context)
+        } catch {
+            print(error)
+        }
     }
     
     func session(_ session: WCSession, didReceiveMessageData messageData: Data, replyHandler: @escaping (Data) -> Void) {
-        if let message = NSKeyedUnarchiver.unarchiveObject(with: messageData) as? [WatchLockMessageKey : String] {
-            guard let lockName = message[WatchLockMessageKey.name], let command = message[WatchLockMessageKey.command], let user = Session.shared.user else { return }
+        if let message = NSKeyedUnarchiver.unarchiveObject(with: messageData) as? [String : String] {
+            guard let lockName = message[WatchLockMessageKey.name.rawValue], let command = message[WatchLockMessageKey.command.rawValue], let user = Session.shared.user else { return }
             if let lock = user.homes.map({ $0.lock }).filter({ $0.name == lockName }).first, let lockCommand = LockCommand(rawValue: command) {
+                print("Message from watch: \(message)")
                 lock.lockCommunicator.send(command: lockCommand)
             }
         }
