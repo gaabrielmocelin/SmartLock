@@ -9,10 +9,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
     </dependencies>
     <scenes>
-        <!--Door Interface Controller-->
+        <!--lockInterfaceController-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="DoorInterfaceController" customModule="SmartLockWatchOS_Extension">
+                <controller identifier="lockInterfaceController" id="AgC-eL-Hgc" customClass="DoorInterfaceController" customModule="SmartLockWatchOS_Extension">
                     <items>
                         <group width="1" height="1" alignment="left" verticalAlignment="bottom" layout="vertical" id="iWe-pU-sUa">
                             <items>
@@ -44,18 +44,10 @@
                         <outlet property="cameraButton" destination="uBZ-gg-kMf" id="OqF-Ml-zs1"/>
                         <outlet property="lockButton" destination="Lb8-Rc-elJ" id="boI-YJ-ddk"/>
                         <outlet property="lockStatusIcon" destination="ECg-Rl-wz2" id="ziv-Mb-Aqw"/>
-                        <segue destination="tM7-KB-N87" kind="relationship" relationship="nextPage" id="3vH-0E-OAb"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
-        </scene>
-        <!--Interface Controller-->
-        <scene sceneID="BML-TI-Qp8">
-            <objects>
-                <controller id="tM7-KB-N87"/>
-            </objects>
-            <point key="canvasLocation" x="457" y="345"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

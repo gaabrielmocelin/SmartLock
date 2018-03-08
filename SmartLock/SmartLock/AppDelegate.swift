@@ -88,11 +88,17 @@ extension AppDelegate: WCSessionDelegate {
 //        let selectedLockIndex = user.homes.enumerated().filter {
 //            $0.element === selectedHome
 //            }.first!.offset
-        let locks = user.homes.map { ($0.lock.name, $0.lock.status.rawValue, $0 === selectedHome) }
+        let locks: [[String : Any]] = user.homes.map {
+            var lock: [String: Any] = [:]
+            lock["lockName"] = $0.lock.name
+            lock["lockStatus"] = $0.lock.status.rawValue
+            lock["isSelected"] = $0.lock === selectedHome.lock
+            
+            return lock
+        }
         
         var context: [String : Any] = [:]
         context["locks"] = locks
-//        context["selectedLock"] = selectedLockIndex
         
         do {
             try WCSession.default.updateApplicationContext(context)
@@ -106,7 +112,16 @@ extension AppDelegate: WCSessionDelegate {
             guard let lockName = message[WatchLockMessageKey.name.rawValue], let command = message[WatchLockMessageKey.command.rawValue], let user = Session.shared.user else { return }
             if let lock = user.homes.map({ $0.lock }).filter({ $0.name == lockName }).first, let lockCommand = LockCommand(rawValue: command) {
                 print("Message from watch: \(message)")
-                lock.lockCommunicator.send(command: lockCommand)
+                
+                DispatchQueue.main.async {
+                    switch lockCommand {
+                    case .lock:
+                        lock.lock()
+                    case .unlock:
+                        lock.unlock()
+                    default: break
+                    }
+                }
             }
         }
     }

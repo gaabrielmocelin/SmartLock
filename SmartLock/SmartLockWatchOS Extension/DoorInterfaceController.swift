@@ -12,18 +12,16 @@ import WatchConnectivity
 
 class DoorInterfaceController: WKInterfaceController {
 
-    private var lockStatus: LockStatus! {
-        didSet {
-            didUpdate(lockStatus: lockStatus)
-        }
-    }
+    private var lock: SimpleLock?
     
     private var isDisplayingCamera: Bool = false {
         didSet {
             lockStatusIcon.setHidden(isDisplayingCamera)
             camera.setHidden(!isDisplayingCamera)
             cameraButton.setTitle(isDisplayingCamera ? "Status" : "Camera")
-            updateImage(with: lockStatus)
+            
+            guard let lock = self.lock else { return }
+            updateImage(with: lock.status)
         }
     }
     
@@ -39,59 +37,56 @@ class DoorInterfaceController: WKInterfaceController {
         
         isDisplayingCamera = false
         
-        if let context = context as? [String : Any] {
-            let lockName = context["lockName"] as! String
-            let lockStatus = LockStatus(rawValue: (context["lockStatus"] as! String))
-            let isSelected = context["isSelected"] as! Bool
+        if let context = context as? SimpleLock {
+            self.lock = context
             
-            self.setTitle(lockName)
-            self.lockStatus = lockStatus
-            if isSelected {
+            self.setTitle(context.name)
+            if context.isSelected {
                 becomeCurrentPage()
             }
+            
+        } else {
+            isDisplayingCamera = true
         }
     }
     
     override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-//        let context = WCSession.default.receivedApplicationContext
-//        
-//        let locks = context["locks"] as! [String]
-//        
-//        let myLock = locks.first!
-//        
-//        self.setTitle(myLock)
-        
-//
-//        var context: [String : Any] = [:]
-//        context["locks"] = locks
-//        context["selectedLock"] = selectedLockIndex
-        
         super.willActivate()
+        
+        guard let lock = self.lock else { return }
+        
+        lock.subscribe(observer: self) { [weak self] oldValue, newValue in
+            self?.didUpdate(lockStatus: newValue)
+        }
+        
+        didUpdate(lockStatus: lock.status)
     }
     
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+        
+        guard let lock = self.lock else { return }
+        
+        lock.unsubscribe(observer: self)
     }
    
     @IBAction func didPressLockButton() {
         print(#function)
+        guard let lock = self.lock else { return }
         
         let session = WCSession.default
         if session.isReachable {
             let command: LockCommand
-            switch lockStatus {
+            switch lock.status {
             case .locked:
                 command = LockCommand.unlock
-//                lockStatus = .unlocked
             case .unlocked:
                 command = LockCommand.lock
-//                lockStatus = .locked
             default:
                 return
             }
-            let message = [WatchLockMessageKey.name.rawValue : "Front Door", WatchLockMessageKey.command.rawValue : command.rawValue]
+            let message = [WatchLockMessageKey.name.rawValue : lock.name, WatchLockMessageKey.command.rawValue : command.rawValue]
             let data = NSKeyedArchiver.archivedData(withRootObject: message)
             session.sendMessageData(data, replyHandler: { (msg) in
                 print(msg)
@@ -103,14 +98,6 @@ class DoorInterfaceController: WKInterfaceController {
     
     @IBAction func didPressCameraButton() {
         isDisplayingCamera = !isDisplayingCamera
-        
-        let context = WCSession.default.receivedApplicationContext
-        
-        let locks = context["locks"] as! [String]
-        
-        let myLock = locks.first!
-        
-        self.setTitle(myLock)
     }
     
     private func didUpdate(lockStatus: LockStatus) {
