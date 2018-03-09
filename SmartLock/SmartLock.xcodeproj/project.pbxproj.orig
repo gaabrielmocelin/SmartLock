@@ -47,8 +47,6 @@
 		C28C1C3020409E37001C80D6 /* LockStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C2F20409E37001C80D6 /* LockStatus.swift */; };
 		C28C1C34204437FB001C80D6 /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C33204437FB001C80D6 /* DevicesViewController.swift */; };
 		C28C1C3620443815001C80D6 /* GuestDeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C3520443815001C80D6 /* GuestDeviceTableViewCell.swift */; };
-		C291905A2051BC77002F9B0D /* SimpleLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29190592051BC77002F9B0D /* SimpleLock.swift */; };
-		C291905B2051BC9E002F9B0D /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293979A6204492B80076CFCA /* Observable.swift */; };
 		C298A90120504B680087B4AF /* LockStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28C1C2F20409E37001C80D6 /* LockStatus.swift */; };
 		C298A903205059520087B4AF /* GradientLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C298A902205059520087B4AF /* GradientLock.swift */; };
 		E12A661720472FC900A36B99 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A661620472FC900A36B99 /* UIImageView.swift */; };
@@ -155,7 +153,6 @@
 		C28C1C2F20409E37001C80D6 /* LockStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockStatus.swift; sourceTree = "<group>"; };
 		C28C1C33204437FB001C80D6 /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
 		C28C1C3520443815001C80D6 /* GuestDeviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestDeviceTableViewCell.swift; sourceTree = "<group>"; };
-		C29190592051BC77002F9B0D /* SimpleLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLock.swift; sourceTree = "<group>"; };
 		C298A902205059520087B4AF /* GradientLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLock.swift; sourceTree = "<group>"; };
 		E12A661620472FC900A36B99 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		E12F7B57203F2FF800D39201 /* LockCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockCommunicator.swift; sourceTree = "<group>"; };
@@ -212,7 +209,6 @@
 				C249EBA0204DCA8E00B92471 /* Info.plist */,
 				C249EBA1204DCA8E00B92471 /* PushNotificationPayload.apns */,
 				C298A902205059520087B4AF /* GradientLock.swift */,
-				C29190592051BC77002F9B0D /* SimpleLock.swift */,
 			);
 			path = "SmartLockWatchOS Extension";
 			sourceTree = "<group>";
@@ -445,11 +441,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C291905A2051BC77002F9B0D /* SimpleLock.swift in Sources */,
 				C249EBBD204F2CAA00B92471 /* DataConvertible.swift in Sources */,
 				C298A90120504B680087B4AF /* LockStatus.swift in Sources */,
 				C298A903205059520087B4AF /* GradientLock.swift in Sources */,
-				C291905B2051BC9E002F9B0D /* Observable.swift in Sources */,
 				C249EBAE204F076A00B92471 /* CameraInterfaceController.swift in Sources */,
 				C249EBC0204F2E0E00B92471 /* WatchLockMessageKey.swift in Sources */,
 				C249EB9D204DCA8E00B92471 /* NotificationController.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum LockStatus {
+enum LockStatus: String {
     
     var formattedOutput: String {
         switch self {
@@ -21,7 +21,7 @@ enum LockStatus {
         }
     }
     
-    case locked
-    case unlocked
-    case open
+    case locked = "locked"
+    case unlocked = "unlocked"
+    case open = "open"
 }

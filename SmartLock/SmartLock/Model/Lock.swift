@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import WatchConnectivity
 
 class Lock: Observable {
     typealias T = LockStatus
@@ -19,6 +20,7 @@ class Lock: Observable {
                 updateEntranceHistory()
             }
             update(observers: observers, oldValue: oldValue, newValue: status)
+            updateWatchStatus()
         }
     }
     fileprivate(set) var entranceHistory: [EntranceItem]
@@ -44,6 +46,12 @@ class Lock: Observable {
         lockCommunicator.send(command: .lock)
     }
     
+    // MARK: Watch
+    
+    func updateWatchStatus() {
+        WCSession.default.sendMessage(["lockName" : name, "lockStatus" : status.rawValue], replyHandler: nil, errorHandler: nil)
+    }
+    
     // MARK: Observable protocol
     var observers: [(AnyObject, UpdateBlock)] = []
     
@@ -59,7 +67,7 @@ class Lock: Observable {
     }
     
     // MARK: Entrance History
-    private func updateEntranceHistory() {
+    fileprivate func updateEntranceHistory() {
         if let user = Session.shared.user {
             let userName = user.nickname
             let entranceItem = EntranceItem(name: userName, lockStatus: status)

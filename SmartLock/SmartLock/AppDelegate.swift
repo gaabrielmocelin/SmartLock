@@ -7,16 +7,25 @@
 //
 
 import UIKit
+import WatchConnectivity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    var session: WCSession?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let notificationManager = NotificationManager()
         notificationManager.requestAuthorization(completionHandler: nil)
+        
+        if (WCSession.isSupported()) {
+            session = WCSession.default
+            session?.delegate = self
+            session?.activate()
+        }
+        
         return true
     }
 
@@ -53,6 +62,65 @@ extension UIViewController {
                     largeLabel.text = self.title
                     largeLabel.numberOfLines = 0
                     largeLabel.lineBreakMode = .byWordWrapping
+                }
+            }
+        }
+    }
+}
+
+extension AppDelegate: WCSessionDelegate {
+    func sessionDidBecomeInactive(_ session: WCSession) {
+    
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+       updateContext()
+    }
+    
+    func updateContext() {
+        guard let user = Session.shared.user else { return }
+        guard let selectedHome = Session.shared.selectedHome else { return }
+        
+//        let selectedLockIndex = user.homes.enumerated().filter {
+//            $0.element === selectedHome
+//            }.first!.offset
+        let locks: [[String : Any]] = user.homes.map {
+            var lock: [String: Any] = [:]
+            lock["lockName"] = $0.lock.name
+            lock["lockStatus"] = $0.lock.status.rawValue
+            lock["isSelected"] = $0.lock === selectedHome.lock
+            
+            return lock
+        }
+        
+        var context: [String : Any] = [:]
+        context["locks"] = locks
+        
+        do {
+            try WCSession.default.updateApplicationContext(context)
+        } catch {
+            print(error)
+        }
+    }
+    
+    func session(_ session: WCSession, didReceiveMessageData messageData: Data, replyHandler: @escaping (Data) -> Void) {
+        if let message = NSKeyedUnarchiver.unarchiveObject(with: messageData) as? [String : String] {
+            guard let lockName = message[WatchLockMessageKey.name.rawValue], let command = message[WatchLockMessageKey.command.rawValue], let user = Session.shared.user else { return }
+            if let lock = user.homes.map({ $0.lock }).filter({ $0.name == lockName }).first, let lockCommand = LockCommand(rawValue: command) {
+                print("Message from watch: \(message)")
+                
+                DispatchQueue.main.async {
+                    switch lockCommand {
+                    case .lock:
+                        lock.lock()
+                    case .unlock:
+                        lock.unlock()
+                    default: break
+                    }
                 }
             }
         }

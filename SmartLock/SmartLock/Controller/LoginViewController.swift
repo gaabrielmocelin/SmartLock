@@ -42,6 +42,9 @@ class LoginViewController: UIViewController {
         if let user = user {
             Session.shared.user = user
             Session.shared.selectedHome = user.homes.first
+            
+            (UIApplication.shared.delegate as! AppDelegate).updateContext()
+            
             performSegue(withIdentifier: "goToTabBar", sender: nil)
         }
     }

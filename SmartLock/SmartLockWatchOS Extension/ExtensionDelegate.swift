@@ -7,11 +7,23 @@
 //
 
 import WatchKit
+import WatchConnectivity
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
+    var session: WCSession?
+    
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
+        if (WCSession.isSupported()) {
+            session = WCSession.default
+            session?.delegate = self
+            session?.activate()
+        }
+        
+//        let contexts: [(name: String, context: AnyObject)] = [("lockInterfaceController", ["lockName" : "Front Door" as AnyObject, "lockStatus" : "unlocked" as AnyObject, "isSelected" : true as AnyObject] as [String : AnyObject] as AnyObject), ("lockInterfaceController", ["lockName" : "Beach House" as AnyObject, "lockStatus" : "unlocked" as AnyObject, "isSelected" : false as AnyObject] as [String : AnyObject] as AnyObject)]
+//
+//        WKInterfaceController.reloadRootControllers(withNamesAndContexts: contexts)
     }
 
     func applicationDidBecomeActive() {
@@ -47,4 +59,42 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
         }
     }
 
+}
+
+extension ExtensionDelegate: WCSessionDelegate {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        let lockName = message["lockName"] as! String
+        let status = LockStatus(rawValue: message["lockStatus"] as! String)!
+        
+        Locks.shared.locks.filter{ $0.name == lockName }.first!.status = status
+    }
+    
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        let lockInfos = applicationContext["locks"] as! [[String : Any]]
+        
+        Locks.shared.reset()
+        
+        for lockInfo in lockInfos {
+            let lockName = lockInfo["lockName"] as! String
+            let lockStatus = LockStatus(rawValue: (lockInfo["lockStatus"] as! String))!
+            let isSelected = lockInfo["isSelected"] as! Bool
+            
+            let simpleLock = SimpleLock()
+            simpleLock.status = lockStatus
+            simpleLock.name = lockName
+            simpleLock.isSelected = isSelected
+            
+            Locks.shared.locks.append(simpleLock)
+        }
+        
+        let contexts: [(String, AnyObject)] = Locks.shared.locks.map {
+            return ("lockInterfaceController", $0 as AnyObject)
+        }
+
+        WKInterfaceController.reloadRootControllers(withNamesAndContexts: contexts)
+    }
 }
